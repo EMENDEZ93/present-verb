@@ -1,12 +1,11 @@
 package present.verb.palabras.dominio.dao;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
+import present.verb.palabras.dominio.dto.PalabraDto;
 
 @Repository
 public interface ObtenerRutinaDao {
 
-	List<String> listaVerbos(int cantidad, int hojaTemaExcel);
+	PalabraDto listaVerbos(int cantidad, int hojaTemaExcel);
 	
 }

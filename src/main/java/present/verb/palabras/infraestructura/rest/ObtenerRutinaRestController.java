@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import present.verb.palabras.aplicacion.consulta.manejador.ObtenerRunitaManejador;
 import present.verb.palabras.aplicacion.consulta.manejador.ObtenerRutinaPreguntas;
+import present.verb.palabras.dominio.dto.PalabraDto;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -22,7 +23,7 @@ public class ObtenerRutinaRestController {
 	private ObtenerRutinaPreguntas obtenerRutinaPreguntas;	
 	
 	@GetMapping("/{numeroVerbosPorRutina}/{hojaTemaExcel}")
-	public List<String> obtenerRutina(@PathVariable(value="numeroVerbosPorRutina")int numeroVerbosPorRutina, @PathVariable(value="hojaTemaExcel")int  hojaTemaExcel){
+	public PalabraDto obtenerRutina(@PathVariable(value="numeroVerbosPorRutina")int numeroVerbosPorRutina, @PathVariable(value="hojaTemaExcel")int  hojaTemaExcel){
 		return obtenerRunitaManejador.ejecutar(numeroVerbosPorRutina, hojaTemaExcel);
 	}
 

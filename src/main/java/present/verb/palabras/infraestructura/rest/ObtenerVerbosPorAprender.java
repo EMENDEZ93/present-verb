@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import present.verb.palabras.aplicacion.consulta.manejador.ObtenerPreguntasManejador;
 import present.verb.palabras.aplicacion.consulta.manejador.ObtenerVerborPorAprenderManejador;
+import present.verb.palabras.dominio.dto.PalabraDto;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -22,9 +23,9 @@ public class ObtenerVerbosPorAprender {
 	private ObtenerPreguntasManejador obtenerPreguntasManejador;	
 	
 	@GetMapping("/verbosporaprender/{ultimoIndiceVerboAprendido}/{numeroVerbosPorAprenderDiario}/{hojaTemaExcel}")
-	public List<String> obtener(@PathVariable(value = "ultimoIndiceVerboAprendido") int ultimoIndiceVerboAprendido,
-			@PathVariable(value = "numeroVerbosPorAprenderDiario") int numeroVerbosPorAprenderDiario,
-			@PathVariable(value = "hojaTemaExcel") int hojaTemaExcel) {
+	public PalabraDto obtener(@PathVariable(value = "ultimoIndiceVerboAprendido") int ultimoIndiceVerboAprendido,
+									@PathVariable(value = "numeroVerbosPorAprenderDiario") int numeroVerbosPorAprenderDiario,
+									@PathVariable(value = "hojaTemaExcel") int hojaTemaExcel) {
 		return obtenerVerborPorAprenderManejador.ejecutar(ultimoIndiceVerboAprendido, numeroVerbosPorAprenderDiario, hojaTemaExcel);
 	}
 

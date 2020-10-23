@@ -15,6 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Repository;
 
 import present.verb.palabras.dominio.dao.ObtenerVerboPorAprenderDao;
+import present.verb.palabras.dominio.dto.PalabraDto;
 
 @Repository
 public class ObtenerVerbosPorAprenderExcelDao implements ObtenerVerboPorAprenderDao {
@@ -23,11 +24,11 @@ public class ObtenerVerbosPorAprenderExcelDao implements ObtenerVerboPorAprender
 	public static final int VERB_SHEET = 0;	
 	
 	@Override
-	public List<String> ejecutar(int ultimoIndiceVerboAprendido, int numeroVerbosPorAprenderDiario, int hojaTemaExcel) {
+	public PalabraDto ejecutar(int ultimoIndiceVerboAprendido, int numeroVerbosPorAprenderDiario, int hojaTemaExcel) {
 		return obtener(ultimoIndiceVerboAprendido,numeroVerbosPorAprenderDiario, hojaTemaExcel);
 	}
 	
-	public List<String> obtener(int ultimoIndiceVerboAprendido, int numeroVerbosPorAprenderDiario, int hojaTemaExcel) {
+	public PalabraDto obtener(int ultimoIndiceVerboAprendido, int numeroVerbosPorAprenderDiario, int hojaTemaExcel) {
 
 		OPCPackage file = obtenerArchivo();
 		XSSFWorkbook excel = creacionWorkBook(file);
@@ -38,7 +39,8 @@ public class ObtenerVerbosPorAprenderExcelDao implements ObtenerVerboPorAprender
 		Iterator<Row> rowIterator = sheet.iterator();
 
 		Row row;
-		List<String> allVerb = new ArrayList<>();
+		List<String> allEnglishVerb = new ArrayList<>();
+		List<String> allSpanishVerb = new ArrayList<>();
 
 		int verbos = 0;		
 		
@@ -49,8 +51,9 @@ public class ObtenerVerbosPorAprenderExcelDao implements ObtenerVerboPorAprender
 			if(verbos >= ultimoIndiceVerboAprendido) {
 			
 				String a = row.getCell(0).toString();
-				
-				allVerb.add(row.getCell(0).toString());
+
+				allEnglishVerb.add(row.getCell(0).toString());
+				allSpanishVerb.add(row.getCell(1).toString());
 			}
 			
 			verbos++;
@@ -60,7 +63,11 @@ public class ObtenerVerbosPorAprenderExcelDao implements ObtenerVerboPorAprender
 			
 		}
 
-		return allVerb;
+		PalabraDto palabra = new PalabraDto();
+		palabra.setEnglish(allEnglishVerb);
+		palabra.setSpanish(allSpanishVerb);
+
+		return palabra;
 
 	}
 

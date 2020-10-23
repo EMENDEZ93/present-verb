@@ -15,6 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Repository;
 
 import present.verb.palabras.dominio.dao.ObtenerRutinaDao;
+import present.verb.palabras.dominio.dto.PalabraDto;
 
 @Repository
 public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
@@ -23,11 +24,11 @@ public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
 	public static final int VERB_SHEET = 1;
 
 	@Override
-	public List<String> listaVerbos(int cantidad, int hojaTemaExcel) {
+	public PalabraDto listaVerbos(int cantidad, int hojaTemaExcel) {
 		return ejecutar(cantidad, hojaTemaExcel);
 	}
 
-	public List<String> ejecutar(int id, int hojaTemaExcel) {
+	public PalabraDto ejecutar(int id, int hojaTemaExcel) {
 
 		OPCPackage file = obtenerArchivo();
 		XSSFWorkbook excel = creacionWorkBook(file);
@@ -36,13 +37,17 @@ public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
 		Iterator<Row> rowIterator = sheet.iterator();
 
 		Row row;
-		List<String> allVerb = new ArrayList<>();
+		List<String> allEnglishVerb = new ArrayList<>();
+		List<String> allSpanishVerb = new ArrayList<>();
 
 		int verbos = 0;
 
 		while (rowIterator.hasNext()) {
 			row = rowIterator.next();
-			allVerb.add(row.getCell(0).toString());
+
+			allEnglishVerb.add(row.getCell(0).toString());
+			allSpanishVerb.add(row.getCell(1).toString());
+
 			verbos++;
 			
 			if (id == verbos)
@@ -50,7 +55,11 @@ public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
 
 		}
 
-		return allVerb;
+		PalabraDto palabra = new PalabraDto();
+		palabra.setEnglish(allEnglishVerb);
+		palabra.setSpanish(allSpanishVerb);
+
+		return palabra;
 
 	}
 
