@@ -13,8 +13,8 @@ public class ObtenerTemasManejador {
 	@Autowired
 	private ObtenerTemasServicio obtenerTemasServicio;
 	
-	public List<String> ejecutar() {
-		return obtenerTemasServicio.ejecutar();
+	public List<TemaDto> ejecutar(String correo) {
+		return obtenerTemasServicio.ejecutar(correo);
 	}
 	
 }

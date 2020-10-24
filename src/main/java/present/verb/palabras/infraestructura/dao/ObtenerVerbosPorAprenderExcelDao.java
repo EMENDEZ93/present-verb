@@ -49,7 +49,8 @@ public class ObtenerVerbosPorAprenderExcelDao implements ObtenerVerboPorAprender
 			
 			row = rowIterator.next();
 			if(verbos >= ultimoIndiceVerboAprendido) {
-			
+
+				if(row.getCell(0).toString() == "") break;
 				String a = row.getCell(0).toString();
 
 				allEnglishVerb.add(row.getCell(0).toString());

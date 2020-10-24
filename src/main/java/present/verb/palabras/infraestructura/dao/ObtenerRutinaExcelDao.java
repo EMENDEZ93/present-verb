@@ -17,6 +17,8 @@ import org.springframework.stereotype.Repository;
 import present.verb.palabras.dominio.dao.ObtenerRutinaDao;
 import present.verb.palabras.dominio.dto.PalabraDto;
 
+import static java.util.Objects.isNull;
+
 @Repository
 public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
 
@@ -44,6 +46,8 @@ public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
 
 		while (rowIterator.hasNext()) {
 			row = rowIterator.next();
+
+			if(row.getCell(0).toString() == "") break;
 
 			allEnglishVerb.add(row.getCell(0).toString());
 			allSpanishVerb.add(row.getCell(1).toString());

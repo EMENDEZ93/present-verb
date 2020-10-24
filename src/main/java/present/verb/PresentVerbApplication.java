@@ -42,9 +42,9 @@ public class PresentVerbApplication implements CommandLineRunner {
 
 		obtenerTemasServicio.ejecutar().forEach(tema -> {
 			Temas t = new Temas();
-			t.setNombre(tema);
+			t.setNombre(tema.getTema());
 			temas.add(t);
-			nombreTemas.add(tema);
+			nombreTemas.add(tema.getTema());
 		});
 
 		perfilRepositorio.findAll().forEach(perfil -> {
