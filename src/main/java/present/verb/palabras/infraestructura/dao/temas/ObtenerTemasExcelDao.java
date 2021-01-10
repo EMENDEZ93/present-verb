@@ -1,4 +1,4 @@
-package present.verb.palabras.infraestructura.dao;
+package present.verb.palabras.infraestructura.dao.temas;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.palabras.dominio.dao.ObtenerTemasDao;
+import present.verb.palabras.dominio.dao.temas.ObtenerTemasDao;
 import present.verb.perfil.dominio.entidad.Perfil;
 import present.verb.perfil.dominio.entidad.Temas;
 import present.verb.perfil.dominio.repositorio.PerfilRepositorio;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import present.verb.palabras.aplicacion.consulta.manejador.ObtenerTemasManejador;
+import present.verb.palabras.aplicacion.consulta.manejador.temas.ObtenerTemasManejador;
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
 
 @RestController
@@ -22,5 +22,10 @@ public class ObtenerTemasRestController {
 	public List<TemaDto> obtenerTemas(@PathVariable(value="correo") String correo){
 		return obtenerTemasManejador.ejecutar(correo);
 	}
-	
+
+	@GetMapping("/v2/temas")
+	public List<TemaDto> ejecutar(@PathVariable(value="correo") String correo){
+		return obtenerTemasManejador.ejecutar(correo);
+	}
+
 }
