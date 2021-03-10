@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@Repository("TemasFolder")
+//@Repository("TemasFolder")
 public class ObtenerTemasEscanerCarpeta implements ObtenerTemasDao {
 
     @Override
