@@ -32,7 +32,7 @@ public class ObtenerTemasRestControllerTest {
         String correo = "edwin@em.com";
 
         // Act
-        ResultActions resultActions = this.mockMvc.perform(get("/temas/edwin@em.com.co"));
+        ResultActions resultActions = this.mockMvc.perform(get("/temas/edwin.mendez@em.com.co"));
 
         // Assert
         resultActions.andExpect(jsonPath("$.[0].tema").value("Adjectives"));

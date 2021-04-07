@@ -5,4 +5,4 @@
 	REPETICIONES_ALTA_COMO_APRENDIDO,
 	ULTIMO_INDICE_APRENDIDO
 	)
-  values {('edwin@em.com.co', 5, 5, 3), ('didier@em.com.co', 5, 5, 3)};
+  values {('edwin.mendez@em.com.co', 5, 5, 3), ('didier@em.com.co', 5, 5, 3)};
