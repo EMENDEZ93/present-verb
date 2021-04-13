@@ -15,13 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.palabras.dominio.dao.temas.ObtenerTemasDao;
+import present.verb.palabras.dominio.dao.temas.ObtenerTemasV1Dao;
 import present.verb.perfil.dominio.entidad.Perfil;
 import present.verb.perfil.dominio.entidad.Temas;
 import present.verb.perfil.dominio.repositorio.PerfilRepositorio;
 
 @Repository
-public class ObtenerTemasExcelDao implements ObtenerTemasDao {
+public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 
 	public static final String VERB_FILE = "/src/main/resources/present/verb/present_verb.xlsx";
 	public static final int VERB_SHEET = 0;
@@ -85,7 +85,7 @@ public class ObtenerTemasExcelDao implements ObtenerTemasDao {
 		return temas;
 	}
 
-	
+
 	private XSSFWorkbook creacionWorkBook(OPCPackage file) {
 		try {
 			return new XSSFWorkbook(file);

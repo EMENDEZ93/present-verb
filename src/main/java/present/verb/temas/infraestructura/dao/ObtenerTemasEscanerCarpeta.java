@@ -1,8 +1,10 @@
-package present.verb.palabras.infraestructura.dao.temas;
+package present.verb.temas.infraestructura.dao;
 
 import org.springframework.stereotype.Repository;
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.palabras.dominio.dao.temas.ObtenerTemasDao;
+import present.verb.palabras.dominio.dao.temas.ObtenerTemasV1Dao;
+import present.verb.temas.dominio.dao.ObtenerTemasDao;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -13,13 +15,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-//@Repository("TemasFolder")
+@Repository
 public class ObtenerTemasEscanerCarpeta implements ObtenerTemasDao {
-
-    @Override
-    public List<TemaDto> ejecutar(String correo) {
-        return null;
-    }
 
     @Override
     public List<TemaDto> ejecutar() {

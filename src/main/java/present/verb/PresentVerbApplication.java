@@ -9,7 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import present.verb.palabras.dominio.dao.ObtenerTemasEsPreguntaRespuestaDao;
-import present.verb.palabras.dominio.servicio.ObtenerTemasServicio;
+import present.verb.palabras.dominio.servicio.ObtenerTemasV1Servicio;
 import present.verb.perfil.dominio.entidad.Temas;
 import present.verb.perfil.dominio.repositorio.PerfilRepositorio;
 import present.verb.perfil.dominio.repositorio.TemasRepositorio;
@@ -18,7 +18,7 @@ import present.verb.perfil.dominio.repositorio.TemasRepositorio;
 public class PresentVerbApplication implements CommandLineRunner {
 
 	@Autowired
-	private ObtenerTemasServicio obtenerTemasServicio;
+	private ObtenerTemasV1Servicio obtenerTemasServicio;
 
 	@Autowired
 	private PerfilRepositorio perfilRepositorio;

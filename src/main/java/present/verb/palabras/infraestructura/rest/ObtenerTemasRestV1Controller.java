@@ -1,31 +1,25 @@
 package present.verb.palabras.infraestructura.rest;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import present.verb.palabras.aplicacion.consulta.manejador.temas.ObtenerTemasManejador;
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
+import present.verb.palabras.aplicacion.consulta.manejador.temas.ObtenerTemasV1Manejador;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class ObtenerTemasRestController {
+public class ObtenerTemasRestV1Controller {
 
 	@Autowired
-	private ObtenerTemasManejador obtenerTemasManejador;
+	private ObtenerTemasV1Manejador obtenerTemasV1Manejador;
 	
 	@GetMapping("/temas/{correo}")
 	public List<TemaDto> obtenerTemas(@PathVariable(value="correo") String correo){
-		return obtenerTemasManejador.ejecutar(correo);
-	}
-
-	@GetMapping("/v2/temas")
-	public List<TemaDto> ejecutar(@PathVariable(value="correo") String correo){
-		return obtenerTemasManejador.ejecutar(correo);
+		return obtenerTemasV1Manejador.ejecutar(correo);
 	}
 
 }

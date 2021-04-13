@@ -1,4 +1,4 @@
-package engine.perfil.infraestructura.rest;
+package engine.temas.infraestructura.rest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,6 +36,23 @@ public class ObtenerTemasRestControllerTest {
 
         // Assert
         resultActions.andExpect(jsonPath("$.[0].tema").value("Adjectives"));
+
+    }
+
+
+    @Test
+    public void temas() throws Exception {
+
+        // Arrange
+
+        // Act
+        ResultActions resultActions = this.mockMvc.perform(get("/v2/temas"));
+
+        // Assert
+        resultActions.andExpect(status().isOk());
+        resultActions.andExpect(jsonPath("$.[0].tema").value("B"));
+        resultActions.andExpect(jsonPath("$.[1].tema").value("A"));
+        resultActions.andExpect(jsonPath("$.[2].tema").value("C"));
 
     }
 

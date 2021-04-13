@@ -6,20 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.palabras.dominio.servicio.ObtenerTemasServicio;
+import present.verb.palabras.dominio.servicio.ObtenerTemasV1Servicio;
 
 @Component
-public class ObtenerTemasManejador {
+public class ObtenerTemasV1Manejador {
 
 	@Autowired
-	private ObtenerTemasServicio obtenerTemasServicio;
-	
+	private ObtenerTemasV1Servicio obtenerTemasServicio;
+
 	public List<TemaDto> ejecutar(String correo) {
 		return obtenerTemasServicio.ejecutar(correo);
-	}
-
-	public List<TemaDto> ejecutar() {
-		return obtenerTemasServicio.ejecutar();
 	}
 
 }
