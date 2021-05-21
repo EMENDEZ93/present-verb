@@ -1,4 +1,4 @@
-package engine.perfil.infraestructura.rest;
+package engine.temas.infraestructura.rest;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

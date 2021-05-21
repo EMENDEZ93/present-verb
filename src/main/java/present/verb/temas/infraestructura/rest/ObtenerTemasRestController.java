@@ -1,4 +1,4 @@
-package present.verb.palabras.infraestructura.rest;
+package present.verb.temas.infraestructura.rest;
 
 import java.util.List;
 
