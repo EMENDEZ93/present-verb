@@ -40,4 +40,17 @@ public class ObtenerTemasRestControllerTest {
     }
 
 
+    @Test
+    public void temas() throws Exception {
+
+        // Arrange
+
+        // Act
+        ResultActions resultActions = this.mockMvc.perform(get("/v2/temas"));
+
+        // Assert
+        resultActions.andExpect(status().isOk());
+    }
+
+
 }
