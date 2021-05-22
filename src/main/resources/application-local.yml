@@ -13,6 +13,11 @@ spring:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
   application:
     name: giftu
     
