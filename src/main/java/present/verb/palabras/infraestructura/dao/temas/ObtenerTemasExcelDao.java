@@ -71,7 +71,7 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 
 			return temas;
 		} catch (Exception e) {
-			throw new RuntimeException("Error al trata de leer el xlxs");
+			throw new RuntimeException("Error al trata de leer el xlxs : ".concat(e.getMessage()));
 		}
 
 	}
@@ -95,7 +95,7 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 			return temas;
 
 		} catch (Exception e) {
-			throw new RuntimeException("Error al trata de leer el xlxs");
+			throw new RuntimeException("Error al trata de leer el xlxs : ".concat(e.getMessage()));
 		}
 	}
 
