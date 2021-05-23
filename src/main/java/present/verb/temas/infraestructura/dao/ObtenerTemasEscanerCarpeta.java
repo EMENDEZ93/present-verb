@@ -28,6 +28,13 @@ public class ObtenerTemasEscanerCarpeta implements ObtenerTemasDao {
 
     }
 
+    @Override
+    public List<TemaDto> ejecutar(String correo) {
+        List<TemaDto> temaDtos = ejecutar();
+        return null;
+
+    }
+
     private List<TemaDto> escanearTemas() throws URISyntaxException, IOException {
         Path pathCarpetaTemas = getPathCarpetaTemas();
 

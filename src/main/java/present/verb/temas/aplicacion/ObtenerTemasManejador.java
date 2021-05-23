@@ -17,4 +17,7 @@ public class ObtenerTemasManejador {
 		return obtenerTemasServicio.ejecutar();
 	}
 
+	public List<TemaDto> ejecutar(String correo) {
+		return obtenerTemasServicio.ejecutar(correo);
+	}
 }

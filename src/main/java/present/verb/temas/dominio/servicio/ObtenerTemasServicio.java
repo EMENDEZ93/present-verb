@@ -18,4 +18,7 @@ public class ObtenerTemasServicio {
 		return obtenerTemasDao.ejecutar();
 	}
 
+	public List<TemaDto> ejecutar(String correo) {
+		return obtenerTemasDao.ejecutar(correo);
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import present.verb.PresentVerbApplication;
+import present.verb.temas.infraestructura.rest.ObtenerTemasRestController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -17,7 +18,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = PresentVerbApplication.class)
+@SpringBootTest(classes = {
+        ObtenerTemasRestController.class,
+        PresentVerbApplication.class
+})
 @ActiveProfiles("testing")
 @AutoConfigureMockMvc
 public class ObtenerTemasRestControllerTest {
@@ -50,9 +54,24 @@ public class ObtenerTemasRestControllerTest {
 
         // Assert
         resultActions.andExpect(status().isOk());
-        resultActions.andExpect(jsonPath("$.[0].tema").value("B"));
-        resultActions.andExpect(jsonPath("$.[1].tema").value("A"));
-        resultActions.andExpect(jsonPath("$.[2].tema").value("C"));
+        resultActions.andExpect(jsonPath("$.[0].tema").value("A"));
+        resultActions.andExpect(jsonPath("$.[1].tema").value("C"));
+        resultActions.andExpect(jsonPath("$.[2].tema").value("B"));
+
+    }
+
+
+    @Test
+    public void obtenerTemasRealizadoHoy() throws Exception {
+
+        // Arrange
+        String correo = "edwin.mendez@em.com.co";
+
+        // Act
+        ResultActions resultActions = this.mockMvc.perform(get("/v2/temas/".concat(correo)));
+
+        // Assert
+        resultActions.andExpect(status().isOk());
 
     }
 

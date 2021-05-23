@@ -10,4 +10,5 @@ public interface ObtenerTemasDao {
 
 	List<TemaDto> ejecutar();
 
+	List<TemaDto> ejecutar(String correo);
 }
