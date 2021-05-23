@@ -1,8 +1,6 @@
 package present.verb.palabras.infraestructura.dao.temas;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -43,60 +41,48 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 
 	public List<TemaDto> obtener(String correo) {
 
-	try {
-			List<TemaDto> temas = new ArrayList<>();
+		List<TemaDto> temas = new ArrayList<>();
+		
+		OPCPackage file = obtenerArchivo();
+		XSSFWorkbook excel = creacionWorkBook(file);
 
-		File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
-		FileInputStream fis = null;			fis = new FileInputStream(myFile); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
-		XSSFWorkbook excel = new XSSFWorkbook (fis);
+		Perfil perfil = perfilRepositorio.findByCorreo(correo);
+		List<Temas> temasList = perfil.getTemas();
 
-			Perfil perfil = perfilRepositorio.findByCorreo(correo);
-			List<Temas> temasList = perfil.getTemas();
-
-			for (int i = 0; i < excel.getNumberOfSheets(); i++) {
-				TemaDto temaDto = new TemaDto();
-				temaDto.setTema(excel.getSheetName(i));
+		for (int i = 0; i < excel.getNumberOfSheets(); i++) {
+			TemaDto temaDto = new TemaDto();
+			temaDto.setTema(excel.getSheetName(i));
 
 
-				Optional<Temas> t = temasList.stream().filter(temas1 -> temas1.getNombre().equals(temaDto.getTema())).findFirst();
+			Optional<Temas> t = temasList.stream().filter(temas1 -> temas1.getNombre().equals(temaDto.getTema())).findFirst();
 
-				LocalDate ultimaFechaAprendio = t.get().getUltimaFechaAprendio();
+			LocalDate ultimaFechaAprendio =  t.get().getUltimaFechaAprendio();
 
-				LocalDate ahora = LocalDate.now();
+			LocalDate ahora = LocalDate.now();
 
-				temaDto.setRealizadoHoy(ultimaFechaAprendio.isAfter(LocalDate.now()) || ultimaFechaAprendio.isEqual(LocalDate.now()));
+			temaDto.setRealizadoHoy(ultimaFechaAprendio.isAfter(LocalDate.now()) || ultimaFechaAprendio.isEqual(LocalDate.now()));
 
-				temas.add(temaDto);
-			}
-
-			return temas;
-		} catch (Exception e) {
-			throw new RuntimeException("Error al trata de leer el xlxs");
+			temas.add(temaDto);
 		}
-
+				
+		return temas;
 	}
 
 	public List<TemaDto> obtener() {
-		try {
-			List<TemaDto> temas = new ArrayList<>();
-			File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
-			FileInputStream fis = null;			fis = new FileInputStream(myFile); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
-			XSSFWorkbook excel = new XSSFWorkbook (fis);
-			//OPCPackage file = obtenerArchivo();
-			//XSSFWorkbook excel = creacionWorkBook(file);
 
-			for (int i = 0; i < excel.getNumberOfSheets(); i++) {
-				TemaDto temaDto = new TemaDto();
-				temaDto.setTema(excel.getSheetName(i));
-				temaDto.setRealizadoHoy(false);
-				temas.add(temaDto);
-			}
+		List<TemaDto> temas = new ArrayList<>();
 
-			return temas;
+		OPCPackage file = obtenerArchivo();
+		XSSFWorkbook excel = creacionWorkBook(file);
 
-		} catch (Exception e) {
-			throw new RuntimeException("Error al trata de leer el xlxs");
+		for (int i = 0; i < excel.getNumberOfSheets(); i++) {
+			TemaDto temaDto = new TemaDto();
+			temaDto.setTema(excel.getSheetName(i));
+			temaDto.setRealizadoHoy(false);
+			temas.add(temaDto);
 		}
+
+		return temas;
 	}
 
 
@@ -108,12 +94,12 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 		return null;
 	}
 
-//	private OPCPackage obtenerArchivo() {
-//		try {
-//			return OPCPackage.open(new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE));
-//		} catch (InvalidFormatException e1) {
-//		}
-//		return null;
-//	}
+	private OPCPackage obtenerArchivo() {
+		try {
+			return OPCPackage.open(new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE));
+		} catch (InvalidFormatException e1) {
+		}
+		return null;
+	}
 	
 }
