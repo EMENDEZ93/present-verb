@@ -1,9 +1,6 @@
 package present.verb.palabras.infraestructura.dao.temas;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -47,17 +44,8 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 		try {
 			List<TemaDto> temas = new ArrayList<>();
 
-			URL res = getClass().getClassLoader().getResource("present_verb.xlsx");
-			File file = Paths.get(res.toURI()).toFile();
-			String absolutePath = file.getAbsolutePath();
-
-
-			//File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
-			FileInputStream fis = null;
-			fis = new FileInputStream(file); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
-			XSSFWorkbook excel = new XSSFWorkbook (fis);
-			//OPCPackage file = obtenerArchivo();
-			//XSSFWorkbook excel = creacionWorkBook(file);
+			InputStream in = getClass().getResourceAsStream("/present_verb.xlsx");
+			XSSFWorkbook excel = new XSSFWorkbook (in);
 
 			Perfil perfil = perfilRepositorio.findByCorreo(correo);
 			List<Temas> temasList = perfil.getTemas();
@@ -89,17 +77,8 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 		try {
 			List<TemaDto> temas = new ArrayList<>();
 
-			URL res = getClass().getClassLoader().getResource("present_verb.xlsx");
-			File file = Paths.get(res.toURI()).toFile();
-			String absolutePath = file.getAbsolutePath();
-
-
-			//File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
-			FileInputStream fis = null;
-			fis = new FileInputStream(file); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
-			XSSFWorkbook excel = new XSSFWorkbook (fis);
-			//OPCPackage file = obtenerArchivo();
-			//XSSFWorkbook excel = creacionWorkBook(file);
+			InputStream in = getClass().getResourceAsStream("/present_verb.xlsx");
+			XSSFWorkbook excel = new XSSFWorkbook (in);
 
 			for (int i = 0; i < excel.getNumberOfSheets(); i++) {
 				TemaDto temaDto = new TemaDto();
