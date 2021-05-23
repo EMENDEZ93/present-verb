@@ -2,6 +2,7 @@ package present.verb.palabras.infraestructura.dao;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,34 +30,38 @@ public class ObtenerPreguntasExcelDao implements ObtenerPreguntasDao {
 	
 	public List<String> obtener(int ultimoIndiceVerboAprendido, int numeroVerbosPorAprenderDiario, int hojaTemaExcel) {
 
-		OPCPackage file = obtenerArchivo();
-		XSSFWorkbook excel = creacionWorkBook(file);
+		try {
 
-		
-		XSSFSheet sheet = obtenerHojaExcel(excel, hojaTemaExcel);
+			InputStream in = getClass().getResourceAsStream("/present_verb.xlsx");
+			XSSFWorkbook excel = new XSSFWorkbook (in);
+			XSSFSheet sheet = obtenerHojaExcel(excel, hojaTemaExcel);
 
-		Iterator<Row> rowIterator = sheet.iterator();
+			Iterator<Row> rowIterator = sheet.iterator();
 
-		Row row;
-		List<String> allVerb = new ArrayList<>();
+			Row row;
+			List<String> allVerb = new ArrayList<>();
 
-		int verbos = 0;		
-		
-		while (rowIterator.hasNext()) {
-			
-			row = rowIterator.next();
-			if(verbos >= ultimoIndiceVerboAprendido) {				
-				allVerb.add(row.getCell(1).toString());
+			int verbos = 0;
+
+			while (rowIterator.hasNext()) {
+
+				row = rowIterator.next();
+				if (verbos >= ultimoIndiceVerboAprendido) {
+					allVerb.add(row.getCell(1).toString());
+				}
+
+				verbos++;
+
+				if (verbos >= (numeroVerbosPorAprenderDiario + ultimoIndiceVerboAprendido))
+					break;
+
 			}
-			
-			verbos++;
-			
-			if (verbos >= (numeroVerbosPorAprenderDiario + ultimoIndiceVerboAprendido) )
-				break;
-			
-		}
 
-		return allVerb;
+			return allVerb;
+
+		} catch (Exception e) {
+			throw new RuntimeException("Error al trata de leer el xlxs : " + e.getMessage());
+		}
 
 	}
 

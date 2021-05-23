@@ -2,6 +2,7 @@ package present.verb.palabras.infraestructura.dao;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,62 +18,69 @@ import org.springframework.stereotype.Repository;
 import present.verb.palabras.dominio.dao.ObtenerRutinaPreguntasDao;
 
 @Repository
-public class ObtenerRutinaPreguntasExcelDao implements ObtenerRutinaPreguntasDao{
+public class ObtenerRutinaPreguntasExcelDao implements ObtenerRutinaPreguntasDao {
 
-	public static final String VERB_FILE = "/src/main/resources/present/verb/present_verb.xlsx";
-	public static final int VERB_SHEET = 1;
+    public static final String VERB_FILE = "/src/main/resources/present/verb/present_verb.xlsx";
+    public static final int VERB_SHEET = 1;
 
-	@Override
-	public List<String> ejecutar(int cantidad, int hojaTemaExcel) {
-		return ejecutar2(cantidad, hojaTemaExcel);
-	}
+    @Override
+    public List<String> ejecutar(int cantidad, int hojaTemaExcel) {
+        return ejecutar2(cantidad, hojaTemaExcel);
+    }
 
-	public List<String> ejecutar2(int id, int hojaTemaExcel) {
+    public List<String> ejecutar2(int id, int hojaTemaExcel) {
 
-		OPCPackage file = obtenerArchivo();
-		XSSFWorkbook excel = creacionWorkBook(file);
-		XSSFSheet sheet = obtenerHojaExcel(excel, hojaTemaExcel);
+        try {
 
-		Iterator<Row> rowIterator = sheet.iterator();
+            InputStream in = getClass().getResourceAsStream("/present_verb.xlsx");
+            XSSFWorkbook excel = new XSSFWorkbook (in);
 
-		Row row;
-		List<String> allVerb = new ArrayList<>();
+            XSSFSheet sheet = obtenerHojaExcel(excel, hojaTemaExcel);
 
-		int verbos = 0;
+            Iterator<Row> rowIterator = sheet.iterator();
 
-		while (rowIterator.hasNext()) {
-			row = rowIterator.next(); 
-			allVerb.add(row.getCell(1).toString());
-			verbos++;
-			
-			if (id == verbos)
-				break;
+            Row row;
+            List<String> allVerb = new ArrayList<>();
 
-		}
+            int verbos = 0;
 
-		return allVerb;
+            while (rowIterator.hasNext()) {
+                row = rowIterator.next();
+                allVerb.add(row.getCell(1).toString());
+                verbos++;
 
-	}
+                if (id == verbos)
+                    break;
 
-	private XSSFSheet obtenerHojaExcel(XSSFWorkbook excel, int hojaTemaExcel) {
-		//return excel.getSheetAt(VERB_SHEET);
-		return excel.getSheetAt(hojaTemaExcel);
-	}
+            }
 
-	private XSSFWorkbook creacionWorkBook(OPCPackage file) {
-		try {
-			return new XSSFWorkbook(file);
-		} catch (IOException e1) {
-		}
-		return null;
-	}
+            return allVerb;
 
-	private OPCPackage obtenerArchivo() {
-		try {
-			return OPCPackage.open(new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE));
-		} catch (InvalidFormatException e1) {
-		}
-		return null;
-	}
+        } catch (Exception e) {
+            throw new RuntimeException("Error al trata de leer el xlxs : " + e.getMessage());
+        }
+
+    }
+
+    private XSSFSheet obtenerHojaExcel(XSSFWorkbook excel, int hojaTemaExcel) {
+        //return excel.getSheetAt(VERB_SHEET);
+        return excel.getSheetAt(hojaTemaExcel);
+    }
+
+    private XSSFWorkbook creacionWorkBook(OPCPackage file) {
+        try {
+            return new XSSFWorkbook(file);
+        } catch (IOException e1) {
+        }
+        return null;
+    }
+
+    private OPCPackage obtenerArchivo() {
+        try {
+            return OPCPackage.open(new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE));
+        } catch (InvalidFormatException e1) {
+        }
+        return null;
+    }
 
 }
