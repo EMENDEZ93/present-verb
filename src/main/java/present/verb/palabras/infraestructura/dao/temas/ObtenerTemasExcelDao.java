@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -46,9 +47,17 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 		try {
 			List<TemaDto> temas = new ArrayList<>();
 
-			File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
-			FileInputStream fis = null;			fis = new FileInputStream(myFile); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
+			URL res = getClass().getClassLoader().getResource("present_verb.xlsx");
+			File file = Paths.get(res.toURI()).toFile();
+			String absolutePath = file.getAbsolutePath();
+
+
+			//File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
+			FileInputStream fis = null;
+			fis = new FileInputStream(file); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
 			XSSFWorkbook excel = new XSSFWorkbook (fis);
+			//OPCPackage file = obtenerArchivo();
+			//XSSFWorkbook excel = creacionWorkBook(file);
 
 			Perfil perfil = perfilRepositorio.findByCorreo(correo);
 			List<Temas> temasList = perfil.getTemas();
@@ -71,7 +80,7 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 
 			return temas;
 		} catch (Exception e) {
-			throw new RuntimeException("Error al trata de leer el xlxs : ".concat(e.getMessage()));
+			throw new RuntimeException("Error al trata de leer el xlxs : " + e.getMessage() );
 		}
 
 	}
@@ -79,8 +88,15 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 	public List<TemaDto> obtener() {
 		try {
 			List<TemaDto> temas = new ArrayList<>();
-			File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
-			FileInputStream fis = null;			fis = new FileInputStream(myFile); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
+
+			URL res = getClass().getClassLoader().getResource("present_verb.xlsx");
+			File file = Paths.get(res.toURI()).toFile();
+			String absolutePath = file.getAbsolutePath();
+
+
+			//File myFile = new File(Paths.get("").toAbsolutePath().toString() + VERB_FILE);
+			FileInputStream fis = null;
+			fis = new FileInputStream(file); // Finds the workbook instance for XLSX file XSSFWorkbook myWorkBook = new XSSFWorkbook (fis);
 			XSSFWorkbook excel = new XSSFWorkbook (fis);
 			//OPCPackage file = obtenerArchivo();
 			//XSSFWorkbook excel = creacionWorkBook(file);
@@ -95,7 +111,7 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 			return temas;
 
 		} catch (Exception e) {
-			throw new RuntimeException("Error al trata de leer el xlxs : ".concat(e.getMessage()));
+			throw new RuntimeException("Error al trata de leer el xlxs : " + e.getMessage() );
 		}
 	}
 
