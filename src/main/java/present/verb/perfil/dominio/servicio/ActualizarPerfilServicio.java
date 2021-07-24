@@ -16,8 +16,16 @@ public class ActualizarPerfilServicio {
 	private PerfilRepositorio perfilRepositorio;
 
 	public void ejecutar(PerfilComando perfilComando) {
-		Perfil id = perfilRepositorio.findByCorreo(perfilComando.getCorreo());
-		perfilRepositorio.actualizar(id, perfilComando.getNombre(), perfilComando.getUltimoIndiceAprendido(), LocalDate.now());
+
+		Perfil perfil = new Perfil();
+		perfil.setIdFirebase(perfilComando.getId());
+		perfil.setCorreo(perfilComando.getCorreo());
+		perfil.setUltimoIndiceAprendido(perfilComando.getUltimoIndiceAprendido());
+
+		perfilRepositorio.save(perfil);
+
+		//Perfil id = perfilRepositorio.findByCorreo(perfilComando.getCorreo());
+		//perfilRepositorio.actualizar(id, perfilComando.getNombre(), perfilComando.getUltimoIndiceAprendido(), LocalDate.now());
 	}
 
 }

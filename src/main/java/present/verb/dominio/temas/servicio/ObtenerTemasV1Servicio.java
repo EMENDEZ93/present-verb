@@ -1,4 +1,4 @@
-package present.verb.palabras.dominio.servicio;
+package present.verb.dominio.temas.servicio;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.palabras.dominio.dao.temas.ObtenerTemasV1Dao;
+import present.verb.dominio.temas.puerto.dao.ObtenerTemasV1Dao;
 
 @Service
 public class ObtenerTemasV1Servicio {

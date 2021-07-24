@@ -9,7 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import present.verb.palabras.dominio.dao.ObtenerTemasEsPreguntaRespuestaDao;
-import present.verb.palabras.dominio.servicio.ObtenerTemasV1Servicio;
+import present.verb.dominio.temas.servicio.ObtenerTemasV1Servicio;
 import present.verb.perfil.dominio.entidad.Temas;
 import present.verb.perfil.dominio.repositorio.PerfilRepositorio;
 import present.verb.perfil.dominio.repositorio.TemasRepositorio;

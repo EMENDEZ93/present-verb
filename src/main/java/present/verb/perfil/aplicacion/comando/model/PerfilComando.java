@@ -2,11 +2,17 @@ package present.verb.perfil.aplicacion.comando.model;
 
 public class PerfilComando {
 
+	private String id;
+
 	private String correo;
 
 	private String nombre;
 
 	private int ultimoIndiceAprendido;
+
+	public String getId() {
+		return id;
+	}
 
 	public String getCorreo() {
 		return correo;

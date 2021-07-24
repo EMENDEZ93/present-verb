@@ -1,21 +1,18 @@
 package present.verb.palabras.infraestructura.dao.temas;
 
 import java.io.*;
-import java.net.URL;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.palabras.dominio.dao.temas.ObtenerTemasV1Dao;
+import present.verb.dominio.temas.puerto.dao.ObtenerTemasV1Dao;
 import present.verb.perfil.dominio.entidad.Perfil;
 import present.verb.perfil.dominio.entidad.Temas;
 import present.verb.perfil.dominio.repositorio.PerfilRepositorio;

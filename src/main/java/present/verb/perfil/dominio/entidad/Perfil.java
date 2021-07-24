@@ -21,6 +21,8 @@ public class Perfil {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	private String idFirebase;
+
 	private String correo;
 
 	private int ultimoIndiceAprendido;
@@ -100,4 +102,11 @@ public class Perfil {
 		this.ultimaFechaRutina = ultimaFechaRutina;
 	}
 
+	public String getIdFirebase() {
+		return idFirebase;
+	}
+
+	public void setIdFirebase(String idFirebase) {
+		this.idFirebase = idFirebase;
+	}
 }

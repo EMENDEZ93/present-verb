@@ -1,4 +1,4 @@
-package present.verb.palabras.dominio.dao.temas;
+package present.verb.dominio.temas.puerto.dao;
 
 import java.util.List;
 

@@ -2,7 +2,6 @@ package present.verb.temas.infraestructura.dao;
 
 import org.springframework.stereotype.Repository;
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.palabras.dominio.dao.temas.ObtenerTemasV1Dao;
 import present.verb.temas.dominio.dao.ObtenerTemasDao;
 
 import java.io.IOException;

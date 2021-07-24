@@ -1,4 +1,4 @@
-package engine.temas.infraestructura.rest;
+package present.verb;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,8 +19,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = {
-        ObtenerTemasRestController.class,
-        PresentVerbApplication.class
 })
 @ActiveProfiles("testing")
 @AutoConfigureMockMvc
