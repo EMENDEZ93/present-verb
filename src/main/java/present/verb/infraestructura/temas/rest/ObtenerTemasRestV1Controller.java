@@ -1,4 +1,4 @@
-package present.verb.infraestructura.rest.temas;
+package present.verb.infraestructura.temas.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

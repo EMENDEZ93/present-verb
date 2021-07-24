@@ -1,4 +1,4 @@
-package present.verb;
+package present.verb.infraestructura.rest.temas;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

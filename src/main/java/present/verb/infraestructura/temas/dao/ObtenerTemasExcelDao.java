@@ -1,4 +1,4 @@
-package present.verb.palabras.infraestructura.dao.temas;
+package present.verb.infraestructura.temas.dao;
 
 import java.io.*;
 import java.time.LocalDate;
