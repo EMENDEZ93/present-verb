@@ -2,7 +2,7 @@ package present.verb.dominio.temas.servicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
+import present.verb.aplicacion.palabras.TemaDto;
 import present.verb.dominio.temas.puerto.dao.ObtenerTemasDao;
 
 import java.util.List;

@@ -8,11 +8,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import present.verb.palabras.dominio.dao.ObtenerTemasEsPreguntaRespuestaDao;
+import present.verb.dominio.palabras.puerto.dao.ObtenerTemasEsPreguntaRespuestaDao;
 import present.verb.dominio.temas.servicio.ObtenerTemasV1Servicio;
-import present.verb.perfil.dominio.entidad.Temas;
-import present.verb.perfil.dominio.repositorio.PerfilRepositorio;
-import present.verb.perfil.dominio.repositorio.TemasRepositorio;
+import present.verb.dominio.perfil.modelo.Temas;
+import present.verb.dominio.perfil.puerto.repositorio.PerfilRepositorio;
+import present.verb.dominio.perfil.puerto.repositorio.TemasRepositorio;
 
 @SpringBootApplication
 public class PresentVerbApplication implements CommandLineRunner {

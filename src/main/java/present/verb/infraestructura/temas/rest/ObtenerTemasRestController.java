@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.aplicacion.manejador.temas.ObtenerTemasManejador;
+import present.verb.aplicacion.palabras.TemaDto;
+import present.verb.aplicacion.temas.ObtenerTemasManejador;
 
 @RestController
 @CrossOrigin(origins = "*")

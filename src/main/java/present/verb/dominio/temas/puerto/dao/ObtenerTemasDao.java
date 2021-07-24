@@ -1,7 +1,7 @@
 package present.verb.dominio.temas.puerto.dao;
 
 import org.springframework.stereotype.Repository;
-import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
+import present.verb.aplicacion.palabras.TemaDto;
 
 import java.util.List;
 

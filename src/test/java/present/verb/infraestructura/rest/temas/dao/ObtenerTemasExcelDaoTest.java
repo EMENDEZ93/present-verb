@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import present.verb.infraestructura.temas.dao.ObtenerTemasExcelDao;
-import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
+import present.verb.aplicacion.palabras.TemaDto;
 
 import java.util.List;
 

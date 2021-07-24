@@ -11,11 +11,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
+import present.verb.aplicacion.palabras.TemaDto;
 import present.verb.dominio.temas.puerto.dao.ObtenerTemasV1Dao;
-import present.verb.perfil.dominio.entidad.Perfil;
-import present.verb.perfil.dominio.entidad.Temas;
-import present.verb.perfil.dominio.repositorio.PerfilRepositorio;
+import present.verb.dominio.perfil.modelo.Perfil;
+import present.verb.dominio.perfil.modelo.Temas;
+import present.verb.dominio.perfil.puerto.repositorio.PerfilRepositorio;
 
 @Repository
 public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
