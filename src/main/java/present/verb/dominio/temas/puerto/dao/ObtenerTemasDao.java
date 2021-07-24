@@ -1,4 +1,4 @@
-package present.verb.temas.dominio.dao;
+package present.verb.dominio.temas.puerto.dao;
 
 import org.springframework.stereotype.Repository;
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;

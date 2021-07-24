@@ -1,4 +1,4 @@
-package present.verb.temas.infraestructura.rest;
+package present.verb.infraestructura.temas.rest;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.temas.aplicacion.ObtenerTemasManejador;
+import present.verb.aplicacion.manejador.temas.ObtenerTemasManejador;
 
 @RestController
 @CrossOrigin(origins = "*")

@@ -1,9 +1,9 @@
-package present.verb.temas.aplicacion;
+package present.verb.aplicacion.manejador.temas;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.temas.dominio.servicio.ObtenerTemasServicio;
+import present.verb.dominio.temas.servicio.ObtenerTemasServicio;
 
 import java.util.List;
 

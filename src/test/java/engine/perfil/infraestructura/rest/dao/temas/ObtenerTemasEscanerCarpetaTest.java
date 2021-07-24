@@ -3,7 +3,7 @@ package engine.perfil.infraestructura.rest.dao.temas;
 import org.junit.Assert;
 import org.junit.Test;
 import present.verb.palabras.aplicacion.consulta.manejador.TemaDto;
-import present.verb.temas.infraestructura.dao.ObtenerTemasEscanerCarpeta;
+import present.verb.infraestructura.temas.dao.ObtenerTemasEscanerCarpeta;
 
 import java.util.List;
 
