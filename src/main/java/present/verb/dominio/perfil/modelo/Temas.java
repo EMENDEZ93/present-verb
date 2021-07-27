@@ -1,5 +1,8 @@
 package present.verb.dominio.perfil.modelo;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -13,6 +16,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "temas")
+@Setter
+@Getter
 public class Temas {
 
 	@Id
@@ -46,76 +51,9 @@ public class Temas {
 		ultimaFechaRutina = LocalDate.now().minusDays(1);
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public int getUltimoIndiceAprendido() {
-		return ultimoIndiceAprendido;
-	}
-
-	public void setUltimoIndiceAprendido(int ultimoIndiceAprendido) {
-		this.ultimoIndiceAprendido = ultimoIndiceAprendido;
-	}
-
-	public int getRepeticionesAltaComoAprendido() {
-		return repeticionesAltaComoAprendido;
-	}
-
-	public void setRepeticionesAltaComoAprendido(int repeticionesAltaComoAprendido) {
-		this.repeticionesAltaComoAprendido = repeticionesAltaComoAprendido;
-	}
-
-	public int getNumeroVerbosPorAprenderDiario() {
-		return numeroVerbosPorAprenderDiario;
-	}
-
-	public void setNumeroVerbosPorAprenderDiario(int numeroVerbosPorAprenderDiario) {
-		this.numeroVerbosPorAprenderDiario = numeroVerbosPorAprenderDiario;
-	}
-
-	public LocalDate getUltimaFechaAprendio() {
-		return ultimaFechaAprendio;
-	}
-
-	public void setUltimaFechaAprendio(LocalDate ultimaFechaAprendio) {
-		this.ultimaFechaAprendio = ultimaFechaAprendio;
-	}
-
-	public LocalDate getUltimaFechaRutina() {
-		return ultimaFechaRutina;
-	}
-
-	public void setUltimaFechaRutina(LocalDate ultimaFechaRutina) {
-		this.ultimaFechaRutina = ultimaFechaRutina;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Perfil getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
-
-	public boolean isEsPreguntaRespuesta() {
-		return esPreguntaRespuesta;
-	}
-
-	public void setEsPreguntaRespuesta(boolean esPreguntaRespuesta) {
-		this.esPreguntaRespuesta = esPreguntaRespuesta;
+	public boolean getRealizadoRutinaHoy() {
+		LocalDate ultimaFechaAprendio = getUltimaFechaAprendio();
+		return ultimaFechaAprendio.isAfter(LocalDate.now()) || ultimaFechaAprendio.isEqual(LocalDate.now());
 	}
 
 }

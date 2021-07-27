@@ -10,7 +10,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import present.verb.aplicacion.perfil.consulta.PerfilDto;
+import present.verb.dominio.comun.excepcion.RepositorioException;
 import present.verb.dominio.perfil.modelo.Perfil;
+
+import static java.util.Objects.isNull;
 
 @Repository
 public interface PerfilRepositorio extends JpaRepository<Perfil, Long> {
@@ -37,5 +40,13 @@ public interface PerfilRepositorio extends JpaRepository<Perfil, Long> {
 			@Param("ultimaFechaRutina") LocalDate ultimaFechaRutina);
 
 	Perfil findByCorreo(String correo);
-	
+
+
+	default Perfil getByCorreo(String correo) {
+		Perfil perfil = findByCorreo(correo);
+		if(isNull(perfil)) {
+			throw new RepositorioException("No existe un perfil con ese correo");
+		}
+		return perfil;
+	}
 }

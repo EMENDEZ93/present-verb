@@ -1,4 +1,4 @@
-package present.verb.infraestructura.temas.dao;
+package present.verb.dominio.perfil.puerto.repositorio;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,51 +8,47 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import present.verb.ApplicationMock;
-import present.verb.aplicacion.palabras.TemaDto;
-import present.verb.dominio.perfil.puerto.repositorio.PerfilRepositorio;
+import present.verb.dominio.perfil.modelo.Perfil;
 import present.verb.dominio.temas.servicio.ObtenerTemasV1Servicio;
 
-import java.util.List;
-
 import static org.junit.Assert.fail;
+
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {ApplicationMock.class, ObtenerTemasV1Servicio.class} )
 @DataJpaTest
-public class ObtenerTemasExcelDaoTest {
+public class PerfilRepositorioTest {
 
     @Autowired
     private PerfilRepositorio perfilRepositorio;
 
-    @Autowired
-    private ObtenerTemasExcelDao dao;
-
     @Test
-    public void ejecutarCorreo() {
+    public void methodTest() {
 
         // Arrange
         String correo = "testing01@em.com.co";
 
         // Act
-        List<TemaDto> temaDtos = dao.ejecutar(correo);
+        Perfil resultado = perfilRepositorio.getByCorreo(correo);
 
         // Assert
-        Assert.assertEquals(14, temaDtos.size());
+        Assert.assertNotNull(resultado);
+        Assert.assertEquals(correo, resultado.getCorreo());
 
     }
 
+
     @Test
-    public void noExisteUsuario() {
+    public void noExiste() {
 
         // Arrange
         String correo = "noExiste@em.com.co";
 
         try {
             // Act
-            List<TemaDto> temaDtos = dao.ejecutar(correo);
+            Perfil resultado = perfilRepositorio.getByCorreo(correo);
             fail("Debe generar excepcion");
         } catch (Exception e) {
-
             // Assert
             Assert.assertEquals("No existe un perfil con ese correo", e.getMessage());
         }
@@ -60,19 +56,22 @@ public class ObtenerTemasExcelDaoTest {
     }
 
 
-
     @Test
-    public void ejecutarSinCorreo() {
+    public void correoVacio() {
 
         // Arrange
-        String correo = "testing01@em.com.co";
+        String correo = "";
 
-        // Act
-        List<TemaDto> temaDtos = dao.ejecutar();
-
-        // Assert
-        Assert.assertEquals(14, temaDtos.size());
+        try {
+            // Act
+            Perfil resultado = perfilRepositorio.getByCorreo(correo);
+            fail("Debe generar excepcion");
+        } catch (Exception e) {
+            // Assert
+            Assert.assertEquals("No existe un perfil con ese correo", e.getMessage());
+        }
 
     }
+
 
 }

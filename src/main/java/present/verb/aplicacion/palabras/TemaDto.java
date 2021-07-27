@@ -1,39 +1,21 @@
 package present.verb.aplicacion.palabras;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class TemaDto {
 
 	private String tema;
-	private Boolean realizadoHoy;
+	private boolean realizadoHoy;
 
-//	private int indiceHoja;
-//
-//	public TemaDto(String tema, int indiceHoja) {
-//		this.tema = tema;
-//		this.indiceHoja = indiceHoja;
-//	}
-//
-//	public String getTema() {
-//		return tema;
-//	}
-//
-//	public int getIndiceHoja() {
-//		return indiceHoja;
-//	}
-
-
-	public String getTema() {
-		return tema;
+	public TemaDto() {
 	}
 
-	public void setTema(String tema) {
-		this.tema = tema;
+	public TemaDto(String tema, boolean realizadoHoy) {
+		setTema(tema);
+		setRealizadoHoy(realizadoHoy);
 	}
 
-	public Boolean getRealizadoHoy() {
-		return realizadoHoy;
-	}
-
-	public void setRealizadoHoy(Boolean realizadoHoy) {
-		this.realizadoHoy = realizadoHoy;
-	}
 }

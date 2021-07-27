@@ -54,7 +54,7 @@ public class PresentVerbApplication implements CommandLineRunner {
 					tema.setPerfil(perfil);
 					tema.setEsPreguntaRespuesta(this.obtenerTemasPreguntaRespuesta.ejecutar(tema.getNombre()));
 					temasRepositorio.save(tema); 
-					System.out.println("->" + tema.getNombre());
+					//System.out.println("->" + tema.getNombre());
 				});
  
 				perfil.setTemas(temas);
