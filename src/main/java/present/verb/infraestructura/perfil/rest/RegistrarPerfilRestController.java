@@ -9,20 +9,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import present.verb.aplicacion.perfil.comando.ActualizarPerfilManejador;
+import present.verb.aplicacion.perfil.comando.RegistrarPerfilManejador;
 import present.verb.aplicacion.perfil.comando.PerfilComando;
 
 @RestController
 @RequestMapping("/perfil")
 @CrossOrigin(origins = "*")
-public class ActualizarPerfilRestController {
+public class RegistrarPerfilRestController {
 
 	@Autowired
-	private ActualizarPerfilManejador actualizarPerfilManejador;
-	
+	private RegistrarPerfilManejador registrarPerfilManejador;
+
+
 	@PostMapping
 	public void actualizar(@Valid @RequestBody PerfilComando perfilComando) {
-		actualizarPerfilManejador.ejecutar(perfilComando);
+		registrarPerfilManejador.ejecutar(perfilComando);
 	}
 	
 }
