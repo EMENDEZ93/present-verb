@@ -53,7 +53,7 @@ public class RegistrarPerfilRestControllerTest {
 
         Perfil resultado = perfilRepositorio.findByCorreo(comando.getCorreo());
 
-        Assert.assertEquals(14, resultado.getTemas().size());
+        Assert.assertEquals(15, resultado.getTemas().size());
 
     }
 

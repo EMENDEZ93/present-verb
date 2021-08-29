@@ -13,4 +13,8 @@ public interface TemasRepositorio extends JpaRepository<Temas, Long>{
 	
 	List<Temas> findByPerfil (Perfil perfil);
 
+	Temas findByNombre (String nombre);
+
+	Temas findByNombreAndPerfilCorreo (String nombre, String correo);
+
 }

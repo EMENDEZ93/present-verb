@@ -9,6 +9,7 @@ public class TemaDto {
 
 	private String tema;
 	private boolean realizadoHoy;
+	private int indiceExcel;
 
 	public TemaDto() {
 	}
@@ -16,6 +17,12 @@ public class TemaDto {
 	public TemaDto(String tema, boolean realizadoHoy) {
 		setTema(tema);
 		setRealizadoHoy(realizadoHoy);
+	}
+
+	public TemaDto(String tema, boolean realizadoHoy, int indiceExcel) {
+		setTema(tema);
+		setRealizadoHoy(realizadoHoy);
+		setIndiceExcel(indiceExcel);
 	}
 
 }

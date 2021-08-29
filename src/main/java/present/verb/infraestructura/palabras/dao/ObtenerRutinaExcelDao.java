@@ -44,21 +44,24 @@ public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
 
             int verbos = 0;
 
-            while (rowIterator.hasNext()) {
-                row = rowIterator.next();
+            if(id > 0) {
 
-                if (row.getCell(0).toString() == "") break;
+                while (rowIterator.hasNext()) {
+                    row = rowIterator.next();
 
-                allEnglishVerb.add(row.getCell(0).toString());
-                allSpanishVerb.add(row.getCell(1).toString());
+                    if (row.getCell(0).toString() == "") break;
 
-                verbos++;
+                    allEnglishVerb.add(row.getCell(0).toString());
+                    allSpanishVerb.add(row.getCell(1).toString());
 
-                if (id == verbos)
-                    break;
+                    verbos++;
+
+                    if (id == verbos)
+                        break;
+
+                }
 
             }
-
             PalabraDto palabra = new PalabraDto();
             palabra.setEnglish(allEnglishVerb);
             palabra.setSpanish(allSpanishVerb);

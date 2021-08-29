@@ -25,19 +25,14 @@ public class Temas {
 	private Long id;
 
 	private String nombre;
-
 	private int ultimoIndiceAprendido;
-
 	private int repeticionesAltaComoAprendido;
-
 	private int numeroVerbosPorAprenderDiario;
-
 	private LocalDate ultimaFechaAprendio;
-
 	private LocalDate ultimaFechaRutina;
-
 	private boolean esPreguntaRespuesta;
-	
+	private int indiceExcel;
+
 	@ManyToOne
 	@JoinColumn
 	private Perfil perfil;

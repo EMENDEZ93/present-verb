@@ -42,7 +42,11 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 			Perfil perfil = perfilRepositorio.getByCorreo(correo);
 			return perfil.getTemas()
 					.stream()
-					.map(temas1 -> new TemaDto(temas1.getNombre(), temas1.getRealizadoRutinaHoy()))
+					.map(temas1 -> new TemaDto(
+							temas1.getNombre(),
+							temas1.getRealizadoRutinaHoy(),
+							temas1.getIndiceExcel())
+					)
 					.collect(Collectors.toList());
 		} catch (Exception e) {
 			throw new DaoException(e.getMessage());
@@ -60,6 +64,7 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 				TemaDto temaDto = new TemaDto();
 				temaDto.setTema(excel.getSheetName(i));
 				temaDto.setRealizadoHoy(false);
+				temaDto.setIndiceExcel(i);
 				temas.add(temaDto);
 			}
 

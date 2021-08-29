@@ -39,6 +39,7 @@ public class RegistrarPerfilServicio {
 			tema.setNombre(temaDto.getTema());
 			tema.setPerfil(perfil);
 			tema.setEsPreguntaRespuesta(this.obtenerTemasPreguntaRespuesta.ejecutar(tema.getNombre()));
+			tema.setIndiceExcel(temaDto.getIndiceExcel());
 			temasRepositorio.save(tema);
             return tema;
         }).collect(Collectors.toList());

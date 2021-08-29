@@ -15,6 +15,7 @@
 	NUMERO_VERBOS_POR_APRENDER_DIARIO,
 	PERFIL_ID,
 	ES_PREGUNTA_RESPUESTA,
-    ULTIMA_FECHA_APRENDIO
+    ULTIMA_FECHA_APRENDIO,
+    INDICE_EXCEL
 	)
-  values {('Tema Tesing 01', 5, 5, 3, 2, false, '2021-07-23'), ('Tema Tesing 02', 5, 5, 3, 2, false, '2021-07-21')};
+  values {('Tema Tesing 01', 5, 5, 3, 2, false, '2021-07-23', 0), ('Tema Tesing 02', 5, 5, 3, 2, false, '2021-07-21', 0)};
