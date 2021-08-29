@@ -1,7 +1,12 @@
+#server:
+#   port: 8091
+#   servlet:
+#      context-path: /api/present/verb
+
 server:
-   port: 8091 
-   servlet:
-      context-path: /api/present/verb  
+  port: ${PORT:5000}
+  servlet:
+    context-path: /api/present/verb
 
 spring:
   datasource:
