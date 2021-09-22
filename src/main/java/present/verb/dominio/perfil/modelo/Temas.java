@@ -43,8 +43,8 @@ public class Temas {
 		ultimoIndiceAprendido = 0;
 		repeticionesAltaComoAprendido = 3;
 		numeroVerbosPorAprenderDiario = 5;
-		ultimaFechaAprendio = LocalDate.now().minusDays(1);
-		ultimaFechaRutina = LocalDate.now().minusDays(1);
+		ultimaFechaAprendio = LocalDate.of(2020, Month.JANUARY, 1);
+		ultimaFechaRutina = LocalDate.of(2020, Month.JANUARY, 1);
 	}
 
 	public boolean getRealizadoRutinaHoy() {
