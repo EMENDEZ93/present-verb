@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,8 +29,8 @@ public class Temas {
 	private int ultimoIndiceAprendido;
 	private int repeticionesAltaComoAprendido;
 	private int numeroVerbosPorAprenderDiario;
-	private LocalDate ultimaFechaAprendio;
-	private LocalDate ultimaFechaRutina;
+	private LocalDate ultimaFechaAprendio = LocalDate.of(2020, Month.JANUARY, 1);
+	private LocalDate ultimaFechaRutina = LocalDate.of(2020, Month.JANUARY, 1);
 	private boolean esPreguntaRespuesta;
 	private int indiceExcel;
 
