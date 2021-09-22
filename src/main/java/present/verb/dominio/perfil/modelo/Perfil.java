@@ -1,6 +1,7 @@
 package present.verb.dominio.perfil.modelo;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -31,7 +32,7 @@ public class Perfil {
 
 	private int numeroVerbosPorAprenderDiario;
 
-	private LocalDate ultimaFechaAprendio;
+	private LocalDate ultimaFechaAprendio = LocalDate.of(2020, Month.JANUARY, 1);
 
 	private LocalDate ultimaFechaRutina;
 
