@@ -26,4 +26,12 @@ public class TemaDto {
 		setIndiceExcel(indiceExcel);
 	}
 
+
+	public TemaDto(String tema, boolean realizadoHoy, int indiceExcel, int filas) {
+		setTema(tema);
+		setRealizadoHoy(realizadoHoy);
+		setIndiceExcel(indiceExcel);
+		setFilas(filas);
+	}
+
 }

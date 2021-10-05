@@ -48,7 +48,9 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 					.map(temas1 -> new TemaDto(
 							temas1.getNombre(),
 							temas1.getRealizadoRutinaHoy(),
-							temas1.getIndiceExcel())
+							temas1.getIndiceExcel(),
+							temas1.getFilas()
+							)
 					)
 					.collect(Collectors.toList());
 		} catch (Exception e) {
