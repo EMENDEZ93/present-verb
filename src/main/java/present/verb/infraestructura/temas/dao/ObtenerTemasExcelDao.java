@@ -3,11 +3,14 @@ package present.verb.infraestructura.temas.dao;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -61,10 +64,16 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 			XSSFWorkbook excel = new XSSFWorkbook (in);
 
 			for (int i = 0; i < excel.getNumberOfSheets(); i++) {
+
+				Iterator<Row> rowIterator = excel.getSheetAt(i).rowIterator();
+				int filas = 0;
+				while (rowIterator.hasNext()) { rowIterator.next(); filas++; }
+
 				TemaDto temaDto = new TemaDto();
 				temaDto.setTema(excel.getSheetName(i));
 				temaDto.setRealizadoHoy(false);
 				temaDto.setIndiceExcel(i);
+				temaDto.setFilas(filas);
 				temas.add(temaDto);
 			}
 

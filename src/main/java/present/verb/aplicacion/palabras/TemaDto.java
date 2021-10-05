@@ -10,6 +10,7 @@ public class TemaDto {
 	private String tema;
 	private boolean realizadoHoy;
 	private int indiceExcel;
+	private int filas;
 
 	public TemaDto() {
 	}

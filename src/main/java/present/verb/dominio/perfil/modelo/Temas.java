@@ -33,6 +33,7 @@ public class Temas {
 	private LocalDate ultimaFechaRutina = LocalDate.of(2020, Month.JANUARY, 1);
 	private boolean esPreguntaRespuesta;
 	private int indiceExcel;
+	private int filas;
 
 	@ManyToOne
 	@JoinColumn

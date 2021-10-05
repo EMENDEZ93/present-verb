@@ -40,7 +40,8 @@ public class RegistrarPerfilServicio {
 			tema.setPerfil(perfil);
 			tema.setEsPreguntaRespuesta(this.obtenerTemasPreguntaRespuesta.ejecutar(tema.getNombre()));
 			tema.setIndiceExcel(temaDto.getIndiceExcel());
-			temasRepositorio.save(tema);
+			tema.setFilas(temaDto.getFilas());
+            temasRepositorio.save(tema);
             return tema;
         }).collect(Collectors.toList());
 

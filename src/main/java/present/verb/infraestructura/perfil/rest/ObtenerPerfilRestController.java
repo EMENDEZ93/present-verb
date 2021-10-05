@@ -20,7 +20,6 @@ public class ObtenerPerfilRestController {
 	
 	@GetMapping("/{correo}/{hojaTemaExcel}")
 	public PerfilDto perfil(@PathVariable("correo") String correo, @PathVariable("hojaTemaExcel") String hojaTemaExcel) {
-		System.out.println();
 		return obtenerPerfilManejador.ejecutar(correo, hojaTemaExcel);
 	}
 
