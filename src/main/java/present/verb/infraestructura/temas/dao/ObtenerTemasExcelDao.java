@@ -49,7 +49,8 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 							temas1.getNombre(),
 							temas1.getRealizadoRutinaHoy(),
 							temas1.getIndiceExcel(),
-							temas1.getFilas()
+							temas1.getFilas(),
+							temas1.getUltimoIndiceAprendido()
 							)
 					)
 					.collect(Collectors.toList());

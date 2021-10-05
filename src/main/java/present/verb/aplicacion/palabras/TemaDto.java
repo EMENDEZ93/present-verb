@@ -11,6 +11,7 @@ public class TemaDto {
 	private boolean realizadoHoy;
 	private int indiceExcel;
 	private int filas;
+	private int ultimoIndiceAprendido;
 
 	public TemaDto() {
 	}
@@ -27,11 +28,12 @@ public class TemaDto {
 	}
 
 
-	public TemaDto(String tema, boolean realizadoHoy, int indiceExcel, int filas) {
+	public TemaDto(String tema, boolean realizadoHoy, int indiceExcel, int filas, int ultimoIndiceAprendido) {
 		setTema(tema);
 		setRealizadoHoy(realizadoHoy);
 		setIndiceExcel(indiceExcel);
 		setFilas(filas);
+		setUltimoIndiceAprendido(ultimoIndiceAprendido);
 	}
 
 }
