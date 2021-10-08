@@ -1,0 +1,37 @@
+#server:
+#   port: 8091
+#   servlet:
+#      context-path: /api/present/verb
+
+server:
+  port: ${PORT:5000}
+  servlet:
+    context-path: /api/present/verb
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-34-199-15-136.compute-1.amazonaws.com:5432/d2pvdvnh9poasu?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    username: "ffjvtzlyqgofks"
+    password: "2e2b6b0f80ac88091358612e92ee19eef8c4ac70cd852ad5a5b6e8ff90784e64"
+    maximumPoolSize: 5
+    hikari:
+      idle-timeout: 10000
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  application:
+    name: giftu
+
+
+security:
+  jwt:
+    token:
+      secret-key: jwtGiftUSecretKey
+      expire-length: 86400
