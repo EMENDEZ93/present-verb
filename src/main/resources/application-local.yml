@@ -11,9 +11,9 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://ec2-54-236-137-173.compute-1.amazonaws.com:5432/d92ai8qk17f193?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
-    username: "oshuylewjbhjye"
-    password: "f734413fb0145ed0532a791e611e262a2a27875ab1da09c5c8e5e369f4b6ccad"
+    url: jdbc:postgresql://ec2-34-199-15-136.compute-1.amazonaws.com:5432/dciha6pj2na9gs?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory
+    username: "aznenujetgnnyi"
+    password: "69c6553296d7c5c55ed624669ec713107c1f61dff6cd0fe48c184491a0fccabf"
     maximumPoolSize: 5
     hikari:
       idle-timeout: 10000

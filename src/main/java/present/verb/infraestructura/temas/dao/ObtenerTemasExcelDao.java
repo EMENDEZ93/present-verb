@@ -1,15 +1,11 @@
 package present.verb.infraestructura.temas.dao;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +43,8 @@ public class ObtenerTemasExcelDao implements ObtenerTemasV1Dao {
 					.stream()
 					.map(temas1 -> new TemaDto(
 							temas1.getNombre(),
-							temas1.getRealizadoRutinaHoy(),
+							temas1.getRealizadoAprenderHoy(),
+							temas1.getRealizadoRutinasHoy(),
 							temas1.getIndiceExcel(),
 							temas1.getFilas(),
 							temas1.getUltimoIndiceAprendido()

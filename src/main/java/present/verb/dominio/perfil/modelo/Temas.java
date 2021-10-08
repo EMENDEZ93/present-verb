@@ -48,8 +48,13 @@ public class Temas {
 		ultimaFechaRutina = LocalDate.of(2020, Month.JANUARY, 1);
 	}
 
-	public boolean getRealizadoRutinaHoy() {
+	public boolean getRealizadoAprenderHoy() {
 		LocalDate ultimaFechaAprendio = getUltimaFechaAprendio();
+		return ultimaFechaAprendio.isAfter(LocalDate.now()) || ultimaFechaAprendio.isEqual(LocalDate.now());
+	}
+
+	public boolean getRealizadoRutinasHoy() {
+		LocalDate ultimaFechaAprendio = getUltimaFechaRutina();
 		return ultimaFechaAprendio.isAfter(LocalDate.now()) || ultimaFechaAprendio.isEqual(LocalDate.now());
 	}
 

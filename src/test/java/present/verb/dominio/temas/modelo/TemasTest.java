@@ -29,7 +29,7 @@ public class TemasTest {
         Temas temas = temasRepositorio.getOne(1L);
 
         // Act
-        boolean respuesta = temas.getRealizadoRutinaHoy();
+        boolean respuesta = temas.getRealizadoAprenderHoy();
 
         // Assert
         Assert.assertFalse(respuesta);
@@ -45,7 +45,7 @@ public class TemasTest {
         temas.setUltimaFechaAprendio(LocalDate.now());
 
         // Act
-        boolean respuesta = temas.getRealizadoRutinaHoy();
+        boolean respuesta = temas.getRealizadoAprenderHoy();
 
         // Assert
         Assert.assertTrue(respuesta);
