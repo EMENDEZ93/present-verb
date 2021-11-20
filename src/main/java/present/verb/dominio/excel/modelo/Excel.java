@@ -18,6 +18,7 @@ public class Excel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    private String archivo;
 
     @OneToMany(mappedBy = "excel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Hoja> hojas;
