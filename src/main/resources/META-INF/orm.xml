@@ -7,7 +7,7 @@
 
     <sql-result-set-mapping name="usuarioCustomMapping">
         <constructor-result target-class="present.verb.dominio.hoja.model.Hoja">
-            <column name="a"/>
+            <column name="nombre"/>
             <column name="ultimo_indice_aprendido"/>
             <column name="repeticiones_alta_como_aprendido"/>
             <column name="numero_verbos_por_aprender_diario"/>
@@ -19,11 +19,11 @@
         </constructor-result>
     </sql-result-set-mapping>
 
-    <named-native-query name="HojasByExcelAndCorreo" result-set-mapping="usuarioCustomMapping">
+    <named-native-query name="getHojasByExcelAndCorreo" result-set-mapping="usuarioCustomMapping">
         <query>
             <![CDATA[
                 SELECT
-                h.nombre a,
+                h.nombre,
                 h.ultimo_indice_aprendido,
                 h.repeticiones_alta_como_aprendido,
                 h.numero_verbos_por_aprender_diario,
