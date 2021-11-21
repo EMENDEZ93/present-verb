@@ -1,7 +1,5 @@
 package present.verb.infraestructura.perfil.rest;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +20,7 @@ public class RegistrarPerfilRestController {
 
 
 	@PostMapping
-	public void actualizar(@Valid @RequestBody PerfilComando perfilComando) {
+	public void actualizar(@RequestBody PerfilComando perfilComando) {
 		registrarPerfilManejador.ejecutar(perfilComando);
 	}
 	

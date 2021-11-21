@@ -6,8 +6,6 @@ import present.verb.aplicacion.perfil.comando.PerfilComando;
 import present.verb.aplicacion.temas.ActualizarTemaManejador;
 import present.verb.aplicacion.temas.TemaComando;
 
-import javax.validation.Valid;
-
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -17,7 +15,7 @@ public class ActualizarTemaRestController {
     private ActualizarTemaManejador actualizarTemaManejador;
 
     @PostMapping("/tema")
-    public TemaComando obtenerTemas(@Valid @RequestBody TemaComando temaComando){
+    public TemaComando obtenerTemas(@RequestBody TemaComando temaComando){
         return actualizarTemaManejador.ejecutar(temaComando);
     }
 

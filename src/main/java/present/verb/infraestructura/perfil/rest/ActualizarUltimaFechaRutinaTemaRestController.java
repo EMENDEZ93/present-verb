@@ -1,7 +1,5 @@
 package present.verb.infraestructura.perfil.rest;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +19,7 @@ public class ActualizarUltimaFechaRutinaTemaRestController {
 	private ActualizarUltimaFechaRutinaManejador actualizarUltimaFechaRutinaManejador;	
 	
 	@PostMapping
-	public void actualizar(@Valid @RequestBody ActualizarUltimaFecharRutinaComando comando) throws Exception {
+	public void actualizar(@RequestBody ActualizarUltimaFecharRutinaComando comando) throws Exception {
 		//actualizarUltimaFechaRutinaManejador.ejecutar(comando);
 		
 		System.out.println("___________________________________________________>");
