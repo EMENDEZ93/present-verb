@@ -26,6 +26,8 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+        temp:
+          use_jdbc_metadata_defaults: false
   application:
     name: giftu
     
