@@ -7,7 +7,7 @@
 
     <sql-result-set-mapping name="usuarioCustomMapping">
         <constructor-result target-class="present.verb.dominio.hoja.model.Hoja">
-            <column name="nombre"/>
+            <column name="a"/>
             <column name="ultimo_indice_aprendido"/>
             <column name="repeticiones_alta_como_aprendido"/>
             <column name="numero_verbos_por_aprender_diario"/>
@@ -23,7 +23,7 @@
         <query>
             <![CDATA[
                 SELECT
-                h.nombre,
+                h.nombre a,
                 h.ultimo_indice_aprendido,
                 h.repeticiones_alta_como_aprendido,
                 h.numero_verbos_por_aprender_diario,
