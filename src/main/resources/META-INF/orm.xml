@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
         version="2.0">
 
-    <sql-result-set-mapping name="usuarioMapping">
+    <sql-result-set-mapping name="usuarioCustomMapping">
         <constructor-result target-class="present.verb.dominio.hoja.model.Hoja">
             <column name="nombre"/>
             <column name="ultimo_indice_aprendido"/>
@@ -19,7 +19,7 @@
         </constructor-result>
     </sql-result-set-mapping>
 
-    <named-native-query name="getHojasByExcelAndCorreo" result-set-mapping="usuarioMapping">
+    <named-native-query name="getHojasByExcelAndCorreo" result-set-mapping="usuarioCustomMapping">
         <query>
             <![CDATA[
                 SELECT
