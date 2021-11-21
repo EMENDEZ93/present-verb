@@ -13,7 +13,7 @@ import java.util.List;
 public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Usuario, Long> {
 
     @Transactional(readOnly = true)
-    @Query(name = "getHojasByExcelAndCorreo")
+    @Query(name = "getHojasByExcelAndCorreoQuery")
     List<Hoja> execute(String excel, String correo);
 
 }
