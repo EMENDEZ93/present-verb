@@ -6,6 +6,7 @@ import lombok.Setter;
 import present.verb.dominio.excel.modelo.Excel;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Usuario {
+public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
