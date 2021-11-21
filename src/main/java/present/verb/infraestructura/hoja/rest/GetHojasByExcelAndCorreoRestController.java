@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import present.verb.aplicacion.temas.GetHojasByExcelAndCorreoCorreHandler;
 import present.verb.dominio.hoja.model.Hoja;
+import present.verb.dominio.hoja.model.HojaDto;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class GetHojasByExcelAndCorreoRestController {
     private GetHojasByExcelAndCorreoCorreHandler getHojasByExcelAndCorreoCorreHandler;
 
     @GetMapping("/hojas/{excel}/{correo}")
-    public List<Hoja> execute(@PathVariable String excel, @PathVariable String correo) {
+    public List<HojaDto> execute(@PathVariable String excel, @PathVariable String correo) {
         return getHojasByExcelAndCorreoCorreHandler.execute(excel, correo);
     }
 

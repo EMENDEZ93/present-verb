@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import present.verb.dominio.hoja.model.Hoja;
+import present.verb.dominio.hoja.model.HojaDto;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class GetHojasByExcelAndCorreoServiceTest {
         String excel = "excel.lxs";
 
         // Act
-        List<Hoja> hojas = getHojasByExcelAndCorreoService.excecute(excel, correo);
+        List<HojaDto> hojas = getHojasByExcelAndCorreoService.excecute(excel, correo);
 
         // Assert
         Assert.assertFalse(hojas.isEmpty());
@@ -45,7 +46,7 @@ public class GetHojasByExcelAndCorreoServiceTest {
         String excel = "ejemplo1.xlsx";
 
         // Act
-        List<Hoja> hojas = getHojasByExcelAndCorreoService.excecute(excel, correo);
+        List<HojaDto> hojas = getHojasByExcelAndCorreoService.excecute(excel, correo);
 
         // Assert
         Assert.assertFalse(hojas.isEmpty());

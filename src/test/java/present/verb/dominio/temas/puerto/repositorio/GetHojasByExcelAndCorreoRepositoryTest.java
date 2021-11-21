@@ -9,7 +9,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import present.verb.dominio.excel.puerto.ExcelRepository;
 import present.verb.dominio.hoja.model.Hoja;
+import present.verb.dominio.hoja.model.HojaDto;
 import present.verb.dominio.temas.puerto.repository.GetHojasByExcelAndCorreoRepository;
 
 import java.util.List;
@@ -23,6 +25,9 @@ public class GetHojasByExcelAndCorreoRepositoryTest {
     @Autowired
     private GetHojasByExcelAndCorreoRepository repository;
 
+    @Autowired
+    private ExcelRepository excelRepository;
+
     @Test
     public void excelExiste(){
 
@@ -31,7 +36,7 @@ public class GetHojasByExcelAndCorreoRepositoryTest {
         String excel = "excel.lxs";
 
         // Act
-        List<Hoja> hojas = repository.execute(excel, correo);
+        List<HojaDto> hojas = repository.execute(excel, correo);
 
         Assert.assertEquals(2, hojas.size());
 
@@ -62,7 +67,7 @@ public class GetHojasByExcelAndCorreoRepositoryTest {
         String excel = "excelNoExiste.lxs";
 
         // Act
-        List<Hoja> hojas = repository.execute(correo, excel);
+        List<HojaDto> hojas = repository.execute(correo, excel);
 
 
         // Assert
