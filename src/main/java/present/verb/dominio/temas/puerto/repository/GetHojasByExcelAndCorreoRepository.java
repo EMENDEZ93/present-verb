@@ -10,7 +10,7 @@ import present.verb.dominio.usuario.modelo.Usuario;
 import java.util.List;
 
 @Repository
-public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Usuario, Long> {
+public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, Long> {
 
     @Transactional(readOnly = true)
     @Query(name = "getHojasByExcelAndCorreo")
