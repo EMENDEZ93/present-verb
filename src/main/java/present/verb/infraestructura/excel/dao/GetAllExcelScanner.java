@@ -1,20 +1,20 @@
 package present.verb.infraestructura.excel.dao;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import present.verb.dominio.excel.modelo.Excel;
 import present.verb.dominio.excel.puerto.GetAllExcelDao;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class GetAllExcelScanner implements GetAllExcelDao {
+
+    @Value("classpath:excel/*")
+    private Resource[] resources;
 
     @Override
     public List<Excel> executer() {
@@ -26,29 +26,23 @@ public class GetAllExcelScanner implements GetAllExcelDao {
 
     }
 
-    private List<Excel> scannerExcelFolder() throws URISyntaxException, IOException {
-        Path pathCarpetaTemas = getPathCarpetaExcel();
-        return Files.walk(pathCarpetaTemas)
-                .filter(Files::isRegularFile)
-                .map(informe -> {
+    private List<Excel> scannerExcelFolder() {
+        return Arrays.stream(resources)
+                .map(resource -> {
                     Excel excel = new Excel();
-                    excel.setNombre(getNombreSinExtension(informe));
-                    excel.setArchivo(getNombreConExtension(informe));
+                    excel.setNombre(getNombreSinExtension(resource.getFilename()));
+                    excel.setArchivo(getNombreConExtension(resource.getFilename()));
                     return excel;
                 }).collect(Collectors.toList());
+
     }
 
-    private Path getPathCarpetaExcel() throws URISyntaxException {
-        URI folder = getClass().getClassLoader().getResource("excel").toURI();
-        return Paths.get(folder);
+    private String getNombreSinExtension(String informe) {
+        return informe.replaceAll("\\.[^.]*$", "");
     }
 
-    private String getNombreSinExtension(Path informe) {
-        return informe.toFile().getName().replaceAll("\\.[^.]*$", "");
-    }
-
-    private String getNombreConExtension(Path informe) {
-        return informe.toFile().getName().replaceAll("\\.[^.]$", "");
+    private String getNombreConExtension(String informe) {
+        return informe.replaceAll("\\.[^.]$", "");
     }
 
 }
