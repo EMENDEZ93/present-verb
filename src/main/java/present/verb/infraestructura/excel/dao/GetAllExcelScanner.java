@@ -21,7 +21,7 @@ public class GetAllExcelScanner implements GetAllExcelDao {
         try {
             return scannerExcelFolder();
         } catch (Exception e) {
-            throw new RuntimeException("Error----");
+            throw new RuntimeException(e);
         }
 
     }
