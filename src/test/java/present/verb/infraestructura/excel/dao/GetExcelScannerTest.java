@@ -20,7 +20,7 @@ public class GetExcelScannerTest {
     private GetExcelScanner getExcelScanner;
 
     @Test
-    public void getExcel(){
+    public void getExcel1(){
 
         // Arrange
         String nombreExcel = "ejemplo1.xlsx";
@@ -41,6 +41,62 @@ public class GetExcelScannerTest {
         Assert.assertEquals(1, excel.getHojas().get(1).getIndiceExcel());
 
         Assert.assertEquals("hojaejemplo3", excel.getHojas().get(2).getNombre());
+        Assert.assertEquals(2, excel.getHojas().get(2).getFilas());
+        Assert.assertEquals(2, excel.getHojas().get(2).getIndiceExcel());
+
+    }
+
+
+    @Test
+    public void getExcel2(){
+
+        // Arrange
+        String nombreExcel = "ejemplo2.xlsx";
+
+        // Act
+        Excel excel = getExcelScanner.executer(nombreExcel);
+
+        // Assert
+        Assert.assertEquals(nombreExcel, excel.getNombre());
+        Assert.assertEquals(3, excel.getHojas().size());
+
+        Assert.assertEquals("hojaejemplo2.1", excel.getHojas().get(0).getNombre());
+        Assert.assertEquals(4, excel.getHojas().get(0).getFilas());
+        Assert.assertEquals(0, excel.getHojas().get(0).getIndiceExcel());
+
+        Assert.assertEquals("hojaejemplo2.2", excel.getHojas().get(1).getNombre());
+        Assert.assertEquals(5, excel.getHojas().get(1).getFilas());
+        Assert.assertEquals(1, excel.getHojas().get(1).getIndiceExcel());
+
+        Assert.assertEquals("hojaejemplo2.3", excel.getHojas().get(2).getNombre());
+        Assert.assertEquals(2, excel.getHojas().get(2).getFilas());
+        Assert.assertEquals(2, excel.getHojas().get(2).getIndiceExcel());
+
+    }
+
+
+    @Test
+    public void getExcel3(){
+
+        // Arrange
+        String nombreExcel = "ejemplo3.xlsx";
+
+        // Act
+        Excel excel = getExcelScanner.executer(nombreExcel);
+
+        // Assert
+        Assert.assertEquals(nombreExcel, excel.getNombre());
+        Assert.assertEquals(3, excel.getHojas().size());
+
+        Assert.assertEquals("hojaejemplo3.1", excel.getHojas().get(0).getNombre());
+        Assert.assertEquals(4, excel.getHojas().get(0).getFilas());
+        Assert.assertEquals(0, excel.getHojas().get(0).getIndiceExcel());
+
+        Assert.assertEquals("hojaejemplo3.2", excel.getHojas().get(1).getNombre());
+        Assert.assertEquals(5, excel.getHojas().get(1).getFilas());
+        Assert.assertEquals(1, excel.getHojas().get(1).getIndiceExcel());
+
+        Assert.assertEquals("hojaejemplo3.3", excel.getHojas().get(2).getNombre());
         Assert.assertEquals(2, excel.getHojas().get(2).getFilas());
         Assert.assertEquals(2, excel.getHojas().get(2).getIndiceExcel());
 

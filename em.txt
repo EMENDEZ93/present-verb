@@ -1,1 +1,6 @@
-up
+select * from public.temas where perfil_id = 7;
+
+select * from public.usuario;
+select * from public.perfil;
+
+update temas set ultimo_indice_aprendido=0 where id = 327;
