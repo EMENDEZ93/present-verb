@@ -89,7 +89,6 @@ public class GetFilasExcelScannerTest {
         Assert.assertEquals(1, fila.getEnglish().size());
         Assert.assertEquals(1, fila.getSpanish().size());
 
-
     }
 
     @Test
@@ -107,7 +106,6 @@ public class GetFilasExcelScannerTest {
         // Assert
         Assert.assertEquals(4, fila.getEnglish().size());
         Assert.assertEquals(4, fila.getSpanish().size());
-
 
     }
 
