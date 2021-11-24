@@ -92,4 +92,25 @@ public class GetFilasExcelScannerTest {
 
     }
 
+    @Test
+    public void methodTestError(){
+
+        // Arrange
+        String archivo = "ejemplo3.xlsx";
+        int indiceHoja = 0;
+        int ultimaFila = 0;
+        int filasPorAprender = 5;
+
+        // Act
+        Fila fila = getFilasExcelScanner.executer(archivo, indiceHoja, ultimaFila, filasPorAprender);
+
+        // Assert
+        Assert.assertEquals(4, fila.getEnglish().size());
+        Assert.assertEquals(4, fila.getSpanish().size());
+
+
+    }
+
+
+
 }
