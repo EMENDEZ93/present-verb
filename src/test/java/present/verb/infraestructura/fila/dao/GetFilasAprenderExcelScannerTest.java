@@ -14,10 +14,10 @@ import present.verb.dominio.fila.modelo.Fila;
 @SpringBootTest(classes = { })
 @ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
-public class GetFilasExcelScannerTest {
+public class GetFilasAprenderExcelScannerTest {
 
     @Autowired
-    private GetFilasExcelScanner getFilasExcelScanner;
+    private GetFilasAprenderExcelScanner getFilasAprenderExcelScanner;
 
     @Test
     public void methodTest3(){
@@ -26,7 +26,7 @@ public class GetFilasExcelScannerTest {
         int idHoja = 8;
 
         // Act
-        Fila fila = getFilasExcelScanner.executer(idHoja);
+        Fila fila = getFilasAprenderExcelScanner.executer(idHoja);
 
         // Assert
         Assert.assertEquals(1, fila.getEnglish().size());
@@ -41,7 +41,7 @@ public class GetFilasExcelScannerTest {
         int idHoja = 8;
 
         // Act
-        Fila fila = getFilasExcelScanner.executer(idHoja);
+        Fila fila = getFilasAprenderExcelScanner.executer(idHoja);
 
         // Assert
         Assert.assertEquals(1, fila.getEnglish().size());
@@ -56,7 +56,7 @@ public class GetFilasExcelScannerTest {
         int idHoja = 7;
 
         // Act
-        Fila fila = getFilasExcelScanner.executer(idHoja);
+        Fila fila = getFilasAprenderExcelScanner.executer(idHoja);
 
         // Assert
         Assert.assertEquals(4, fila.getEnglish().size());
@@ -72,7 +72,7 @@ public class GetFilasExcelScannerTest {
         int idHoja = 6;
 
         // Act
-        Fila fila = getFilasExcelScanner.executer(idHoja);
+        Fila fila = getFilasAprenderExcelScanner.executer(idHoja);
 
         // Assert
         Assert.assertEquals(5, fila.getEnglish().size());

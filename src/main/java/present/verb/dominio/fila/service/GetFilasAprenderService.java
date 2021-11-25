@@ -3,16 +3,16 @@ package present.verb.dominio.fila.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import present.verb.dominio.fila.modelo.Fila;
-import present.verb.infraestructura.fila.dao.GetFilasExcelScanner;
+import present.verb.infraestructura.fila.dao.GetFilasAprenderExcelScanner;
 
 @Service
-public class GetFilasService {
+public class GetFilasAprenderService {
 
     @Autowired
-    private GetFilasExcelScanner getFilasExcelScanner;
+    private GetFilasAprenderExcelScanner getFilasAprenderExcelScanner;
 
     public Fila executer(int idHoja) {
-        return getFilasExcelScanner.executer(idHoja);
+        return getFilasAprenderExcelScanner.executer(idHoja);
     }
 
 }

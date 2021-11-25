@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = { })
 @ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
-public class GetFilasRestControllerTest {
+public class GetFilasAprenderRestControllerTest {
 
     @Autowired
     private MockMvc mockMvc;

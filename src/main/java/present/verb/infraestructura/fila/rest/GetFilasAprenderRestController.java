@@ -5,21 +5,21 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import present.verb.aplicacion.filas.GetFilasHandler;
+import present.verb.aplicacion.filas.GetFilasAprenderHandler;
 import present.verb.dominio.fila.modelo.Fila;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class GetFilasRestController {
+public class GetFilasAprenderRestController {
 
     @Autowired
-    private GetFilasHandler getFilasHandler;
+    private GetFilasAprenderHandler getFilasAprenderHandler;
 
     @GetMapping("/filas/aprender/{idHoja}")
     public Fila executer(
             @PathVariable(value = "idHoja") int idHoja
     ) {
-        return getFilasHandler.executer(idHoja);
+        return getFilasAprenderHandler.executer(idHoja);
     }
 
 }

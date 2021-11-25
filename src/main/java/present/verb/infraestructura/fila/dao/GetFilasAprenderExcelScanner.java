@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class GetFilasExcelScanner {
+public class GetFilasAprenderExcelScanner {
 
     @Autowired
     private HojaRepository hojaRepository;
