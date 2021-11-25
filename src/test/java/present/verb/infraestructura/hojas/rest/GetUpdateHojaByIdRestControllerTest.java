@@ -33,15 +33,15 @@ public class GetUpdateHojaByIdRestControllerTest {
     public void methodTest() throws Exception {
 
         // Arrange
-        int idHoja = 2;
+        int idHoja = 3;
 
         // Act
         ResultActions resultActions = this.mockMvc.perform(get("/hoja/" + idHoja ));
 
         // Assert
         resultActions.andExpect(status().isOk());
-        resultActions.andExpect(jsonPath("$.nombre").value("hojaB.lxs"));
-        resultActions.andExpect(jsonPath("$.ultimoIndiceAprendido").value("15"));
+        resultActions.andExpect(jsonPath("$.nombre").value("hojaC.lxs"));
+        resultActions.andExpect(jsonPath("$.ultimoIndiceAprendido").value("25"));
         resultActions.andExpect(jsonPath("$.ultimaFechaAprendio").value(LocalDate.now().toString()));
 
     }

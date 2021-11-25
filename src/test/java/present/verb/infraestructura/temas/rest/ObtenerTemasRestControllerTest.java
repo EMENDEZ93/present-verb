@@ -16,9 +16,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = {
-})
-@ActiveProfiles("testing")
+@SpringBootTest(classes = {})
+@ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
 public class ObtenerTemasRestControllerTest {
 
@@ -32,10 +31,10 @@ public class ObtenerTemasRestControllerTest {
         String correo = "edwin@em.com";
 
         // Act
-        ResultActions resultActions = this.mockMvc.perform(get("/temas/testing01@em.com.co"));
+        ResultActions resultActions = this.mockMvc.perform(get("/temas/perfil01@em.com.co"));
 
         // Assert
-        resultActions.andExpect(jsonPath("$.[0].tema").value("Cardinal Numbers"));
+        resultActions.andExpect(jsonPath("$.[0].tema").value("tema1"));
 
     }
 
@@ -51,8 +50,8 @@ public class ObtenerTemasRestControllerTest {
         // Assert
         resultActions.andExpect(status().isOk());
         resultActions.andExpect(jsonPath("$.[0].tema").value("A"));
-        resultActions.andExpect(jsonPath("$.[1].tema").value("C"));
-        resultActions.andExpect(jsonPath("$.[2].tema").value("B"));
+        resultActions.andExpect(jsonPath("$.[1].tema").value("B"));
+        resultActions.andExpect(jsonPath("$.[2].tema").value("C"));
 
     }
 

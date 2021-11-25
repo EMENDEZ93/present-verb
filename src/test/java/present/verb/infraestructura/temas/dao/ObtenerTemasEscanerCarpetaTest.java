@@ -20,8 +20,8 @@ public class ObtenerTemasEscanerCarpetaTest {
 
         // Assert
         Assert.assertEquals(3, resultado.size());
-        Assert.assertEquals("A", resultado.get(1).getTema());
-        Assert.assertEquals("B", resultado.get(0).getTema());
+        Assert.assertEquals("B", resultado.get(1).getTema());
+        Assert.assertEquals("A", resultado.get(0).getTema());
         Assert.assertEquals("C", resultado.get(2).getTema());
 
     }

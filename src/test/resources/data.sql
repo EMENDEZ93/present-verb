@@ -7,7 +7,8 @@
   values {
     (1, 'IdFirebase01', 'testing01@em.com.co'),
     (2, 'IdFirebase02', 'testing02@em.com.co'),
-    (3, 'IdFirebase03', 'testing03@em.com.co')
+    (3, 'IdFirebase03', 'testing03@em.com.co'),
+    (6, 'IdFirebase04', 'testing04@em.com.co')
    };
 
   insert into excel

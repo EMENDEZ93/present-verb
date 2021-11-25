@@ -45,8 +45,7 @@ public class GetFilasRestControllerTest {
 
         // Assert
         resultActions.andExpect(status().isOk());
-        resultActions.andExpect(jsonPath("$.english[0]").value("a"));
-        resultActions.andExpect(jsonPath("$.spanish[0]").value("a"));
+        resultActions.andExpect(jsonPath("$.english[0]").value("I"));
 
     }
 

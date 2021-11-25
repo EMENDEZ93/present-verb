@@ -19,9 +19,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = {
-})
-@ActiveProfiles("testing")
+@SpringBootTest(classes = { })
+@ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
 public class RegistrarPerfilRestControllerTest {
 
@@ -53,7 +52,7 @@ public class RegistrarPerfilRestControllerTest {
 
         Perfil resultado = perfilRepositorio.findByCorreo(comando.getCorreo());
 
-        Assert.assertEquals(15, resultado.getTemas().size());
+        Assert.assertEquals(51, resultado.getTemas().size());
 
     }
 

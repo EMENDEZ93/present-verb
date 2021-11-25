@@ -5,7 +5,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import present.verb.ApplicationMock;
 import present.verb.aplicacion.palabras.TemaDto;
@@ -16,9 +20,10 @@ import java.util.List;
 
 import static org.junit.Assert.fail;
 
-@RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {ApplicationMock.class, ObtenerTemasV1Servicio.class} )
-@DataJpaTest
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = { })
+@ActiveProfiles("testing-h2")
+@AutoConfigureMockMvc
 public class ObtenerTemasExcelDaoTest {
 
     @Autowired
@@ -31,13 +36,13 @@ public class ObtenerTemasExcelDaoTest {
     public void ejecutarCorreo() {
 
         // Arrange
-        String correo = "testing01@em.com.co";
+        String correo = "perfil01@em.com.co";
 
         // Act
         List<TemaDto> temaDtos = dao.ejecutar(correo);
 
         // Assert
-        Assert.assertEquals(14, temaDtos.size());
+        Assert.assertEquals(2, temaDtos.size());
 
     }
 
@@ -71,7 +76,7 @@ public class ObtenerTemasExcelDaoTest {
         List<TemaDto> temaDtos = dao.ejecutar();
 
         // Assert
-        Assert.assertEquals(14, temaDtos.size());
+        Assert.assertEquals(51, temaDtos.size());
 
     }
 

@@ -5,7 +5,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import present.verb.ApplicationMock;
 import present.verb.dominio.perfil.modelo.Perfil;
@@ -14,9 +18,10 @@ import present.verb.dominio.temas.servicio.ObtenerTemasV1Servicio;
 import static org.junit.Assert.fail;
 
 
-@RunWith(SpringRunner.class)
-@ContextConfiguration(classes = {ApplicationMock.class, ObtenerTemasV1Servicio.class} )
-@DataJpaTest
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = { })
+@ActiveProfiles("testing-h2")
+@AutoConfigureMockMvc
 public class PerfilRepositorioTest {
 
     @Autowired
@@ -26,7 +31,7 @@ public class PerfilRepositorioTest {
     public void methodTest() {
 
         // Arrange
-        String correo = "testing01@em.com.co";
+        String correo = "perfil01@em.com.co";
 
         // Act
         Perfil resultado = perfilRepositorio.getByCorreo(correo);

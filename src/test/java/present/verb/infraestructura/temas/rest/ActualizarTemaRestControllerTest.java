@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = { })
-@ActiveProfiles("testing")
+@ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
 public class ActualizarTemaRestControllerTest {
 
@@ -43,7 +43,7 @@ public class ActualizarTemaRestControllerTest {
     public void actualizar() throws Exception {
 
         // Arrange
-        TemaComando temaComando = new TemaComando("Tema Tesing 01", "testing02@em.com.co", 10);
+        TemaComando temaComando = new TemaComando("tema3", "perfil02@em.com.co", 10);
 
         // Act
         Temas before = temasRepositorio.findByNombreAndPerfilCorreo(temaComando.getNombre(), temaComando.getCorreo());
@@ -59,7 +59,7 @@ public class ActualizarTemaRestControllerTest {
         Temas b = temasRepositorio.findByNombreAndPerfilCorreo(temaComando.getNombre(), temaComando.getCorreo());
 
         Assert.assertEquals(LocalDate.now(), b.getUltimaFechaAprendio());
-        Assert.assertEquals(before.getUltimoIndiceAprendido(), b.getUltimoIndiceAprendido());
+        Assert.assertNotEquals(before.getUltimoIndiceAprendido(), b.getUltimoIndiceAprendido());
     }
 
 

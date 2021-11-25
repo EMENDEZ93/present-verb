@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import present.verb.aplicacion.temas.GetHojasByExcelAndCorreoCorreHandler;
+import present.verb.aplicacion.hoja.GetHojasByExcelAndCorreoCorreHandler;
 import present.verb.dominio.hoja.model.HojaDto;
 
 import java.util.List;

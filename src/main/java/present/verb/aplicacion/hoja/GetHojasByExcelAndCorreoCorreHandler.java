@@ -1,4 +1,4 @@
-package present.verb.aplicacion.temas;
+package present.verb.aplicacion.hoja;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

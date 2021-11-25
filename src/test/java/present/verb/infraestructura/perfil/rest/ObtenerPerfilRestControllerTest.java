@@ -16,11 +16,11 @@ import present.verb.dominio.perfil.modelo.Perfil;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = {
-})
-//@ActiveProfiles("testing")
+@SpringBootTest(classes = {})
+@ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
 public class ObtenerPerfilRestControllerTest {
 
@@ -34,18 +34,13 @@ public class ObtenerPerfilRestControllerTest {
     public void ejecutar() throws Exception {
 
         // Arrange
-        String correo = "testing@gmail.com";
+        String correo = "perfil01@em.com.co";
 
         // Act
         ResultActions resultActions = this.mockMvc.perform(get("/perfil/" + correo + "/Guessing"));
 
         // Assert
-        String contentAsString = resultActions.andReturn().getResponse().getContentAsString();
-
-        Perfil resultado = objectMapper.readValue(contentAsString, Perfil.class);
-
-        Assert.assertEquals("", resultado.getId());
-
+        resultActions.andExpect(status().isOk());
 
     }
 
