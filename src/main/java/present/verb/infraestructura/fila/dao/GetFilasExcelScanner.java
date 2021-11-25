@@ -25,7 +25,7 @@ public class GetFilasExcelScanner {
         Optional<Hoja> hoja = hojaRepository.findById(idHoja);
         try {
             if(hoja.isPresent()) {
-                InputStream in = getClass().getResourceAsStream("/excel/".concat(hoja.get().getExcel().getArchivo()));
+                InputStream in = getClass().getResourceAsStream("/excel/".concat(hoja.get().getExcel().getNombre()));
                 XSSFWorkbook excel = new XSSFWorkbook(in);
                 XSSFSheet sheet = excel.getSheetAt(hoja.get().getIndiceExcel());
                 Iterator<Row> rowIterator = sheet.iterator();

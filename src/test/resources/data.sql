@@ -21,9 +21,9 @@
   values {
     (1, 'excel.lxs', 'excel', 1),
     (2, 'excel1', 'excel1.lxs', 1),
-    (3, 'ejemplo1','ejemplo1.xlsx', 6),
-    (4, 'ejemplo3','ejemplo3.xlsx', 6),
-    (5, 'ejemplo2','ejemplo2.xlsx', 6)
+    (3, 'ejemplo1.xlsx','ejemplo1.xlsx', 6),
+    (4, 'ejemplo3.xlsx','ejemplo3.xlsx', 6),
+    (5, 'ejemplo2.xlsx','ejemplo2.xlsx', 6)
    };
 
   insert into hoja
