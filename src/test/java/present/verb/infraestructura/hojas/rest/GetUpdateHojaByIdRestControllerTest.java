@@ -11,15 +11,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.time.LocalDate;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = { })
 @ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
-public class GetHojasByExcelAndCorreoRestControllerTest {
+public class GetUpdateHojaByIdRestControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -28,37 +30,19 @@ public class GetHojasByExcelAndCorreoRestControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    public void existTemaAndUsuario() throws Exception {
+    public void methodTest() throws Exception {
 
         // Arrange
-        String correo = "testing01@em.com.co";
-        String excel = "excel.lxs";
+        int idHoja = 2;
 
         // Act
-        ResultActions resultActions = this.mockMvc.perform(get("/hojas/" + excel + "/" + correo));
-
-
-        // Assert
-        resultActions.andExpect(jsonPath("$.[0].nombre").value("hojaA.lxs"));
-        resultActions.andExpect(jsonPath("$.[1].nombre").value("hojaB.lxs"));
-
-    }
-
-
-    @Test
-    public void noExistExcelAndUsuario() throws Exception {
-
-        // Arrange
-        String correo = "testing03@em.com.co";
-        String excel = "ejemplo1.xlsx";
-
-        // Act
-        ResultActions resultActions = this.mockMvc.perform(get("/hojas/" + excel + "/" + correo));
-
+        ResultActions resultActions = this.mockMvc.perform(get("/hoja/" + idHoja ));
 
         // Assert
-        resultActions.andExpect(jsonPath("$.[0].nombre").value("hojaejemplo11"));
-        resultActions.andExpect(jsonPath("$.[1].nombre").value("hojaejemplo12"));
+        resultActions.andExpect(status().isOk());
+        resultActions.andExpect(jsonPath("$.nombre").value("hojaB.lxs"));
+        resultActions.andExpect(jsonPath("$.ultimoIndiceAprendido").value("15"));
+        resultActions.andExpect(jsonPath("$.ultimaFechaAprendio").value(LocalDate.now().toString()));
 
     }
 

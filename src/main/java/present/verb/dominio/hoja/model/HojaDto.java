@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public interface HojaDto {
 
+    public int getId();
     public String getNombre();
     public int getUltimoIndiceAprendido();
     public int getRepeticionesAltaComoAprendido();

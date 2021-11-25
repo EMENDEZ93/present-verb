@@ -41,6 +41,7 @@ public class GetHojasByExcelAndCorreoRepositoryTest {
         Assert.assertEquals(2, hojas.size());
 
         // Assert hoja A
+        Assert.assertEquals(1, hojas.get(0).getId());
         Assert.assertEquals("hojaA.lxs", hojas.get(0).getNombre());
         Assert.assertEquals(5, hojas.get(0).getUltimoIndiceAprendido());
         Assert.assertEquals(3, hojas.get(0).getRepeticionesAltaComoAprendido());
