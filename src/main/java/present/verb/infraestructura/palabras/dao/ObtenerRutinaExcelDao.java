@@ -43,7 +43,6 @@ public class ObtenerRutinaExcelDao implements ObtenerRutinaDao {
             List<String> allSpanishVerb = new ArrayList<>();
 
             int verbos = 0;
-
             if(id > 0) {
 
                 while (rowIterator.hasNext()) {
