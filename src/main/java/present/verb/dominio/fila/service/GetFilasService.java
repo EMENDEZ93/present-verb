@@ -11,8 +11,8 @@ public class GetFilasService {
     @Autowired
     private GetFilasExcelScanner getFilasExcelScanner;
 
-    public Fila executer(String archivo, int indiceHoja, int ultimoFila, int filasPorAprender) {
-        return getFilasExcelScanner.executer(archivo, indiceHoja, ultimoFila, filasPorAprender);
+    public Fila executer(int idHoja) {
+        return getFilasExcelScanner.executer(idHoja);
     }
 
 }

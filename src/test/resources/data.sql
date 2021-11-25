@@ -15,9 +15,16 @@
 	(
 	ID,
 	NOMBRE,
+	ARCHIVO,
 	USUARIO_ID
 	)
-  values {(1, 'excel.lxs', 1), (2, 'excel1.lxs', 1)};
+  values {
+    (1, 'excel.lxs', 'excel', 1),
+    (2, 'excel1', 'excel1.lxs', 1),
+    (3, 'ejemplo1','ejemplo1.xlsx', 6),
+    (4, 'ejemplo3','ejemplo3.xlsx', 6),
+    (5, 'ejemplo2','ejemplo2.xlsx', 6)
+   };
 
   insert into hoja
 	(
@@ -36,7 +43,11 @@
   values {
     (1, 'hojaA.lxs', 1, FALSE, 88, 11, 10, 3, 5, '2021-07-21', '2021-06-21'),
     (2, 'hojaB.lxs', 1, FALSE, 99, 22, 5, 4, 10, '2021-08-21', '2021-05-21'),
-    (3, 'hojaC.lxs', 2, FALSE, 77, 33, 5, 8, 20, '2021-08-21', '2021-04-21')
+    (3, 'hojaC.lxs', 2, FALSE, 77, 33, 5, 8, 20, '2021-08-21', '2021-04-21'),
+    (6, 'hojaejemplo11', 3, FALSE, 80, 1, 5, 8, 0, '2021-09-21', '2021-09-21'),
+    (7, 'hojaejemplo33', 3, FALSE, 80, 1, 5, 8, 1, '2021-09-21', '2021-09-21'),
+    (8, 'hojaejemplo11', 3, FALSE, 80, 1, 5, 8, 4, '2021-09-21', '2021-09-21'),
+    (9, 'hojaejemplo22', 5, FALSE, 80, 1, 5, 8, 4, '2021-09-21', '2021-09-21')
    };
 
 

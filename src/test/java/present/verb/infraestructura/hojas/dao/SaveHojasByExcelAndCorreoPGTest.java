@@ -39,7 +39,7 @@ public class SaveHojasByExcelAndCorreoPGTest {
         String nombreExcel = "ejemplo1.xlsx";
 
         Usuario usuario = usuarioRepository.findByCorreo(correo);
-        Assert.assertEquals(0, usuario.getExcels().size());
+        Assert.assertEquals(3, usuario.getExcels().size());
 
         // Act
         List<Hoja> hojas = saveHojasByExcelAndCorreoPG.executer(nombreExcel, correo);
@@ -48,7 +48,7 @@ public class SaveHojasByExcelAndCorreoPGTest {
         Assert.assertEquals(3, hojas.size());
 
         Usuario usuarioPost = usuarioRepository.findByCorreo(correo);
-        Assert.assertEquals(1, usuarioPost.getExcels().size());
+        Assert.assertEquals(4, usuarioPost.getExcels().size());
         Assert.assertEquals(3, usuarioPost.getExcels().get(0).getHojas().size());
 
 

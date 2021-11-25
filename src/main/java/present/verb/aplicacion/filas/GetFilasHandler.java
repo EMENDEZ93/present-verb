@@ -11,8 +11,8 @@ public class GetFilasHandler {
     @Autowired
     private GetFilasService getFilasService;
 
-    public Fila executer(String archivo, int indiceHoja, int ultimoFila, int filasPorAprender) {
-        return getFilasService.executer(archivo, indiceHoja, ultimoFila, filasPorAprender);
+    public Fila executer(int idHoja) {
+        return getFilasService.executer(idHoja);
     }
 
 }

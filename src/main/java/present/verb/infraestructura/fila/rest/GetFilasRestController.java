@@ -15,14 +15,11 @@ public class GetFilasRestController {
     @Autowired
     private GetFilasHandler getFilasHandler;
 
-    @GetMapping("/filas/{archivo}/{indiceHoja}/{ultimoFila}/{filasPorAprender}")
+    @GetMapping("/filas/aprender/{idHoja}")
     public Fila executer(
-            @PathVariable(value = "archivo") String archivo,
-            @PathVariable(value = "indiceHoja") int indiceHoja,
-            @PathVariable(value = "ultimoFila") int ultimoFila,
-            @PathVariable(value = "filasPorAprender") int filasPorAprender
+            @PathVariable(value = "idHoja") int idHoja
     ) {
-        return getFilasHandler.executer( archivo, indiceHoja, ultimoFila, filasPorAprender);
+        return getFilasHandler.executer(idHoja);
     }
 
 }

@@ -20,56 +20,17 @@ public class GetFilasExcelScannerTest {
     private GetFilasExcelScanner getFilasExcelScanner;
 
     @Test
-    public void methodTest1(){
-
-        // Arrange
-        String archivo = "ejemplo1.xlsx";
-        int indiceHoja = 0;
-        int ultimoFila = 0;
-        int filasPorAprender = 5;
-
-        // Act
-        Fila fila = getFilasExcelScanner.executer(archivo, indiceHoja, ultimoFila, filasPorAprender);
-
-        // Assert
-        Assert.assertEquals(4, fila.getEnglish().size());
-        Assert.assertEquals(4, fila.getSpanish().size());
-
-    }
-
-    @Test
-    public void methodTest2(){
-
-        // Arrange
-        String archivo = "ejemplo1.xlsx";
-        int indiceHoja = 1;
-        int ultimoFila = 0;
-        int filasPorAprender = 5;
-
-        // Act
-        Fila fila = getFilasExcelScanner.executer(archivo, indiceHoja, ultimoFila, filasPorAprender);
-
-        // Assert
-        Assert.assertEquals(5, fila.getEnglish().size());
-        Assert.assertEquals(5, fila.getSpanish().size());
-
-    }
-
-    @Test
     public void methodTest3(){
 
         // Arrange
-        String archivo = "ejemplo1.xlsx";
-        int indiceHoja = 2;
-        int ultimoFila = 0;
-        int filasPorAprender = 5;
+        int idHoja = 8;
 
         // Act
-        Fila fila = getFilasExcelScanner.executer(archivo, indiceHoja, ultimoFila, filasPorAprender);
+        Fila fila = getFilasExcelScanner.executer(idHoja);
 
         // Assert
-        Assert.assertEquals(2, fila.getEnglish().size());
-        Assert.assertEquals(2, fila.getSpanish().size());
+        Assert.assertEquals(1, fila.getEnglish().size());
+        Assert.assertEquals(1, fila.getSpanish().size());
 
     }
 
@@ -77,13 +38,10 @@ public class GetFilasExcelScannerTest {
     public void methodTest4(){
 
         // Arrange
-        String archivo = "ejemplo1.xlsx";
-        int indiceHoja = 1;
-        int ultimaFila = 4;
-        int filasPorAprender = 5;
+        int idHoja = 8;
 
         // Act
-        Fila fila = getFilasExcelScanner.executer(archivo, indiceHoja, ultimaFila, filasPorAprender);
+        Fila fila = getFilasExcelScanner.executer(idHoja);
 
         // Assert
         Assert.assertEquals(1, fila.getEnglish().size());
@@ -95,13 +53,10 @@ public class GetFilasExcelScannerTest {
     public void methodTestError(){
 
         // Arrange
-        String archivo = "ejemplo3.xlsx";
-        int indiceHoja = 0;
-        int ultimaFila = 0;
-        int filasPorAprender = 5;
+        int idHoja = 7;
 
         // Act
-        Fila fila = getFilasExcelScanner.executer(archivo, indiceHoja, ultimaFila, filasPorAprender);
+        Fila fila = getFilasExcelScanner.executer(idHoja);
 
         // Assert
         Assert.assertEquals(4, fila.getEnglish().size());
@@ -110,5 +65,18 @@ public class GetFilasExcelScannerTest {
     }
 
 
+    @Test
+    public void methodTest6(){
 
+        // Arrange
+        int idHoja = 6;
+
+        // Act
+        Fila fila = getFilasExcelScanner.executer(idHoja);
+
+        // Assert
+        Assert.assertEquals(5, fila.getEnglish().size());
+        Assert.assertEquals(5, fila.getSpanish().size());
+
+    }
 }

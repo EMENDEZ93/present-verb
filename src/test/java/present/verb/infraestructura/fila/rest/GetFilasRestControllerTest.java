@@ -31,21 +31,14 @@ public class GetFilasRestControllerTest {
     public void methodTest() throws Exception {
 
         // Arrange
-        String archivo = "ejemplo1.xlsx";
-        int indiceHoja = 2;
-        int ultimoFila = 0;
-        int filasPorAprender = 5;
+        int idHoja = 8;
 
         // Act
-        ResultActions resultActions = this.mockMvc.perform(get("/filas/" +
-                archivo + "/" +
-                indiceHoja + "/" +
-                ultimoFila + "/" +
-                filasPorAprender));
+        ResultActions resultActions = this.mockMvc.perform(get("/filas/aprender/" + idHoja));
 
         // Assert
         resultActions.andExpect(status().isOk());
-        resultActions.andExpect(jsonPath("$.english[0]").value("I"));
+        resultActions.andExpect(jsonPath("$.english[0]").value("ch"));
 
     }
 
