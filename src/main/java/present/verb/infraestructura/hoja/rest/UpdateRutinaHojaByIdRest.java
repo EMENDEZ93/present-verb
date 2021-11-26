@@ -6,19 +6,20 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import present.verb.aplicacion.hoja.GetUpdateHojaByIdHandler;
+import present.verb.aplicacion.hoja.UpdateAprendidoHojaByIdHandler;
+import present.verb.aplicacion.hoja.UpdateRutinaHojaByIdHandler;
 import present.verb.dominio.hoja.model.Hoja;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class GetUpdateHojaByIdRestController {
+public class UpdateRutinaHojaByIdRest {
 
     @Autowired
-    private GetUpdateHojaByIdHandler getUpdateHojaByIdHandler;
+    private UpdateRutinaHojaByIdHandler updateRutinaHojaByIdHandler;
 
-    @GetMapping("/hoja/{idHoja}")
+    @GetMapping("/hoja/rutina/{idHoja}")
     public Hoja executer(@PathVariable int idHoja) {
-        return getUpdateHojaByIdHandler.executer(idHoja);
+        return updateRutinaHojaByIdHandler.executer(idHoja);
     }
 
 }

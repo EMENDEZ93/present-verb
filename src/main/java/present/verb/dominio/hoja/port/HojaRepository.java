@@ -27,4 +27,17 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
 
     }
 
+    default Hoja updateUlfimaFechaRutina(int idHoja) {
+        Optional<Hoja> hoja = findById(idHoja);
+        if(hoja.isPresent()) {
+            hoja.get().setUltimaFechaRutina(LocalDate.now());
+            save(hoja.get());
+            hoja.get().setExcel(null);
+            return hoja.get();
+        } else {
+            throw new RuntimeException("No Existe un Hoja con el id = " + idHoja);
+        }
+
+    }
+
 }

@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = { })
 @ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
-public class GetUpdateHojaByIdRestControllerTest {
+public class UpdateAprendidoHojaByIdRestTest {
 
     @Autowired
     private MockMvc mockMvc;

@@ -6,13 +6,13 @@ import present.verb.dominio.hoja.model.Hoja;
 import present.verb.dominio.hoja.port.HojaRepository;
 
 @Service
-public class GetUpdateHojaByIdService {
+public class UpdateRutinaHojaByIdService {
 
     @Autowired
     private HojaRepository hojaRepository;
 
     public Hoja executer(int idHoja) {
-        return hojaRepository.updateUlfimaFechaAndUltimoIndice(idHoja);
+        return hojaRepository.updateUlfimaFechaRutina(idHoja);
     }
 
 }

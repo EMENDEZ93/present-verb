@@ -64,4 +64,27 @@ public class HojaRepositoryTest {
 
     }
 
+
+    @Test
+    public void actualizarUltimaFechaRutina(){
+
+        // Arrange
+        int idHoja = 2;
+
+        hojaRepository.findById(idHoja)
+                .ifPresent(
+                        hoja -> {
+                            Assert.assertEquals(of(2021,5,21), hoja.getUltimaFechaRutina());
+                        }
+                );
+
+        // Act
+        Hoja hoja = hojaRepository.updateUlfimaFechaRutina(idHoja);
+
+        // Assert
+        Assert.assertEquals(now(), hoja.getUltimaFechaRutina());
+
+    }
+
+
 }
