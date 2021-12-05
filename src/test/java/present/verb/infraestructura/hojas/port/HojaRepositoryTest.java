@@ -97,7 +97,7 @@ public class HojaRepositoryTest {
         hojaRepository.findById(idHoja)
                 .ifPresent(
                         hoja -> {
-                            Assert.assertFalse(hoja.isPorRutina());
+                            Assert.assertFalse(hoja.getPorRutina());
                         }
                 );
 
@@ -105,7 +105,7 @@ public class HojaRepositoryTest {
         Hoja hoja = hojaRepository.updatePorRutina(idHoja);
 
         // Assert
-        Assert.assertTrue(hoja.isPorRutina());
+        Assert.assertTrue(hoja.getPorRutina());
 
     }
 

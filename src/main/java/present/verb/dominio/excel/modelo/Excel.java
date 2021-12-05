@@ -20,8 +20,8 @@ public class Excel {
     private int id;
     private String nombre;
     private String archivo;
-    private int cantidadhojasPorRutina;
-    private int ultimoIndiceRepaso;
+    private Integer cantidadhojasPorRutina;
+    private Integer ultimoIndiceRepaso;
     private LocalDate actualizacionIndiceRepaso;
 
     @OneToMany(mappedBy = "excel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

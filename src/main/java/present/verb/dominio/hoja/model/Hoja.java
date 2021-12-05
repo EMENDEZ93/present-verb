@@ -27,7 +27,7 @@ public class Hoja {
     private boolean esPreguntaRespuesta;
     private int indiceExcel;
     private int filas;
-    private boolean porRutina;
+    private Boolean porRutina;
     private String borrar;
 
     @ManyToOne

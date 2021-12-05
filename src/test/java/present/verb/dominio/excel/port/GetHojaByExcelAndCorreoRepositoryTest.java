@@ -34,7 +34,7 @@ public class GetHojaByExcelAndCorreoRepositoryTest {
         // Assert
         Assert.assertEquals("excelnoesfisico.xlsx", resultado.getNombre());
         Assert.assertEquals(11, resultado.getId());
-        Assert.assertEquals(5, resultado.getCantidadhojasPorRutina());
+        Assert.assertEquals(5, resultado.getCantidadhojasPorRutina().intValue());
 
     }
 
