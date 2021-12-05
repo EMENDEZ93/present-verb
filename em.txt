@@ -5,6 +5,7 @@ select * from public.perfil;
 
 update temas set ultimo_indice_aprendido=0 where id = 327;
 
+update excel set actualizacion_indice_repaso = '2021-01-30', cantidadhojas_por_rutina = 5, ultimo_indice_repaso=0 where id = 25;
 
 heroku logs --tail --app boiling-forest-31476
 

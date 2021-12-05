@@ -15,7 +15,7 @@ public class GetHojasByExcelAndCorreoCorreHandler {
     private GetHojasByExcelAndCorreoService getHojasByExcelAndCorreoService;
 
     public List<HojaDto> execute(String excel, String correo) {
-        return getHojasByExcelAndCorreoService.excecute(excel, correo);
+        return getHojasByExcelAndCorreoService.excecutev2(excel, correo);
     }
 
 }

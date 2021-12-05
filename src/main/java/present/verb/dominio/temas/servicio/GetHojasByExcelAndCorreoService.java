@@ -46,6 +46,9 @@ public class GetHojasByExcelAndCorreoService {
     public List<HojaDto> excecutev2(String excel, String correo) {
         Excel excel1 = getHojaByExcelAndCorreoRepository.executer(excel, correo);
 
+        System.out.println("*****************************************************");
+        System.out.println(excel1.getActualizacionIndiceRepaso());
+
         if(excel1.getActualizacionIndiceRepaso().isBefore(now())) {
             List<HojaDto> hojas = excecute(excel, correo);
             List<HojaDto> hojasAprendidas =  hojas.stream()
