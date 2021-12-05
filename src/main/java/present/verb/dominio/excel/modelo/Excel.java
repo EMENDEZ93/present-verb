@@ -6,6 +6,7 @@ import present.verb.dominio.hoja.model.Hoja;
 import present.verb.dominio.usuario.modelo.Usuario;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -16,9 +17,12 @@ public class Excel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String nombre;
     private String archivo;
+    private int cantidadhojasPorRutina;
+    private int ultimoIndiceRepaso;
+    private LocalDate actualizacionIndiceRepaso;
 
     @OneToMany(mappedBy = "excel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Hoja> hojas;

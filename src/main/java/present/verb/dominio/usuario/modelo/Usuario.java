@@ -6,6 +6,7 @@ import lombok.Setter;
 import present.verb.dominio.excel.modelo.Excel;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,7 @@ public class Usuario {
     private Long id;
     private String idFirebase;
     private String correo;
+    private LocalDate ultimaConexion;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Excel> excels;

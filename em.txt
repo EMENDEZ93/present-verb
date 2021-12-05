@@ -12,3 +12,6 @@ heroku logs --tail --app boiling-forest-31476
 SELECT pg_terminate_backend(pg_stat_activity.pid)
 FROM pg_stat_activity
 WHERE datname = current_database()
+
+
+select * from public.temas where perfil_id = 7 and ultimo_indice_aprendido > 0;

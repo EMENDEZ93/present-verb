@@ -51,7 +51,7 @@ public class HojaRepositoryTest {
     @Test
     public void methodTest1(){
         // Arrange
-        int idHoja = 20;
+        int idHoja = 80;
 
         // Act
         try {
@@ -59,7 +59,7 @@ public class HojaRepositoryTest {
             fail("Debe generar error ya que no existe dicha hoja.....");
         } catch (Exception e) {
             // Assert
-            Assert.assertEquals("No Existe un Hoja con el id = 20", e.getMessage());
+            Assert.assertEquals("No Existe un Hoja con el id = 80", e.getMessage());
         }
 
     }
@@ -86,5 +86,27 @@ public class HojaRepositoryTest {
 
     }
 
+
+    @Test
+    public void actualizarDiaRutina(){
+
+        // Arrange
+        int idHoja = 2;
+        int diaRutina = 1;
+
+        hojaRepository.findById(idHoja)
+                .ifPresent(
+                        hoja -> {
+                            Assert.assertFalse(hoja.isPorRutina());
+                        }
+                );
+
+        // Act
+        Hoja hoja = hojaRepository.updatePorRutina(idHoja);
+
+        // Assert
+        Assert.assertTrue(hoja.isPorRutina());
+
+    }
 
 }

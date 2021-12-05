@@ -1,4 +1,5 @@
-package present.verb.infraestructura.excel.dao;
+package present.verb.dominio.excel.port;
+
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,28 +10,31 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import present.verb.dominio.excel.modelo.Excel;
-
-import java.util.List;
+import present.verb.dominio.hoja.port.GetHojaByExcelAndCorreoRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = { })
 @ActiveProfiles("testing-h2")
 @AutoConfigureMockMvc
-public class GetAllExcelScannerTest {
+public class GetHojaByExcelAndCorreoRepositoryTest {
 
     @Autowired
-    private GetAllExcelScanner getAllExcelScanner;
+    private GetHojaByExcelAndCorreoRepository getHojaByExcelAndCorreoRepository;
 
     @Test
     public void methodTest(){
 
         // Arrange
+        String correo = "testing11@em.com.co";
+        String excel = "excelnoesfisico.xlsx";
 
         // Act
-        List<Excel> excels = getAllExcelScanner.executer();
+        Excel resultado = getHojaByExcelAndCorreoRepository.executer(excel, correo);
 
         // Assert
-        Assert.assertEquals(4, excels.size());
+        Assert.assertEquals("excelnoesfisico.xlsx", resultado.getNombre());
+        Assert.assertEquals(11, resultado.getId());
+        Assert.assertEquals(5, resultado.getCantidadhojasPorRutina());
 
     }
 

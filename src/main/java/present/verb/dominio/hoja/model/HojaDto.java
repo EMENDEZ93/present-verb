@@ -15,5 +15,6 @@ public interface HojaDto {
     public boolean isEsPreguntaRespuesta();
     public int getIndiceExcel();
     public int getFilas();
+    public boolean isPorRutina();
 
 }

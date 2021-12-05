@@ -8,10 +8,16 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import present.verb.dominio.excel.modelo.Excel;
 import present.verb.dominio.hoja.model.Hoja;
 import present.verb.dominio.hoja.model.HojaDto;
+import present.verb.dominio.hoja.port.GetHojaByExcelAndCorreoRepository;
+import present.verb.dominio.hoja.port.HojaRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.time.LocalDate.now;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = { })
@@ -21,6 +27,12 @@ public class GetHojasByExcelAndCorreoServiceTest {
 
     @Autowired
     private GetHojasByExcelAndCorreoService getHojasByExcelAndCorreoService;
+
+    @Autowired
+    private GetHojaByExcelAndCorreoRepository getHojaByExcelAndCorreoRepository;
+
+    @Autowired
+    private HojaRepository hojaRepository;
 
     @Test
     public void existeRegistros(){
@@ -50,6 +62,108 @@ public class GetHojasByExcelAndCorreoServiceTest {
 
         // Assert
         Assert.assertFalse(hojas.isEmpty());
+
+    }
+
+
+    @Test
+    public void ex(){
+
+        // Arrange
+        String correo = "testing10@em.com.co";
+        String excel = "excelnoesfisico.xlsx";
+
+        Excel excelPrevio = getHojaByExcelAndCorreoRepository.executer(excel, correo);
+        Assert.assertEquals("2021-06-21", excelPrevio.getActualizacionIndiceRepaso().toString());
+        Assert.assertEquals(0, excelPrevio.getUltimoIndiceRepaso());
+        Assert.assertEquals(5, excelPrevio.getCantidadhojasPorRutina());
+
+
+        // Act
+        List<Hoja> hoj = hojaRepository.findAll();
+        System.out.println("Tamaño actal -> " +  hoj.size());
+
+
+        List<HojaDto> hojas = getHojasByExcelAndCorreoService.excecutev2(excel, correo);
+
+        // Assert
+        Assert.assertFalse(hojas.isEmpty());
+        Excel excelResultado = getHojaByExcelAndCorreoRepository.executer(excel, correo);
+
+        // Asser excel1
+        Assert.assertEquals(now(), excelResultado.getActualizacionIndiceRepaso());
+        Assert.assertEquals(5, excelResultado.getUltimoIndiceRepaso());
+
+        List<Hoja> hojasAprendidas =  excelResultado.getHojas().stream()
+                .filter(hojaDto -> hojaDto.getUltimoIndiceAprendido() > 0 && hojaDto.isPorRutina())
+                .collect(Collectors.toList());
+
+        Assert.assertEquals(5, hojasAprendidas.size());
+
+    }
+
+
+    @Test
+    public void ex1(){
+
+        // Arrange
+        String correo = "testing11@em.com.co";
+        String excel = "excelnoesfisico.xlsx";
+
+        Excel excelPrevio = getHojaByExcelAndCorreoRepository.executer(excel, correo);
+        Assert.assertEquals("2021-06-21", excelPrevio.getActualizacionIndiceRepaso().toString());
+        Assert.assertEquals(13, excelPrevio.getUltimoIndiceRepaso());
+        Assert.assertEquals(5, excelPrevio.getCantidadhojasPorRutina());
+
+
+        // Act
+        List<HojaDto> hojas = getHojasByExcelAndCorreoService.excecutev2(excel, correo);
+
+        // Assert
+        Assert.assertFalse(hojas.isEmpty());
+        Excel excelResultado = getHojaByExcelAndCorreoRepository.executer(excel, correo);
+
+        // Asser excel1
+        Assert.assertEquals(now(), excelResultado.getActualizacionIndiceRepaso());
+        Assert.assertEquals(3, excelResultado.getUltimoIndiceRepaso());
+
+        List<Hoja> hojasAprendidas =  excelResultado.getHojas().stream()
+                .filter(hojaDto -> hojaDto.getUltimoIndiceAprendido() > 0 && hojaDto.isPorRutina())
+                .collect(Collectors.toList());
+
+        Assert.assertEquals(5, hojasAprendidas.size());
+
+    }
+
+    @Test
+    public void ex2(){
+
+        // Arrange
+        String correo = "testing12@em.com.co";
+        String excel = "excelnoesfisico.xlsx";
+
+        Excel excelPrevio = getHojaByExcelAndCorreoRepository.executer(excel, correo);
+        Assert.assertEquals("2021-06-21", excelPrevio.getActualizacionIndiceRepaso().toString());
+        Assert.assertEquals(14, excelPrevio.getUltimoIndiceRepaso());
+        Assert.assertEquals(5, excelPrevio.getCantidadhojasPorRutina());
+
+
+        // Act
+        List<HojaDto> hojas = getHojasByExcelAndCorreoService.excecutev2(excel, correo);
+
+        // Assert
+        Assert.assertFalse(hojas.isEmpty());
+        Excel excelResultado = getHojaByExcelAndCorreoRepository.executer(excel, correo);
+
+        // Asser excel1
+        Assert.assertEquals(now(), excelResultado.getActualizacionIndiceRepaso());
+        Assert.assertEquals(4, excelResultado.getUltimoIndiceRepaso());
+
+        List<Hoja> hojasAprendidas =  excelResultado.getHojas().stream()
+                .filter(hojaDto -> hojaDto.getUltimoIndiceAprendido() > 0 && hojaDto.isPorRutina())
+                .collect(Collectors.toList());
+
+        Assert.assertEquals(5, hojasAprendidas.size());
 
     }
 
