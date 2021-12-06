@@ -28,7 +28,8 @@ public class Hoja {
     private int indiceExcel;
     private int filas;
     private Boolean porRutina;
-    private String borrar;
+    private LocalDate actualizacionPorRutina;
+
 
     @ManyToOne
     @JoinColumn
@@ -60,11 +61,12 @@ public class Hoja {
 
     @PrePersist
     public void prePersist() {
-        ultimoIndiceAprendido = 0;
-        repeticionesAltaComoAprendido = 3;
-        numeroVerbosPorAprenderDiario = 5;
-        ultimaFechaAprendio = LocalDate.of(2020, Month.JANUARY, 1);
-        ultimaFechaRutina = LocalDate.of(2020, Month.JANUARY, 1);
+        setUltimoIndiceAprendido(0);
+        setRepeticionesAltaComoAprendido(3);
+        setNumeroVerbosPorAprenderDiario(5);
+        setUltimaFechaAprendio(LocalDate.of(2020, Month.JANUARY, 1));
+        setUltimaFechaRutina(LocalDate.of(2020, Month.JANUARY, 1));
+        setPorRutina(true);
     }
 
     public boolean getRealizadoAprenderHoy() {

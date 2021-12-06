@@ -11,7 +11,8 @@
     (6, 'IdFirebase04', 'testing04@em.com.co'),
     (10, 'IdFirebase10', 'testing10@em.com.co'),
     (11, 'IdFirebase11', 'testing11@em.com.co'),
-    (15, 'IdFirebase12', 'testing12@em.com.co')
+    (15, 'IdFirebase12', 'testing12@em.com.co'),
+    (16, 'IdFirebase13', 'testing13@em.com.co')
    };
 
   insert into excel
@@ -22,17 +23,20 @@
 	USUARIO_ID,
 	CANTIDADHOJAS_POR_RUTINA,
 	ULTIMO_INDICE_REPASO,
-	ACTUALIZACION_INDICE_REPASO
+	ACTUALIZACION_INDICE_REPASO,
+	REPETICION_POR_HORAS,
+	HORA_ACTUALIZACION_INDICE_REPASO
 	)
   values {
-    (1, 'excel.lxs', 'excel', 1, 0, 0, '2021-06-21'),
-    (2, 'excel1', 'excel1.lxs', 1, 0, 0, '2021-06-21'),
-    (3, 'ejemplo1.xlsx','ejemplo1.xlsx', 6, 0, 0, '2021-06-21'),
-    (4, 'ejemplo3.xlsx','ejemplo3.xlsx', 6, 0, 0, '2021-06-21'),
-    (5, 'ejemplo2.xlsx','ejemplo2.xlsx', 6, 0, 0, '2021-06-21'),
-    (10, 'excelnoesfisico.xlsx','excelnoesfisico.xlsx', 10, 5, 0, '2021-06-21'),
-    (11, 'excelnoesfisico.xlsx','excelnoesfisico.xlsx', 11, 5, 13, '2021-06-21'),
-    (12, 'excelnoesfisico.xlsx','excelnoesfisico.xlsx', 15, 5, 14, '2021-06-21')
+    (1, 'excel.lxs', 'excel', 1, 0, 0, '2021-06-21', 12, 10),
+    (2, 'excel1', 'excel1.lxs', 1, 0, 0, '2021-06-21', 12, 10),
+    (3, 'ejemplo1.xlsx','ejemplo1.xlsx', 6, 0, 0, '2021-06-21', 12, 10),
+    (4, 'ejemplo3.xlsx','ejemplo3.xlsx', 6, 0, 0, '2021-06-21', 12, 10),
+    (5, 'ejemplo2.xlsx','ejemplo2.xlsx', 6, 0, 0, '2021-06-21', 12, 10),
+    (10, 'excelnoesfisico.xlsx','excelnoesfisico.xlsx', 10, 5, null, '2021-06-21', 12, 10),
+    (11, 'excelnoesfisico.xlsx','excelnoesfisico.xlsx', 11, 5, 13, '2021-06-21', 12, 10),
+    (12, 'excelnoesfisico.xlsx','excelnoesfisico.xlsx', 15, 5, 14, '2021-06-21', 12, 10),
+    (13, 'excelnoesfisico.xlsx','excelnoesfisico.xlsx', 16, 5, 5, '2021-06-21', 12, 10)
    };
 
   insert into hoja
@@ -105,7 +109,24 @@
     (51, 'noexistehoja12', 12, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
     (52, 'noexistehoja13', 12, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
     (53, 'noexistehoja14', 12, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
-    (54, 'noexistehoja15', 12, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE)
+    (54, 'noexistehoja15', 12, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+
+    (55, 'noexistehoja1', 13, FALSE, 80, 1, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (56, 'noexistehoja2', 13, FALSE, 80, 2, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (57, 'noexistehoja3', 13, FALSE, 80, 3, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (58, 'noexistehoja4', 13, FALSE, 80, 4, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (59, 'noexistehoja5', 13, FALSE, 80, 5, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (60, 'noexistehoja6', 13, FALSE, 80, 6, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (61, 'noexistehoja7', 13, FALSE, 80, 7, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (62, 'noexistehoja8', 13, FALSE, 80, 8, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (63, 'noexistehoja9', 13, FALSE, 80, 9, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (64, 'noexistehoja10', 13, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (65, 'noexistehoja11', 13, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (66, 'noexistehoja12', 13, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (67, 'noexistehoja13', 13, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (68, 'noexistehoja14', 13, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (69, 'noexistehoja15', 13, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE),
+    (70, 'noexistehoja15', 13, FALSE, 80, 10, 5, 8, 5, '2021-09-21', '2021-09-21', FALSE)
 
    };
 

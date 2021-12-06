@@ -16,3 +16,9 @@ WHERE datname = current_database()
 
 
 select * from public.temas where perfil_id = 7 and ultimo_indice_aprendido > 0;
+
+update hoja set por_rutina=NULL;
+update excel set actualizacion_indice_repaso = '2021-12-04', cantidadhojas_por_rutina = 5, ultimo_indice_repaso=null where id = 26;
+
+update hoja set por_rutina=false where por_rutina=true;
+update excel set actualizacion_indice_repaso = '2021-12-05' where id = 26;
