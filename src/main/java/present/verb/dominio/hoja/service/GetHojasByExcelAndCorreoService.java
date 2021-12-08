@@ -42,15 +42,17 @@ public class GetHojasByExcelAndCorreoService {
     }
 
     public List<HojaDto> excecutev2(String nombreExcel, String correo, int horaActual) {
+        List<HojaDto> hojas = excecute(nombreExcel, correo);
+        List<HojaDto> hojasAprendidas =  hojas.stream()
+                .filter(hojaDto -> hojaDto.getUltimoIndiceAprendido() > 0 )
+                .collect(Collectors.toList());
         Excel excel = getHojaByExcelAndCorreoRepository.executer(nombreExcel, correo);
 
-        if(excel.getActualizacionIndiceRepaso().isBefore(now())
-           || excel.debeRealizarRepeticion(horaActual)
+        if(
+           hojasAprendidas.size() > excel.getCantidadhojasPorRutina()
+           && (excel.getActualizacionIndiceRepaso().isBefore(now())
+           || excel.debeRealizarRepeticion(horaActual))
         ) {
-            List<HojaDto> hojas = excecute(nombreExcel, correo);
-            List<HojaDto> hojasAprendidas =  hojas.stream()
-                    .filter(hojaDto -> hojaDto.getUltimoIndiceAprendido() > 0 )
-                    .collect(Collectors.toList());
             List<Integer> idsPorRutina = new ArrayList<>();
             if(isNull(excel.getUltimoIndiceRepaso())) {
                 int pivote = 0;

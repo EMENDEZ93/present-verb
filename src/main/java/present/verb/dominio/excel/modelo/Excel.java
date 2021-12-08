@@ -42,7 +42,7 @@ public class Excel {
         setUltimoIndiceRepaso(0);
         setCantidadhojasPorRutina(5);
         setHoraActualizacionIndiceRepaso(0);
-        setRepeticionPorHoras(8);
+        setRepeticionPorHoras(12);
     }
 
     public boolean debeRealizarRepeticion(int horaActual) {
