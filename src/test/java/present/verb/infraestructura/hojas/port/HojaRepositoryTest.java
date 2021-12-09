@@ -51,7 +51,7 @@ public class HojaRepositoryTest {
     @Test
     public void methodTest1(){
         // Arrange
-        int idHoja = 80;
+        int idHoja = 200;
 
         // Act
         try {
@@ -59,7 +59,7 @@ public class HojaRepositoryTest {
             fail("Debe generar error ya que no existe dicha hoja.....");
         } catch (Exception e) {
             // Assert
-            Assert.assertEquals("No Existe un Hoja con el id = 80", e.getMessage());
+            Assert.assertEquals("No Existe un Hoja con el id = 200", e.getMessage());
         }
 
     }

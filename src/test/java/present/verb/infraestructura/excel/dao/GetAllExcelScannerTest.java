@@ -30,7 +30,7 @@ public class GetAllExcelScannerTest {
         List<Excel> excels = getAllExcelScanner.executer();
 
         // Assert
-        Assert.assertEquals(4, excels.size());
+        Assert.assertEquals(5, excels.size());
 
     }
 

@@ -14,10 +14,7 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
         Optional<Hoja> hoja = findById(idHoja);
         if(hoja.isPresent()) {
             hoja.get().setUltimaFechaAprendio(LocalDate.now());
-            hoja.get().setUltimoIndiceAprendido(
-                    hoja.get().getUltimoIndiceAprendido() +
-                    hoja.get().getNumeroVerbosPorAprenderDiario()
-            );
+            hoja.get().updateUltimaFechAprendido();
             save(hoja.get());
             hoja.get().setExcel(null);
             return hoja.get();

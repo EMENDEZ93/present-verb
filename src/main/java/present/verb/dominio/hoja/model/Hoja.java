@@ -79,4 +79,11 @@ public class Hoja {
         return ultimaFechaAprendio.isAfter(LocalDate.now()) || ultimaFechaAprendio.isEqual(LocalDate.now());
     }
 
+    public void updateUltimaFechAprendido() {
+        setUltimoIndiceAprendido(getUltimoIndiceAprendido() + getNumeroVerbosPorAprenderDiario());
+        if(getUltimoIndiceAprendido() > getFilas()) {
+            setUltimoIndiceAprendido(getFilas());
+        }
+    }
+
 }
