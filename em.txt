@@ -27,3 +27,6 @@ update excel set actualizacion_indice_repaso = '2021-12-05' where id = 26;
 select * from public.hoja where excel_id = 27 and ultimo_indice_aprendido > 0;
 
 update hoja set ultimo_indice_aprendido = 3 where id=129;
+
+
+https://www.youtube.com/watch?v=-ToDCpZEIfA&ab_channel=why

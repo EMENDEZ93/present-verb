@@ -50,8 +50,7 @@ public class GetHojasByExcelAndCorreoService {
 
         if(
            hojasAprendidas.size() > excel.getCantidadhojasPorRutina()
-           && (excel.getActualizacionIndiceRepaso().isBefore(now())
-           || excel.debeRealizarRepeticion(horaActual))
+           && excel.getActualizacionIndiceRepaso().isBefore(now())
         ) {
             List<Integer> idsPorRutina = new ArrayList<>();
             if(isNull(excel.getUltimoIndiceRepaso())) {
