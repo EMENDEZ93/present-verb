@@ -10,6 +10,8 @@ import present.verb.dominio.perfil.modelo.Temas;
 import present.verb.dominio.perfil.puerto.repositorio.PerfilRepositorio;
 import present.verb.dominio.perfil.puerto.repositorio.TemasRepositorio;
 import present.verb.dominio.temas.servicio.ObtenerTemasV1Servicio;
+import present.verb.dominio.usuario.modelo.Usuario;
+import present.verb.dominio.usuario.puerto.UsuarioRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,35 +21,14 @@ import java.util.stream.Collectors;
 public class RegistrarPerfilServicio {
 
     @Autowired
-    private ObtenerTemasV1Servicio obtenerTemasServicio;
-
-    @Autowired
-    private PerfilRepositorio perfilRepositorio;
-
-    @Autowired
-    private TemasRepositorio temasRepositorio;
-
-    @Autowired
-    private ObtenerTemasEsPreguntaRespuestaDao obtenerTemasPreguntaRespuesta;
+    private UsuarioRepository usuarioRepository;
 
     public void ejecutar(Perfil perfil) {
+        Usuario usuario = new Usuario();
+        usuario.setIdFirebase(perfil.getIdFirebase());
+        usuario.setCorreo(perfil.getCorreo());
 
-        perfilRepositorio.save(perfil);
-
-		List<Temas> temas = obtenerTemasServicio.ejecutar().stream().map(temaDto -> {
-            Temas tema = new Temas();
-			tema.setNombre(temaDto.getTema());
-			tema.setPerfil(perfil);
-			tema.setEsPreguntaRespuesta(this.obtenerTemasPreguntaRespuesta.ejecutar(tema.getNombre()));
-			tema.setIndiceExcel(temaDto.getIndiceExcel());
-			tema.setFilas(temaDto.getFilas());
-            temasRepositorio.save(tema);
-            return tema;
-        }).collect(Collectors.toList());
-
-        perfil.setTemas(temas);
-        perfilRepositorio.save(perfil);
-
+        usuarioRepository.save(usuario);
     }
 
 }

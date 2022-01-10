@@ -32,7 +32,7 @@ public class GetHojasByExcelAndCorreoRestControllerTest {
 
         // Arrange
         String correo = "testing01@em.com.co";
-        String excel = "excel.lxs";
+        String excel = "Intellij.xlsx";
 
         // Act
         ResultActions resultActions = this.mockMvc.perform(get("/hojas/" + excel + "/" + correo));
