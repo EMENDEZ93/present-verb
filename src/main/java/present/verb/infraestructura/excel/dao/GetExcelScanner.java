@@ -41,6 +41,7 @@ public class GetExcelScanner {
                 hoja.setFilas(filasByHojas);
                 hoja.setIndiceExcel(indiceHojaExcel);
                 hoja.setExcel(excelResultado);
+                hoja.setPorRutina(false);
 
                 excelResultado.getHojas().add(hoja);
             }
