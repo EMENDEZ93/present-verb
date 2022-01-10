@@ -57,6 +57,7 @@ public class Hoja {
         setEsPreguntaRespuesta(esPreguntaRespuesta);
         setIndiceExcel(indiceExcel);
         setFilas(filas);
+        setPorRutina(false);
     }
 
     @PrePersist
