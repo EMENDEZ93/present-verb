@@ -35,10 +35,14 @@ public class GetFilasRutinaExcelScanner {
                 List<String> allSpanishVerb = new ArrayList<>();
 
                 int verbos = 0;
+                boolean orden = false;
                 if(hoja.get().getUltimoIndiceAprendido() > 0) {
                     while (rowIterator.hasNext()) {
                         row = rowIterator.next();
-                        if (row.getCell(0).toString() == "") break;
+
+                        orden = requiereOrden(row, orden);
+
+                        if (row.getCell(0).toString().equals("")) break;
                         allEnglishVerb.add(row.getCell(0).toString());
                         allSpanishVerb.add(row.getCell(1).toString());
                         verbos++;
@@ -50,6 +54,7 @@ public class GetFilasRutinaExcelScanner {
                 Fila fila = new Fila();
                 fila.setEnglish(allEnglishVerb);
                 fila.setSpanish(allSpanishVerb);
+                fila.setOrden(orden);
                 return fila;
             } else {
                 throw new RuntimeException("No Existe un Hoja con el id = " + idHoja);
@@ -57,6 +62,19 @@ public class GetFilasRutinaExcelScanner {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private boolean requiereOrden(Row row, boolean orden) {
+        if(!orden) {
+            try {
+                if(String.valueOf(row.getCell(9)) ==  "TRUE") {
+                    return true;
+                }
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return orden;
     }
 
 }

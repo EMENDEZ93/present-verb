@@ -9,7 +9,8 @@ import java.util.List;
 @Getter
 public class Fila {
 
-    List<String> english;
-    List<String> spanish;
+    private List<String> english;
+    private List<String> spanish;
+    private boolean orden;
 
 }
