@@ -55,6 +55,7 @@ public class GetFilasAprenderExcelScanner {
                 Fila fila = new Fila();
                 fila.setEnglish(allEnglishVerb);
                 fila.setSpanish(allSpanishVerb);
+                fila.setOrden(orden);
                 return fila;
             } else {
                 throw new RuntimeException("No Existe un Hoja con el id = " + idHoja);
