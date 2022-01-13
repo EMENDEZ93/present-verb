@@ -31,12 +31,16 @@ public class GetFilasAprenderExcelScanner {
                 Iterator<Row> rowIterator = sheet.iterator();
 
                 Row row;
+                boolean orden = false;
                 List<String> allEnglishVerb = new ArrayList<>();
                 List<String> allSpanishVerb = new ArrayList<>();
 
                 int verbos = 0;
                 while (rowIterator.hasNext()) {
                     row = rowIterator.next();
+
+                    orden = requiereOrden(row, orden);
+
                     if (verbos >= hoja.get().getUltimoIndiceAprendido()) {
                         if ("".equals(row.getCell(0).toString())) break;
                         allEnglishVerb.add(row.getCell(0).toString());
@@ -58,6 +62,19 @@ public class GetFilasAprenderExcelScanner {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private boolean requiereOrden(Row row, boolean orden) {
+        if(!orden) {
+            try {
+                if(String.valueOf(row.getCell(9)) ==  "TRUE") {
+                    return true;
+                }
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return orden;
     }
 
 }
