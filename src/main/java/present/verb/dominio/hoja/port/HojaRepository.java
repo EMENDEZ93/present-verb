@@ -50,4 +50,16 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
         }
     }
 
+    default Hoja updateSpeakingById(int idHoja) {
+        Optional<Hoja> hoja = findById(idHoja);
+        if(hoja.isPresent()) {
+            hoja.get().setSpeaking(true);
+            Hoja resultado = save(hoja.get());
+            resultado.setExcel(null);
+            return resultado;
+        } else {
+            throw new RuntimeException("No Existe un Hoja con el id = " + idHoja);
+        }
+
+    }
 }

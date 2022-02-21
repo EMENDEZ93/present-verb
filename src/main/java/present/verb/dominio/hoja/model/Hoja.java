@@ -28,6 +28,7 @@ public class Hoja {
     private int indiceExcel;
     private int filas;
     private Boolean porRutina;
+    private Boolean speaking;
     private LocalDate actualizacionPorRutina;
 
 
@@ -68,6 +69,7 @@ public class Hoja {
         setUltimaFechaAprendio(LocalDate.of(2020, Month.JANUARY, 1));
         setUltimaFechaRutina(LocalDate.of(2020, Month.JANUARY, 1));
         setPorRutina(true);
+        setSpeaking(false);
     }
 
     public boolean getRealizadoAprenderHoy() {
