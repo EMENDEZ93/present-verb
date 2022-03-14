@@ -12,6 +12,7 @@ public interface HojaDto {
     public int getNumeroVerbosPorAprenderDiario();
     public LocalDate getUltimaFechaAprendio();
     public LocalDate getUltimaFechaRutina();
+    public LocalDate getUltimaFechaSpeaking();
     public boolean isEsPreguntaRespuesta();
     public int getIndiceExcel();
     public int getFilas();

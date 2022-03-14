@@ -24,6 +24,7 @@ public class Hoja {
     private int numeroVerbosPorAprenderDiario;
     private LocalDate ultimaFechaAprendio;
     private LocalDate ultimaFechaRutina;
+    private LocalDate ultimaFechaSpeaking;
     private boolean esPreguntaRespuesta;
     private int indiceExcel;
     private int filas;
@@ -68,6 +69,7 @@ public class Hoja {
         setNumeroVerbosPorAprenderDiario(5);
         setUltimaFechaAprendio(LocalDate.of(2020, Month.JANUARY, 1));
         setUltimaFechaRutina(LocalDate.of(2020, Month.JANUARY, 1));
+        setUltimaFechaSpeaking(LocalDate.of(2020, Month.JANUARY, 1));
         setPorRutina(true);
         setSpeaking(false);
     }
