@@ -25,6 +25,7 @@ public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, 
             "                h.numeroVerbosPorAprenderDiario as numeroVerbosPorAprenderDiario,\n" +
             "                h.indiceExcel as indiceExcel,\n" +
             "                h.filas as filas, \n" +
+            "                h.speaking as speaking, \n" +
             "                h.porRutina as porRutina\n" +
             "                FROM Usuario u\n" +
             "                INNER JOIN Excel e on (u.id = e.usuario)\n" +

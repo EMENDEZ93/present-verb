@@ -17,5 +17,6 @@ public interface HojaDto {
     public int getIndiceExcel();
     public int getFilas();
     public Boolean getPorRutina();
+    public Boolean getSpeaking();
 
 }
