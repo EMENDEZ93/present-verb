@@ -53,7 +53,7 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
     default Hoja updateSpeakingById(int idHoja) {
         Optional<Hoja> hoja = findById(idHoja);
         if(hoja.isPresent()) {
-            hoja.get().setUltimaFechaRutina(LocalDate.now());
+            hoja.get().setUltimaFechaSpeaking(LocalDate.now());
             hoja.get().setSpeaking(false);
             Hoja resultado = save(hoja.get());
             resultado.setExcel(null);
