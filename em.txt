@@ -30,3 +30,16 @@ update hoja set ultimo_indice_aprendido = 3 where id=129;
 
 
 https://www.youtube.com/watch?v=-ToDCpZEIfA&ab_channel=why
+
+
+
+select * from hoja;
+
+update excel set actualizacion_indice_repaso = '2021-12-05' where id = 26;
+
+update hoja set
+ultima_fecha_speaking = '2022-02-13',
+actualizacion_por_rutina = '2022-02-13';
+
+
+update hoja set speaking = false, por_rutina = false; 
