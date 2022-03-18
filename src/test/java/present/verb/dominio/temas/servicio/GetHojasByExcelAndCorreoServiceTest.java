@@ -212,7 +212,7 @@ public class GetHojasByExcelAndCorreoServiceTest {
 
         // Arrange
         String correo = "testing13@em.com.co";
-        String excel = "phrasal_verbs_part_1.xlsx";
+        String excel = "phrasal verbs part 1.xlsx";
         int horaActual = 5;
 
         // Act
@@ -224,5 +224,21 @@ public class GetHojasByExcelAndCorreoServiceTest {
 
     }
 
+    @Test
+    public void methodTest(){
+
+        // Arrange
+        String correo = "testing13@em.com.co";
+        String excel = "excelnoesfisico.xlsx";
+        int horaActual = 5;
+
+        // Act
+        List<HojaDto> hojas = getHojasByExcelAndCorreoService.excecutev2(excel, correo, horaActual);
+
+        // Assert
+        Assert.assertFalse(hojas.isEmpty());
+        Assert.assertEquals(44, hojas.size());
+
+    }
 
 }

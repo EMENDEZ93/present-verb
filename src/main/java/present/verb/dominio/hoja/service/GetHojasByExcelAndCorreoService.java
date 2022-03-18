@@ -95,6 +95,7 @@ public class GetHojasByExcelAndCorreoService {
                 for (Hoja hoja : excel.getHojas()) {
                     if (hoja.getId() == integer) {
                         hoja.setPorRutina(true);
+                        hoja.setSpeaking(true);
                     }
                 }
             }
