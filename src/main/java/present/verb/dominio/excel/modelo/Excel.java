@@ -28,6 +28,8 @@ public class Excel {
     private LocalDate actualizacionIndiceRepaso;
     private Integer horaActualizacionIndiceRepaso;
     private Integer repeticionPorHoras;
+    private String estado;
+    private String incluir;
 
     @OneToMany(mappedBy = "excel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Hoja> hojas;

@@ -6,6 +6,7 @@ import present.verb.dominio.excel.modelo.Excel;
 import present.verb.dominio.excel.servicio.GetAllExcelService;
 
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class GetAllExcelHandler {
@@ -15,6 +16,11 @@ public class GetAllExcelHandler {
 
     public List<Excel> executer() {
         return getAllExcelService.executer();
+    }
+
+
+    public Set<Excel> executerByCorreo(String correo) {
+        return getAllExcelService.executerByCorreo(correo);
     }
 
 }

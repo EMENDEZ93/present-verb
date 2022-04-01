@@ -48,6 +48,14 @@ public class GetHojasByExcelAndCorreoService {
                 .collect(Collectors.toList());
         Excel excel = getHojaByExcelAndCorreoRepository.executer(nombreExcel, correo);
 
+        if(excel.getEstado().equalsIgnoreCase("ACTUALIZAR")) {
+            extracted(horaActual, hojasAprendidas, excel);
+        }
+
+        return getHojasByExcelAndCorreoDao.executer(nombreExcel, correo);
+    }
+
+    private void extracted(int horaActual, List<HojaDto> hojasAprendidas, Excel excel) {
         if(
            hojasAprendidas.size() > excel.getCantidadhojasPorRutina()
            && excel.getActualizacionIndiceRepaso().isBefore(now())
@@ -101,8 +109,8 @@ public class GetHojasByExcelAndCorreoService {
             }
             excel.setHoraActualizacionIndiceRepaso(horaActual);
             excel.setActualizacionIndiceRepaso(now());
+            excel.setEstado("ACTUALIZADO");
             excelRepository.save(excel);
         }
-        return getHojasByExcelAndCorreoDao.executer(nombreExcel, correo);
     }
 }
