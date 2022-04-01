@@ -31,6 +31,7 @@ public class UpdateSpeakingHojaByIdService {
             excel.setEstado("TERMINADO");
             excelRepository.save(excel);
         }
+        hoja.setExcel(null);
         return hoja;
 
     }

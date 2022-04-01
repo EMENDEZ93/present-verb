@@ -30,7 +30,7 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
             hoja.get().setUltimaFechaRutina(LocalDate.now());
             hoja.get().setPorRutina(false);
             save(hoja.get());
-            hoja.get().setExcel(null);
+            //hoja.get().setExcel(null);
             return hoja.get();
         } else {
             throw new RuntimeException("No Existe un Hoja con el id = " + idHoja);
@@ -56,7 +56,6 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
             hoja.get().setUltimaFechaSpeaking(LocalDate.now());
             hoja.get().setSpeaking(false);
             Hoja resultado = save(hoja.get());
-            resultado.setExcel(null);
             return resultado;
         } else {
             throw new RuntimeException("No Existe un Hoja con el id = " + idHoja);
