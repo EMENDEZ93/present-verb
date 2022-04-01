@@ -48,7 +48,7 @@ public class GetHojasByExcelAndCorreoService {
                 .collect(Collectors.toList());
         Excel excel = getHojaByExcelAndCorreoRepository.executer(nombreExcel, correo);
 
-        if(excel.getEstado().equalsIgnoreCase("ACTUALIZAR")) {
+        if("ACTUALIZAR".equalsIgnoreCase(excel.getEstado())) {
             extracted(horaActual, hojasAprendidas, excel);
         }
 
