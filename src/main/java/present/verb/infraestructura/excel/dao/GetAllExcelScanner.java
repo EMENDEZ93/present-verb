@@ -43,11 +43,11 @@ public class GetAllExcelScanner implements GetAllExcelDao {
             Usuario usuario = usuarioRepository.findByCorreo(correo);
 
             List<Excel> excelsCiclo =usuario.getExcels().stream()
-                    .filter(excel -> excel.getIncluir().equalsIgnoreCase("CICLO"))
+                    .filter(excel -> "CICLO".equalsIgnoreCase(excel.getIncluir()))
                     .collect(Collectors.toList());
 
             List<Excel> faltantes = excelsCiclo.stream()
-                    .filter(excel -> excel.getEstado().equalsIgnoreCase("TERMINADO"))
+                    .filter(excel -> "TERMINADO".equalsIgnoreCase(excel.getEstado()))
                     .collect(Collectors.toList());
 
             int totalExcelsCiclo = excelsCiclo.size();
