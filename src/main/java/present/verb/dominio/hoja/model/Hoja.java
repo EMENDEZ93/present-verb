@@ -70,7 +70,7 @@ public class Hoja {
         setUltimaFechaAprendio(LocalDate.of(2020, Month.JANUARY, 1));
         setUltimaFechaRutina(LocalDate.of(2020, Month.JANUARY, 1));
         setUltimaFechaSpeaking(LocalDate.of(2020, Month.JANUARY, 1));
-        setPorRutina(true);
+        setPorRutina(false);
         setSpeaking(false);
     }
 

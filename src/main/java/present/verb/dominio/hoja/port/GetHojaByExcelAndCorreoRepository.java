@@ -18,7 +18,7 @@ public class GetHojaByExcelAndCorreoRepository {
         try {
             TypedQuery<Excel> getHojaByExcelAndCorreoSql = entityManager.createQuery(
                     "SELECT e FROM Excel e " +
-                            "INNER JOIN Usuario u on (u.id = e.usuario) WHERE e.nombre = ?1 and u.correo = ?2", Excel.class);
+                            "INNER JOIN Usuario u on (u.id = e.usuario) WHERE e.archivo = ?1 and u.correo = ?2", Excel.class);
             return getHojaByExcelAndCorreoSql
                     .setParameter(1, excel)
                     .setParameter(2, correo)
