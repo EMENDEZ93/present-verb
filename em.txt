@@ -42,4 +42,20 @@ ultima_fecha_speaking = '2022-02-13',
 actualizacion_por_rutina = '2022-02-13';
 
 
-update hoja set speaking = false, por_rutina = false; 
+update hoja set speaking = false, por_rutina = false;
+
+
+select * from excel where id =115;
+
+ACTUALIZAR
+
+select * from excel where usuario_id = 4;
+
+update excel set estado = 'ACTUALIZAR' where id =115;
+update excel set estado = 'TERMINADO' where id =115;
+update excel set incluir = 'CICLO' where usuario_id = 4;
+
+update excel set incluir = 'ACTUALIZAR' where id not in  (85);
+
+update excel set incluir = 'NO_CICLO' where id in (71, 79, 99, 103, 104, 151, 152, 150, 158);
+update hoja set speaking = false, por_rutina = false;

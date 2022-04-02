@@ -57,7 +57,7 @@ public class GetHojasByExcelAndCorreoService {
 
     private void extracted(int horaActual, List<HojaDto> hojasAprendidas, Excel excel) {
         if(
-           hojasAprendidas.size() > excel.getCantidadhojasPorRutina()
+           (hojasAprendidas.size() > excel.getCantidadhojasPorRutina() || excel.getCantidadhojasPorRutina() > excel.getHojas().size() )
            && excel.getActualizacionIndiceRepaso().isBefore(now())
         ) {
             List<Integer> idsPorRutina = new ArrayList<>();
