@@ -65,9 +65,9 @@ public class GetAllExcelScanner implements GetAllExcelDao {
             Set<Excel> excels = excelRepository.findAllByUsuario(usuario);
             excels.addAll(excelsScanner);
             excels.forEach(excel -> {
-                if(0 != excel.getId()) {
-                    excel.setArchivo(getNombreConExtension(excel.getNombre()));
+                if(0 != excel.getId() && excel.getNombre().contains(".xlsx")) {
                     excel.setNombre(getNombreSinExtension(excel.getNombre()));
+                    excelRepository.save(excel);
                 }
                 excel.setUsuario(null);
                 excel.setHojas(null);
