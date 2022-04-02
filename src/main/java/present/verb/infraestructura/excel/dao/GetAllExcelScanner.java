@@ -44,7 +44,7 @@ public class GetAllExcelScanner implements GetAllExcelDao {
         try {
             Usuario usuario = usuarioRepository.findByCorreo(correo);
 
-            if (!isNull(usuario.getExcels()) && usuario.getExcels().size() != 0) {
+            if (!isNull(usuario.getExcels()) && !usuario.getExcels().isEmpty()) {
                 List<Excel> excelsCiclo = usuario.getExcels().stream()
                         .filter(excel -> "CICLO".equalsIgnoreCase(excel.getIncluir()))
                         .collect(Collectors.toList());
@@ -68,10 +68,6 @@ public class GetAllExcelScanner implements GetAllExcelDao {
             Set<Excel> excels = excelRepository.findAllByUsuario(usuario);
             excels.addAll(excelsScanner);
             excels.forEach(excel -> {
-                if(0 != excel.getId() && excel.getNombre().contains(".xlsx")) {
-                    excel.setNombre(getNombreSinExtension(excel.getNombre()));
-                    excelRepository.save(excel);
-                }
                 excel.setUsuario(null);
                 excel.setHojas(null);
             });
