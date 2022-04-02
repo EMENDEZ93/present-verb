@@ -30,7 +30,7 @@ public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, 
             "                FROM Usuario u\n" +
             "                INNER JOIN Excel e on (u.id = e.usuario)\n" +
             "                INNER JOIN Hoja h on (e.id = h.excel)\n" +
-            "                where e.nombre = ?1 and u.correo = ?2 ORDER BY h.id ASC")
+            "                where e.archivo = ?1 and u.correo = ?2 ORDER BY h.id ASC")
     List<HojaDto> execute(String excel, String correo);
 
 }

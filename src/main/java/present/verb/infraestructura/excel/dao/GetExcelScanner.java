@@ -27,7 +27,8 @@ public class GetExcelScanner {
             XSSFWorkbook excel = new XSSFWorkbook(in);
 
             Excel excelResultado = new Excel();
-            excelResultado.setNombre(nombreExcel);
+            excelResultado.setNombre(getNombreSinExtension(nombreExcel));
+            excelResultado.setArchivo(getNombreConExtension(nombreExcel));
             excelResultado.setHojas(new ArrayList<>());
 
             for (int indiceHojaExcel = 0; indiceHojaExcel < excel.getNumberOfSheets(); indiceHojaExcel++) {
@@ -51,6 +52,14 @@ public class GetExcelScanner {
         } catch (Exception e) {
             throw new RuntimeException("Error al trata de leer el xlxs : " + e.getMessage() );
         }
+    }
+
+    private String getNombreSinExtension(String informe) {
+        return informe.replaceAll("\\.[^.]*$", "");
+    }
+
+    private String getNombreConExtension(String informe) {
+        return informe.replaceAll("\\.[^.]$", "");
     }
 
 }
