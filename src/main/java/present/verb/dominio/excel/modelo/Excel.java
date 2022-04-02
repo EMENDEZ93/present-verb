@@ -45,8 +45,8 @@ public class Excel {
         setCantidadhojasPorRutina(5);
         setHoraActualizacionIndiceRepaso(0);
         setRepeticionPorHoras(12);
-        setEstado("TERMINADO");
-        setIncluir("ACTUALIZAR");
+        setEstado("ACTUALIZAR");
+        setIncluir("NO_INCLUIR");
     }
 
     public boolean debeRealizarRepeticion(int horaActual) {

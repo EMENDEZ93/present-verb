@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.isNull;
+
 @Component
 public class GetAllExcelScanner implements GetAllExcelDao {
 
@@ -42,24 +44,25 @@ public class GetAllExcelScanner implements GetAllExcelDao {
         try {
             Usuario usuario = usuarioRepository.findByCorreo(correo);
 
-            List<Excel> excelsCiclo =usuario.getExcels().stream()
-                    .filter(excel -> "CICLO".equalsIgnoreCase(excel.getIncluir()))
-                    .collect(Collectors.toList());
+            if (!isNull(usuario.getExcels()) && usuario.getExcels().size() != 0) {
+                List<Excel> excelsCiclo = usuario.getExcels().stream()
+                        .filter(excel -> "CICLO".equalsIgnoreCase(excel.getIncluir()))
+                        .collect(Collectors.toList());
 
-            List<Excel> faltantes = excelsCiclo.stream()
-                    .filter(excel -> "TERMINADO".equalsIgnoreCase(excel.getEstado()))
-                    .collect(Collectors.toList());
+                List<Excel> faltantes = excelsCiclo.stream()
+                        .filter(excel -> "TERMINADO".equalsIgnoreCase(excel.getEstado()))
+                        .collect(Collectors.toList());
 
-            int totalExcelsCiclo = excelsCiclo.size();
-            int terminados = faltantes.size();
+                int totalExcelsCiclo = excelsCiclo.size();
+                int terminados = faltantes.size();
 
-            if(terminados == totalExcelsCiclo) {
-                for(Excel excel: excelsCiclo) {
-                    excel.setEstado("ACTUALIZAR");
-                    excelRepository.save(excel);
+                if(terminados == totalExcelsCiclo) {
+                    for(Excel excel: excelsCiclo) {
+                        excel.setEstado("ACTUALIZAR");
+                        excelRepository.save(excel);
+                    }
                 }
             }
-
 
             List<Excel> excelsScanner = scannerExcelFolder();
             Set<Excel> excels = excelRepository.findAllByUsuario(usuario);
