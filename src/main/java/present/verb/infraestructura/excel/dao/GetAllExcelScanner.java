@@ -66,11 +66,22 @@ public class GetAllExcelScanner implements GetAllExcelDao {
 
             List<Excel> excelsScanner = scannerExcelFolder();
             Set<Excel> excels = excelRepository.findAllByUsuario(usuario);
-            excels.addAll(excelsScanner);
+
             excels.forEach(excel -> {
                 excel.setUsuario(null);
                 excel.setHojas(null);
             });
+
+
+            for(Excel excel : excelsScanner) {
+                boolean resultado = excels.
+                        stream().
+                        anyMatch(excel1 -> excel.getNombre().equalsIgnoreCase(excel1.getNombre()));
+                if(!resultado) {
+                    excels.add(excel);
+                }
+            }
+
             return excels;
         } catch (Exception e) {
             throw new RuntimeException(e);
