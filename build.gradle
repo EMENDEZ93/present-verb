@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.1.8.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'maven-publish'
 }
 
 group = 'em'
@@ -24,6 +25,33 @@ repositories {
 		}
 	}
 }
+
+
+publishing {
+
+	// Repositories *to* which Gradle can publish artifacts
+	repositories {
+		maven {
+			url 'https://pkgs.dev.azure.com/em-learning/em-learning-ex/_packaging/em-learning-artifacts/maven/v1'
+			credentials {
+				username "em-learning-artifacts"
+				password "4mqq5gmezsiwcg7odilw33v2rlgtz3nntj2tfokhgmggj2zs6o2q"
+			}
+		}
+	}
+}
+
+// Repositories *from* which Gradle can download dependencies
+repositories {
+	maven {
+		url 'https://pkgs.dev.azure.com/em-learning/em-learning-ex/_packaging/em-learning-artifacts/maven/v1'
+		credentials {
+			username "em-learning-artifacts"
+			password "4mqq5gmezsiwcg7odilw33v2rlgtz3nntj2tfokhgmggj2zs6o2q"
+		}
+	}
+}
+
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
