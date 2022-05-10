@@ -21,9 +21,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
-- task: CopyFiles@2
-  displayName: Copy Release build to artifact staging
+- task: PublishPipelineArtifact@1
+  displayName: Publish todo.zip as Pipeline Artifact
   inputs:
-    sourceFolder: './build/libs/'
-    contents: 'present-verb-*.jar'
-    targetFolder: 'https://pkgs.dev.azure.com/em-learning/em-learning-ex/_packaging/em-learning-artifacts/maven/v1'
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'todozip'
+    publishLocation: 'pipeline'
