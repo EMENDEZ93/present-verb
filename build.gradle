@@ -16,7 +16,7 @@ repositories {
 		url 'https://pkgs.dev.azure.com/em-learning/em-learning-ex/_packaging/em-learning-artifacts/maven/v1'
 		name 'em-learning-artifacts'
 		credentials {
-			username "DEZMEN_EV1L@hotmail.com"
+			username "em-learning-artifacts"
 			password "4mqq5gmezsiwcg7odilw33v2rlgtz3nntj2tfokhgmggj2zs6o2q"
 		}
 		authentication {
