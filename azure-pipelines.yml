@@ -30,3 +30,8 @@ steps:
 - publish: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Publish script'
   artifact: em-learning-artifacts
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'em-learning-artifacts'
+    publishLocation: 'pipeline'
