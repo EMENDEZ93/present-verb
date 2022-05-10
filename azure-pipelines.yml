@@ -34,7 +34,8 @@ steps:
 - task: UniversalPackages@0
   inputs:
     command: 'publish'
-    downloadDirectory: '$(System.DefaultWorkingDirectory)'
-    feedsToUse: 'internal'
-    vstsFeed: 'b6ad1af1-03f8-4fb8-905c-0febec8041fa/9708f494-a4a3-4cad-918a-b34763bacfcb'
-    vstsPackageVersion: '01'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: 'b6ad1af1-03f8-4fb8-905c-0febec8041fa/9708f494-a4a3-4cad-918a-b34763bacfcb'
+    vstsFeedPackagePublish: 'ejemplo'
+    versionOption: 'patch'
