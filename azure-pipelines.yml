@@ -27,10 +27,6 @@ steps:
     sourceFolder: './build/libs/'
     contents: 'present-verb-*.jar'
     targetFolder: '$(Build.ArtifactStagingDirectory)'
-
-- task: PublishPipelineArtifact@1
-  displayName: Publish present-jar as Pipeline Artifact
-  inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)'
-    artifact: 'em-learning-artifacts'
-    publishLocation: 'pipeline'
+- publish: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Publish script'
+  artifact: em-learning-artifacts
