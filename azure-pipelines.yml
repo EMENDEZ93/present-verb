@@ -33,5 +33,5 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
-    artifact: 'em-learning-artifacts'
+    artifact: 'em-learning-artifacts-dos'
     publishLocation: 'pipeline'
