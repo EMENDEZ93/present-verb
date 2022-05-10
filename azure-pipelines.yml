@@ -1,4 +1,5 @@
 # Gradle
+
 # Build your Java project and run tests with Gradle using a Gradle wrapper script.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -30,8 +31,11 @@ steps:
 - publish: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Publish script'
   artifact: em-learning-artifacts
-- task: PublishPipelineArtifact@1
+- task: UniversalPackages@0
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'em-learning-artifacts-dos'
-    publishLocation: 'pipeline'
+    command: 'publish'
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: 'b6ad1af1-03f8-4fb8-905c-0febec8041fa/9708f494-a4a3-4cad-918a-b34763bacfcb'
+    vstsFeedPackagePublish: 'ejemplo'
+    versionOption: 'patch'
