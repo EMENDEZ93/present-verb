@@ -26,4 +26,4 @@ steps:
   inputs:
     sourceFolder: './build/libs/'
     contents: 'present-verb-*.jar'
-    targetFolder: 'https://pkgs.dev.azure.com/em-learning/em-learning-ex/_packaging/em-learning-artifacts/maven/v1'
+    targetFolder: $(build.artifactStagingDirectory)
