@@ -14,7 +14,7 @@ import present.verb.PresentVerbApplication;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+/*
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = PresentVerbApplication.class)
@@ -41,3 +41,4 @@ public class ObtenerTemasRestControllerTest {
 
 
 }
+*/
