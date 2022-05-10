@@ -24,6 +24,6 @@ steps:
 - task: PublishPipelineArtifact@1
   displayName: Publish present-jar as Pipeline Artifact
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+    targetPath: '$(Build.ArtifactStagingDirectory)/em-learning-artifacts'
     artifact: 'present-jar'
     publishLocation: 'pipeline'
