@@ -11,10 +11,10 @@ variables:
   buildConfiguration: 'release'
 
 stages:
-- stage: 'build'
+- stage: 'stageBuild'
   displayName: Copy Release build to artifact staging
   jobs:
-   - job: 'job-build'
+   - job: 'jobBuild'
      pool:
          vmImage: ubuntu-latest
        
