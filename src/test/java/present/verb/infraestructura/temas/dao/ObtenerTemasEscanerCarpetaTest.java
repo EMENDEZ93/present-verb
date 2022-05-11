@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ObtenerTemasEscanerCarpetaTest {
 
-    @Test
+    /*@Test
     public void ejecutar() {
 
         // Arrange
@@ -24,6 +24,6 @@ public class ObtenerTemasEscanerCarpetaTest {
         Assert.assertEquals("A", resultado.get(0).getTema());
         Assert.assertEquals("C", resultado.get(2).getTema());
 
-    }
+    }*/
 
 }
