@@ -11,7 +11,7 @@ variables:
   buildConfiguration: 'release'
 
 stages:
-- stage: 'stage-build'
+- stage: 'build'
   displayName: Copy Release build to artifact staging
   jobs:
    - job: 'job-build'
