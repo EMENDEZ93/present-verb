@@ -41,6 +41,14 @@ stages:
      - publish: '$(Build.ArtifactStagingDirectory)'
        displayName: 'Publish script'
        artifact: em-learning-artifacts
+     - task: ArchiveFiles@2
+       inputs:
+         rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/build/libs/'
+         includeRootFolder: true
+         archiveType: 'zip'
+         tarCompression: 'gz'
+         archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+         replaceExistingArchive: true
      - task: UniversalPackages@0
        inputs:
          command: 'publish'
@@ -49,12 +57,3 @@ stages:
          vstsFeedPublish: 'b6ad1af1-03f8-4fb8-905c-0febec8041fa/9708f494-a4a3-4cad-918a-b34763bacfcb'
          vstsFeedPackagePublish: 'ejemplo'
          versionOption: 'patch'
-
-     - task: ArchiveFiles@2
-       inputs:
-         rootFolderOrFile: '$(System.DefaultWorkingDirectory)/build/libs/'
-         includeRootFolder: true
-         archiveType: 'zip'
-         tarCompression: 'gz'
-         archiveFile: '$(build.artifactstagingdirectory)/$(Build.BuildId).zip'
-         replaceExistingArchive: true
