@@ -7,40 +7,53 @@
 trigger:
 - develop
 
-pool:
-  vmImage: ubuntu-latest
+variables:
+  buildConfiguration: 'release'
 
-steps:
-- task: Gradle@2
-  inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
-- task: CopyFiles@2
+stages:
+- stage: 'stage-build'
   displayName: Copy Release build to artifact staging
-  inputs:
-    sourceFolder: './build/libs/'
-    contents: 'present-verb-*.jar'
-    targetFolder: '$(Build.ArtifactStagingDirectory)'
-- publish: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Publish script'
-  artifact: em-learning-artifacts
-- task: UniversalPackages@0
-  inputs:
-    command: 'publish'
-    publishDirectory: '$(Build.ArtifactStagingDirectory)'
-    feedsToUsePublish: 'internal'
-    vstsFeedPublish: 'b6ad1af1-03f8-4fb8-905c-0febec8041fa/9708f494-a4a3-4cad-918a-b34763bacfcb'
-    vstsFeedPackagePublish: 'ejemplo'
-    versionOption: 'patch'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+  jobs:
+   - job: 'job-build'
+     pool:
+         vmImage: ubuntu-latest
+       
+     steps:
+     - task: Gradle@2
+       inputs:
+         workingDirectory: ''
+         gradleWrapperFile: 'gradlew'
+         gradleOptions: '-Xmx3072m'
+         javaHomeOption: 'JDKVersion'
+         jdkVersionOption: '1.8'
+         jdkArchitectureOption: 'x64'
+         publishJUnitResults: true
+         testResultsFiles: '**/TEST-*.xml'
+         tasks: 'build'
+     - task: CopyFiles@2
+       displayName: Copy Release build to artifact staging
+       inputs:
+         sourceFolder: './build/libs/'
+         contents: 'present-verb-*.jar'
+         targetFolder: '$(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+         CleanTargetFolder: true
+     - publish: '$(Build.ArtifactStagingDirectory)'
+       displayName: 'Publish script'
+       artifact: em-learning-artifacts
+     - task: UniversalPackages@0
+       inputs:
+         command: 'publish'
+         publishDirectory: '$(Build.ArtifactStagingDirectory)'
+         feedsToUsePublish: 'internal'
+         vstsFeedPublish: 'b6ad1af1-03f8-4fb8-905c-0febec8041fa/9708f494-a4a3-4cad-918a-b34763bacfcb'
+         vstsFeedPackagePublish: 'ejemplo'
+         versionOption: 'patch'
+     - task: PublishBuildArtifacts@1
+       displayName: publish Release build to artifact staging
+       condition: succeeded()
+       inputs:
+         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+         ArtifactName: 'drop'
+         publishLocation: 'Container'
+
+
