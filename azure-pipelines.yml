@@ -9,6 +9,8 @@ trigger:
 
 variables:
   buildConfiguration: 'release'
+  buildTag: '$(Build.BuildId)'
+  latestTag: 'latest'
 
 stages:
   - stage: 'stageBuild'
