@@ -9,6 +9,8 @@ trigger:
 
 variables:
   buildConfiguration: 'release'
+  buildTag: '$(Build.BuildId)'
+  latestTag: 'latest'
 
 stages:
 - stage: 'stageBuild'
@@ -57,3 +59,14 @@ stages:
          tarCompression: 'gz'
          archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
          replaceExistingArchive: true
+     - task: Docker@2
+       displayName: Build and push an image to container registry
+       inputs:
+         containerRegistry: 'b6458ad2-36f6-4d5a-82fb-e7467aafd728'
+         repository: 'emlearningimage'
+         command: 'buildAndPush'
+         Dockerfile: '**/Dockerfile'
+         buildContext: '$(System.DefaultWorkingDirectory)/'
+         tags: |
+           $(buildTag)
+           $(latestTag)
