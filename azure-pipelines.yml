@@ -10,7 +10,7 @@ trigger:
 variables:
   buildConfiguration: 'release'
   buildTag: '$(Build.BuildId)'
-  latestTag: 'latest'
+  tag: 'latest'
 
 stages:
 - stage: 'stageBuild'
@@ -69,4 +69,4 @@ stages:
          buildContext: '$(System.DefaultWorkingDirectory)/'
          tags: |
            $(buildTag)
-           $(latestTag)
+           $(tag)
