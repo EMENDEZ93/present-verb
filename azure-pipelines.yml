@@ -90,3 +90,9 @@ stages:
               tags: |
                 $(buildTag)
                 $(latestTag)
+          - task: CmdLine@2
+            displayName: Create Git tag for current versión
+            inputs:
+              script: |
+                git tag -a $(GitVersion.SemVer) -m "Release - $(GitVersion.SemVer)"
+                git push origin $(GitVersion.SemVer)
