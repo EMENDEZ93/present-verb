@@ -96,6 +96,11 @@ public class GetHojasByExcelAndCorreoService {
                     int pivoteF = 0;
                     while (idsPorRutina.size() < excel.getCantidadhojasPorRutina()) {
                         excel.setUltimoIndiceRepaso(pivoteF);
+                        if(hojasAprendidas.size() < excel.getCantidadhojasPorRutina()){
+                            if(idsPorRutina.size() == hojasAprendidas.size()) {
+                                break;
+                            }
+                        }
                         idsPorRutina.add(hojasAprendidas.get(pivoteF).getId());
                         pivoteF++;
                     }
