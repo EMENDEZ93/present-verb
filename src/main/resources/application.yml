@@ -1,3 +1,42 @@
+#server:
+#   port: 8091
+#   servlet:
+#      context-path: /api/present/verb
+
+server:
+  port: ${PORT:5000}
+  servlet:
+    context-path: /api/present/verb
+
 spring:
-  profiles:
-    active: local
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/em-learning-db
+    username: "postgres"
+    password: "root"
+    #maximumPoolSize: 5
+    hikari:
+      idle-timeout: 10000
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  application:
+    name: giftu
+
+
+security:
+  jwt:
+    token:
+      secret-key: jwtGiftUSecretKey
+      expire-length: 86400    
+   

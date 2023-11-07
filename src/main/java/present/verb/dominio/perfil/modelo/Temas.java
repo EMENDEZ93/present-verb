@@ -31,6 +31,8 @@ public class Temas {
 	private int numeroVerbosPorAprenderDiario;
 	private LocalDate ultimaFechaAprendio = LocalDate.of(2020, Month.JANUARY, 1);
 	private LocalDate ultimaFechaRutina = LocalDate.of(2020, Month.JANUARY, 1);
+	private LocalDate ultimaFechaTranslate = LocalDate.of(2020, Month.JANUARY, 1);
+	private LocalDate ultimaFechaSpeaking = LocalDate.of(2020, Month.JANUARY, 1);
 	private boolean esPreguntaRespuesta;
 	private int indiceExcel;
 	private int filas;

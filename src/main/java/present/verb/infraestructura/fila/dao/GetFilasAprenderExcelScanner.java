@@ -34,6 +34,8 @@ public class GetFilasAprenderExcelScanner {
                 boolean orden = false;
                 List<String> allEnglishVerb = new ArrayList<>();
                 List<String> allSpanishVerb = new ArrayList<>();
+                List<String> allSpeakFast = new ArrayList<>();
+                List<String> fonetica = new ArrayList<>();
 
                 int verbos = 0;
                 while (rowIterator.hasNext()) {
@@ -43,8 +45,10 @@ public class GetFilasAprenderExcelScanner {
 
                     if (verbos >= hoja.get().getUltimoIndiceAprendido()) {
                         if ("".equals(row.getCell(0).toString())) break;
-                        allEnglishVerb.add(row.getCell(0).toString());
-                        allSpanishVerb.add(row.getCell(1).toString());
+                        allEnglishVerb.add(obtenerValorCelda(row, 0));
+                        allSpanishVerb.add(obtenerValorCelda(row, 1));
+                        allSpeakFast.add(obtenerValorCelda(row, 2));
+                        fonetica.add(obtenerValorCelda(row, 3));
                     }
                     verbos++;
                     if (verbos >= (hoja.get().getUltimoIndiceAprendido() +
@@ -55,6 +59,8 @@ public class GetFilasAprenderExcelScanner {
                 Fila fila = new Fila();
                 fila.setEnglish(allEnglishVerb);
                 fila.setSpanish(allSpanishVerb);
+                fila.setAllSpeakFast(allSpeakFast);
+                fila.setFonetica(fonetica);
                 fila.setOrden(orden);
                 return fila;
             } else {
@@ -62,6 +68,14 @@ public class GetFilasAprenderExcelScanner {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private static String obtenerValorCelda(Row row, int columna) {
+        try {
+            return row.getCell(columna).toString();
+        } catch (Exception e) {
+            return "NO_APLICA";
         }
     }
 

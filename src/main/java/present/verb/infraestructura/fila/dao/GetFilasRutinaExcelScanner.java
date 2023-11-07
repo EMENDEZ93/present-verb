@@ -10,10 +10,8 @@ import present.verb.dominio.hoja.model.Hoja;
 import present.verb.dominio.hoja.port.HojaRepository;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.IntStream;
 
 @Repository
 public class GetFilasRutinaExcelScanner {
@@ -23,6 +21,7 @@ public class GetFilasRutinaExcelScanner {
 
     public Fila executer(int idHoja) {
         Optional<Hoja> hoja = hojaRepository.findById(idHoja);
+        System.out.println();
         try {
             if(hoja.isPresent()) {
                 InputStream in = getClass().getResourceAsStream("/excel/".concat(hoja.get().getExcel().getArchivo()));
@@ -33,6 +32,8 @@ public class GetFilasRutinaExcelScanner {
                 Row row;
                 List<String> allEnglishVerb = new ArrayList<>();
                 List<String> allSpanishVerb = new ArrayList<>();
+                List<String> allSpeakFast = new ArrayList<>();
+                List<String> fonetica = new ArrayList<>();
 
                 int verbos = 0;
                 boolean orden = false;
@@ -43,8 +44,10 @@ public class GetFilasRutinaExcelScanner {
                         orden = requiereOrden(row, orden);
 
                         if (row.getCell(0).toString().equals("")) break;
-                        allEnglishVerb.add(row.getCell(0).toString());
-                        allSpanishVerb.add(row.getCell(1).toString());
+                        allEnglishVerb.add(obtenerValorCelda(row, 0));
+                        allSpanishVerb.add(obtenerValorCelda(row, 1));
+                        allSpeakFast.add(obtenerValorCelda(row, 2));
+                        fonetica.add(obtenerValorCelda(row, 3));
                         verbos++;
                         if (hoja.get().getUltimoIndiceAprendido() == verbos)
                             break;
@@ -52,8 +55,11 @@ public class GetFilasRutinaExcelScanner {
                 }
 
                 Fila fila = new Fila();
-                fila.setEnglish(allEnglishVerb);
-                fila.setSpanish(allSpanishVerb);
+
+                fila.setEnglish(getRepeticiones(allEnglishVerb));
+                fila.setSpanish(getRepeticiones(allSpanishVerb));
+                fila.setAllSpeakFast(getRepeticiones(allSpeakFast));
+                fila.setFonetica(getRepeticiones(fonetica));
                 fila.setOrden(orden);
                 return fila;
             } else {
@@ -61,6 +67,14 @@ public class GetFilasRutinaExcelScanner {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private static String obtenerValorCelda(Row row, int columna) {
+        try {
+            return row.getCell(columna).toString();
+        } catch (Exception e) {
+            return "NO_APLICA";
         }
     }
 
@@ -75,6 +89,15 @@ public class GetFilasRutinaExcelScanner {
             }
         }
         return orden;
+    }
+
+    private static List<String> getRepeticiones(List<String> a) {
+        IntStream intStream = IntStream.iterate(0, x -> x + 1);
+        List<String> b = new ArrayList<>();
+        intStream.limit(5).forEach(value ->
+                b.addAll(a)
+        );
+        return b;
     }
 
 }
