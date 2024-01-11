@@ -17,9 +17,9 @@ public class UpdateRutinaHojaByIdRest {
     @Autowired
     private UpdateRutinaHojaByIdHandler updateRutinaHojaByIdHandler;
 
-    @GetMapping("/hoja/rutina/{idHoja}")
-    public Hoja executer(@PathVariable int idHoja) {
-        return updateRutinaHojaByIdHandler.executer(idHoja);
+    @GetMapping("/hoja/rutina/{idHoja}/{tipoActualizacion}")
+    public Hoja executer(@PathVariable int idHoja, @PathVariable String tipoActualizacion) {
+        return updateRutinaHojaByIdHandler.executer(idHoja, tipoActualizacion);
     }
 
 }

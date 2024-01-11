@@ -13,6 +13,7 @@ public interface HojaDto {
     public LocalDate getUltimaFechaAprendio();
     public LocalDate getUltimaFechaRutina();
     public LocalDate getUltimaFechaSpeaking();
+    public LocalDate getUltimaFechaTranslate();
     public boolean isEsPreguntaRespuesta();
     public int getIndiceExcel();
     public int getFilas();

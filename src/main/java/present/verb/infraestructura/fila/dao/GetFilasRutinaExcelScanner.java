@@ -97,7 +97,7 @@ public class GetFilasRutinaExcelScanner {
         intStream.limit(5).forEach(value ->
                 b.addAll(a)
         );
-        return b;
+        return a;
     }
 
 }

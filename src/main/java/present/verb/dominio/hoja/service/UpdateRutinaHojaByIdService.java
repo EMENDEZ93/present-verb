@@ -19,9 +19,8 @@ public class UpdateRutinaHojaByIdService {
     @Autowired
     private ExcelRepository excelRepository;
 
-    public Hoja executer(int idHoja) {
-
-        Hoja hoja = hojaRepository.updateUlfimaFechaRutina(idHoja);
+    public Hoja executer(int idHoja, String tipoActualizacion) {
+        Hoja hoja = hojaRepository.updateUlfimaFechaRutina(idHoja, tipoActualizacion);
         Excel excel = hoja.getExcel();
         int totalHojas = excel.getHojas().size();
         List<Hoja> hojasfinalizadas = excel

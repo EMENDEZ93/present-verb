@@ -25,6 +25,7 @@ public class Hoja {
     private LocalDate ultimaFechaAprendio;
     private LocalDate ultimaFechaRutina;
     private LocalDate ultimaFechaSpeaking;
+    private LocalDate ultimaFechaTranslate;
     private boolean esPreguntaRespuesta;
     private int indiceExcel;
     private int filas;
@@ -70,6 +71,7 @@ public class Hoja {
         setUltimaFechaAprendio(LocalDate.of(2020, Month.JANUARY, 1));
         setUltimaFechaRutina(LocalDate.of(2020, Month.JANUARY, 1));
         setUltimaFechaSpeaking(LocalDate.of(2020, Month.JANUARY, 1));
+        setUltimaFechaTranslate(LocalDate.of(2020, Month.JANUARY, 1));
         setPorRutina(false);
         setSpeaking(false);
     }

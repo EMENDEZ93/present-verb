@@ -24,10 +24,26 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
 
     }
 
-    default Hoja updateUlfimaFechaRutina(int idHoja) {
+    default Hoja updateUlfimaFechaRutina(int idHoja, String tipoActualizacion) {
         Optional<Hoja> hoja = findById(idHoja);
         if(hoja.isPresent()) {
-            hoja.get().setUltimaFechaRutina(LocalDate.now());
+
+            if("APRENDER".equalsIgnoreCase(tipoActualizacion)) {
+                hoja.get().setUltimaFechaAprendio(LocalDate.now());
+            }
+
+            if("RUTINA".equalsIgnoreCase(tipoActualizacion)) {
+                hoja.get().setUltimaFechaRutina(LocalDate.now());
+            }
+
+            if("SPEAKING".equalsIgnoreCase(tipoActualizacion)) {
+                hoja.get().setUltimaFechaSpeaking(LocalDate.now());
+            }
+
+            if("TRANSLATE".equalsIgnoreCase(tipoActualizacion)) {
+                hoja.get().setUltimaFechaTranslate(LocalDate.now());
+            }
+
             hoja.get().setPorRutina(false);
             save(hoja.get());
             //hoja.get().setExcel(null);

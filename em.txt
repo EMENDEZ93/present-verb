@@ -74,3 +74,9 @@ select * from excel where usuario_id = 8 and incluir = 'CICLO';
 select * from hoja where excel_id = 344;
 update hoja set ultimo_indice_aprendido = filas where excel_id in (336,342,344,340,359,343,347,351,337,360,348,354,365,350);
 https://stackoverflow.com/questions/982919/sql-update-query-using-joins
+
+
+
+
+update public.hoja set ultimo_indice_aprendido = filas;
+...
