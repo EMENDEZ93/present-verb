@@ -11,7 +11,7 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5433/em_learning_db
+    url: jdbc:postgresql://dbpostgresql:5433/em_learning_db
     username: "postgres"
     password: "123456"
     #maximumPoolSize: 5
