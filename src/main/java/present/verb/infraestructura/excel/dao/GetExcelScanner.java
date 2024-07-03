@@ -23,7 +23,7 @@ public class GetExcelScanner {
 
     public Excel obtener(String nombreExcel) {
         try {
-            InputStream in = getClass().getResourceAsStream("/excel/".concat(nombreExcel));
+            InputStream in = getClass().getResourceAsStream("/excel_backup/".concat(nombreExcel));
             XSSFWorkbook excel = new XSSFWorkbook(in);
 
             Excel excelResultado = new Excel();

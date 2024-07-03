@@ -1,5 +1,6 @@
 package present.verb.infraestructura.fila.dao;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -24,7 +25,8 @@ public class GetFilasRutinaExcelScanner {
         System.out.println();
         try {
             if(hoja.isPresent()) {
-                InputStream in = getClass().getResourceAsStream("/excel/".concat(hoja.get().getExcel().getArchivo()));
+                hoja.get().setUltimoIndiceAprendido(hoja.get().getFilas());
+                InputStream in = getClass().getResourceAsStream("/excel_backup/".concat(hoja.get().getExcel().getArchivo()));
                 XSSFWorkbook excel = new XSSFWorkbook(in);
                 XSSFSheet sheet = excel.getSheetAt(hoja.get().getIndiceExcel());
                 Iterator<Row> rowIterator = sheet.iterator();
@@ -42,6 +44,8 @@ public class GetFilasRutinaExcelScanner {
                         row = rowIterator.next();
 
                         orden = requiereOrden(row, orden);
+
+                        Cell xxx = row.getCell(0);
 
                         if (row.getCell(0).toString().equals("")) break;
                         allEnglishVerb.add(obtenerValorCelda(row, 0));
