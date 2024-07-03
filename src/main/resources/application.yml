@@ -4,7 +4,7 @@
 #      context-path: /api/present/verb
 
 server:
-  port: ${PORT:8091}
+  port: ${PORT:8092}
   servlet:
     context-path: /api/present/verb
 
@@ -12,6 +12,7 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://dbpostgresql:5432/em_learning_db
+    #url: jdbc:postgresql://localhost:5433/em_learning_db
     username: "postgres"
     password: "123456"
     #maximumPoolSize: 5
