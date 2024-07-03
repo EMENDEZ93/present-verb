@@ -4,7 +4,7 @@
 #      context-path: /api/present/verb
 
 server:
-  port: ${PORT:8092}
+  port: ${PORT:8091}
   servlet:
     context-path: /api/present/verb
 
