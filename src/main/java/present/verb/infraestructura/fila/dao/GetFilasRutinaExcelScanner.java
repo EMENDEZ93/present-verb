@@ -26,7 +26,7 @@ public class GetFilasRutinaExcelScanner {
         try {
             if(hoja.isPresent()) {
                 hoja.get().setUltimoIndiceAprendido(hoja.get().getFilas());
-                InputStream in = getClass().getResourceAsStream("/excel_backup/".concat(hoja.get().getExcel().getArchivo()));
+                InputStream in = getClass().getResourceAsStream("/excel/".concat(hoja.get().getExcel().getArchivo()));
                 XSSFWorkbook excel = new XSSFWorkbook(in);
                 XSSFSheet sheet = excel.getSheetAt(hoja.get().getIndiceExcel());
                 Iterator<Row> rowIterator = sheet.iterator();

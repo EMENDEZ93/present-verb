@@ -32,7 +32,7 @@ public class GetConversacionExcelScanner {
 
         try {
             if(hoja.isPresent()) {
-                InputStream in = getClass().getResourceAsStream("/excel_backup/".concat(hoja.get().getExcel().getNombre()));
+                InputStream in = getClass().getResourceAsStream("/excel/".concat(hoja.get().getExcel().getNombre()));
                 XSSFWorkbook excel = new XSSFWorkbook(in);
                 XSSFSheet sheet = excel.getSheetAt(hoja.get().getIndiceExcel());
                 Iterator<Row> rowIterator = sheet.iterator();

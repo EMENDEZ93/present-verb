@@ -13,7 +13,7 @@ import java.util.List;
 import static java.util.Objects.isNull;
 
 @Entity
-@Table(name = "excel_backup")
+@Table(name = "excel")
 @Setter
 @Getter
 public class Excel {
@@ -31,7 +31,7 @@ public class Excel {
     private String estado;
     private String incluir;
 
-    @OneToMany(mappedBy = "excel_backup", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "excel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Hoja> hojas;
 
     @ManyToOne
