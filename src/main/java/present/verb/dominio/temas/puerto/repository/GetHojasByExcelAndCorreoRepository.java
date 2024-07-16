@@ -21,6 +21,7 @@ public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, 
             //"                h.repeticionesAltaComoAprendido as repeticionesAltaComoAprendido,\n" +
             "                1 as repeticionesAltaComoAprendido,\n" +
             "                h.ultimaFechaAprendio as ultimaFechaAprendio,\n" +
+            "                h.ultimaFechaSpeaking as ultimaFechaAprendio,\n" +
             "                h.ultimaFechaRutina as ultimaFechaRutina,\n" +
             "                h.ultimaFechaSpeaking as ultimaFechaSpeaking,\n" +
             "                h.ultimaFechaTranslate as ultimaFechaTranslate,\n" +
