@@ -43,17 +43,26 @@ public class GetFilasAprenderExcelScanner {
 
                     orden = requiereOrden(row, orden);
 
-                    if (verbos >= hoja.get().getUltimoIndiceAprendido()) {
+                    //if (verbos >= hoja.get().getUltimoIndiceAprendido()) {
+                    if (verbos >= hoja.get().getFilas()) {
                         if ("".equals(row.getCell(0).toString())) break;
-                        allEnglishVerb.add(obtenerValorCelda(row, 0));
-                        allSpanishVerb.add(obtenerValorCelda(row, 1));
-                        allSpeakFast.add(obtenerValorCelda(row, 2));
-                        fonetica.add(obtenerValorCelda(row, 3));
+//                        allEnglishVerb.add(obtenerValorCelda(row, 0));
+//                        allSpanishVerb.add(obtenerValorCelda(row, 1));
+//                        allSpeakFast.add(obtenerValorCelda(row, 2));
+//                        fonetica.add(obtenerValorCelda(row, 3));
                     }
                     verbos++;
-                    if (verbos >= (hoja.get().getUltimoIndiceAprendido() +
-                                   hoja.get(). getNumeroVerbosPorAprenderDiario()))
-                        break;
+
+                    allEnglishVerb.add(obtenerValorCelda(row, 0));
+                    allSpanishVerb.add(obtenerValorCelda(row, 1));
+                    allSpeakFast.add(obtenerValorCelda(row, 2));
+                    fonetica.add(obtenerValorCelda(row, 3));
+
+//                    int ultimoIndiceAprendido = hoja.get().getUltimoIndiceAprendido();
+//                    int numeroVerbosPorAprenderDiario = hoja.get(). getNumeroVerbosPorAprenderDiario();
+//                    //int total = (ultimoIndiceAprendido + numeroVerbosPorAprenderDiario);
+//                    int total = hoja.get().getFilas();
+//                    if (verbos >= total) break;
                 }
 
                 Fila fila = new Fila();

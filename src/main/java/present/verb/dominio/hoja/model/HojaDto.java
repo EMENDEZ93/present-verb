@@ -9,7 +9,10 @@ public interface HojaDto {
     public String getNombre();
     public int getUltimoIndiceAprendido();
     public int getRepeticionesAltaComoAprendido();
+
+    //public int getNumeroVerbosPorAprenderDiario();
     public int getNumeroVerbosPorAprenderDiario();
+
     public LocalDate getUltimaFechaAprendio();
     public LocalDate getUltimaFechaRutina();
     public LocalDate getUltimaFechaSpeaking();

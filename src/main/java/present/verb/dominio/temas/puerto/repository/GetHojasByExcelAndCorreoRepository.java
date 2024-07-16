@@ -16,15 +16,17 @@ public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, 
     @Query("                SELECT\n" +
             "                h.id as id,\n" +
             "                h.nombre as nombre,\n" +
-            //"                h.ultimoIndiceAprendido as ultimoIndiceAprendido,\n" +
-            "                h.filas as ultimoIndiceAprendido,\n" +
-            "                h.repeticionesAltaComoAprendido as repeticionesAltaComoAprendido,\n" +
+            //"                h.filas as ultimoIndiceAprendido,\n" +
+            "                0 as ultimoIndiceAprendido,\n" +
+            //"                h.repeticionesAltaComoAprendido as repeticionesAltaComoAprendido,\n" +
+            "                1 as repeticionesAltaComoAprendido,\n" +
             "                h.ultimaFechaAprendio as ultimaFechaAprendio,\n" +
             "                h.ultimaFechaRutina as ultimaFechaRutina,\n" +
             "                h.ultimaFechaSpeaking as ultimaFechaSpeaking,\n" +
             "                h.ultimaFechaTranslate as ultimaFechaTranslate,\n" +
             "                h.esPreguntaRespuesta as esPreguntaRespuesta,\n" +
-            "                h.numeroVerbosPorAprenderDiario as numeroVerbosPorAprenderDiario,\n" +
+            //"                h.numeroVerbosPorAprenderDiario as numeroVerbosPorAprenderDiario,\n" +
+            "                h.filas as numeroVerbosPorAprenderDiario,\n" +
             "                h.indiceExcel as indiceExcel,\n" +
             "                h.filas as filas, \n" +
             "                h.speaking as speaking, \n" +
