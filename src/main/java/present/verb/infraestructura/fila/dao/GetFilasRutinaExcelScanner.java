@@ -48,11 +48,13 @@ public class GetFilasRutinaExcelScanner {
                         Cell xxx = row.getCell(0);
 
                         if (row.getCell(0).toString().equals("")) break;
+
                         allEnglishVerb.add(obtenerValorCelda(row, 0));
                         allSpanishVerb.add(obtenerValorCelda(row, 1));
                         allSpeakFast.add(obtenerValorCelda(row, 2));
                         fonetica.add(obtenerValorCelda(row, 3));
                         verbos++;
+
                         if (hoja.get().getUltimoIndiceAprendido() == verbos)
                             break;
                     }

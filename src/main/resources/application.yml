@@ -11,7 +11,7 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://dbpostgresql_v1:5432/em_learning_db
+    url: jdbc:postgresql://192.168.1.8:5432/em_learning_db
     #url: jdbc:postgresql://localhost:5433/em_learning_db
     username: "postgres"
     password: "123456"
@@ -45,4 +45,3 @@ security:
     token:
       secret-key: jwtGiftUSecretKey
       expire-length: 86400    
-   

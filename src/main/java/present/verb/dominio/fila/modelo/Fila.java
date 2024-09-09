@@ -13,5 +13,7 @@ public class Fila {
     private List<String> spanish;
     private List<String> allSpeakFast;
     private List<String> fonetica;
+    private List<String> tipo;
+    private List<List<FilaDto>> example = new ArrayList<>();
     private boolean orden;
 }

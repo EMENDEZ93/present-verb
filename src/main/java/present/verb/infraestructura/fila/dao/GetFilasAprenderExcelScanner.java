@@ -6,6 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import present.verb.dominio.fila.modelo.Fila;
+import present.verb.dominio.fila.modelo.FilaDto;
 import present.verb.dominio.hoja.model.Hoja;
 import present.verb.dominio.hoja.port.HojaRepository;
 
@@ -15,6 +16,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.Optional.of;
+
 @Repository
 public class GetFilasAprenderExcelScanner {
 
@@ -22,6 +25,38 @@ public class GetFilasAprenderExcelScanner {
     private HojaRepository hojaRepository;
 
     public Fila executer(int idHoja) {
+        return of(idHoja)
+                .map(this::obtenerFilas)
+                .map(filas -> {
+
+                    int indiceLista = 0;
+
+                    for (String valor : filas.getTipo()) {
+                        FilaDto filaDto;
+                        if (valor.equals("EXAMPLE")) {
+                            filaDto = FilaDto.builder()
+                                    .english(filas.getEnglish().remove(indiceLista))
+                                    .spanish(filas.getSpanish().remove(indiceLista))
+                                    .speakFast(filas.getAllSpeakFast().remove(indiceLista))
+                                    .fonetica(filas.getFonetica().remove(indiceLista))
+                                    .build();
+                            indiceLista--;
+                            filas.getExample().get(indiceLista).add(filaDto);
+                        }else {
+                            List<FilaDto> filaDtos = new ArrayList<>();
+                            filas.getExample().add(filaDtos);
+                        }
+
+                        indiceLista++;
+                    }
+
+                    return filas;
+                })
+                .orElseThrow(() -> new RuntimeException("No Existe un Hoja con el id = " + idHoja));
+        //return obtenerFilas(idHoja);
+    }
+
+    private Fila obtenerFilas(int idHoja) {
         Optional<Hoja> hoja = hojaRepository.findById(idHoja);
         try {
             if(hoja.isPresent()) {
@@ -36,6 +71,7 @@ public class GetFilasAprenderExcelScanner {
                 List<String> allSpanishVerb = new ArrayList<>();
                 List<String> allSpeakFast = new ArrayList<>();
                 List<String> fonetica = new ArrayList<>();
+                List<String> example = new ArrayList<>();
 
                 int verbos = 0;
                 while (rowIterator.hasNext()) {
@@ -43,13 +79,8 @@ public class GetFilasAprenderExcelScanner {
 
                     orden = requiereOrden(row, orden);
 
-                    //if (verbos >= hoja.get().getUltimoIndiceAprendido()) {
                     if (verbos >= hoja.get().getFilas()) {
                         if ("".equals(row.getCell(0).toString())) break;
-//                        allEnglishVerb.add(obtenerValorCelda(row, 0));
-//                        allSpanishVerb.add(obtenerValorCelda(row, 1));
-//                        allSpeakFast.add(obtenerValorCelda(row, 2));
-//                        fonetica.add(obtenerValorCelda(row, 3));
                     }
                     verbos++;
 
@@ -57,12 +88,7 @@ public class GetFilasAprenderExcelScanner {
                     allSpanishVerb.add(obtenerValorCelda(row, 1));
                     allSpeakFast.add(obtenerValorCelda(row, 2));
                     fonetica.add(obtenerValorCelda(row, 3));
-
-//                    int ultimoIndiceAprendido = hoja.get().getUltimoIndiceAprendido();
-//                    int numeroVerbosPorAprenderDiario = hoja.get(). getNumeroVerbosPorAprenderDiario();
-//                    //int total = (ultimoIndiceAprendido + numeroVerbosPorAprenderDiario);
-//                    int total = hoja.get().getFilas();
-//                    if (verbos >= total) break;
+                    example.add(obtenerValorCelda(row, 5));
                 }
 
                 Fila fila = new Fila();
@@ -70,6 +96,7 @@ public class GetFilasAprenderExcelScanner {
                 fila.setSpanish(allSpanishVerb);
                 fila.setAllSpeakFast(allSpeakFast);
                 fila.setFonetica(fonetica);
+                fila.setTipo(example);
                 fila.setOrden(orden);
                 return fila;
             } else {
