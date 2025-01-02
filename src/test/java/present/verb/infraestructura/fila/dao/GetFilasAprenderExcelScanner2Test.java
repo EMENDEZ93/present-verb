@@ -9,13 +9,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import present.verb.dominio.fila.modelo.Fila;
 import present.verb.dominio.hoja.port.HojaRepository;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 import static present.verb.common.infrastructura.InfraestructuraBuilder.crearHoja;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class GetFilasAprenderExcelScannerTest {
+public class GetFilasAprenderExcelScanner2Test {
 
     @InjectMocks
     private GetFilasAprenderExcelScanner getFilasAprenderExcelScanner;
