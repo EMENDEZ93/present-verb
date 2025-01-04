@@ -30,12 +30,17 @@ public class GetFilasAprenderExcelScanner2Test {
     @Test
     public void methodsTest() {
         int idHoja = 1;
-
         Fila resultado = getFilasAprenderExcelScanner.executer(idHoja);
-
-
-
     }
 
+    @Test
+    public void methods2Test() {
+        Fila resultado = getFilasAprenderExcelScanner.obtenerFilasX("1. Irregular Verb.xlsx");
+    }
+
+    @Test
+    public void methods3Test() {
+        Fila resultado = getFilasAprenderExcelScanner.obtenerFilasX("imagen.xlsx");
+    }
 
 }

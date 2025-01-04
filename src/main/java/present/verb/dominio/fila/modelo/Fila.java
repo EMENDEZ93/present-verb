@@ -14,6 +14,7 @@ public class Fila {
     private List<String> allSpeakFast;
     private List<String> fonetica;
     private List<String> tipo;
+    private List<String> images;
     private List<List<FilaDto>> example = new ArrayList<>();
     private boolean orden;
 }
