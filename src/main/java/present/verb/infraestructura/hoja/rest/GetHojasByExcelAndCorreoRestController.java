@@ -17,9 +17,13 @@ public class GetHojasByExcelAndCorreoRestController {
     @Autowired
     private GetHojasByExcelAndCorreoCorreHandler getHojasByExcelAndCorreoCorreHandler;
 
-    @GetMapping("/hojas/{excel}/{correo}")
-    public List<HojaDto> execute(@PathVariable String excel, @PathVariable String correo) {
-        return getHojasByExcelAndCorreoCorreHandler.execute(excel, correo);
+    @GetMapping("/hojas/{excel}/{espacioTrabajo}/{correo}")
+    public List<HojaDto> execute(
+            @PathVariable String excel,
+            @PathVariable String espacioTrabajo,
+            @PathVariable String correo
+    ) {
+        return getHojasByExcelAndCorreoCorreHandler.execute(espacioTrabajo, excel, correo);
     }
 
 }

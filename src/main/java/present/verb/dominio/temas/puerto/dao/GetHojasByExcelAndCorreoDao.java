@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface GetHojasByExcelAndCorreoDao {
 
-    List<HojaDto> executer(String excel, String correo);
+    List<HojaDto> executer(String excel, String correo, String espacioTrabajo);
 
 }

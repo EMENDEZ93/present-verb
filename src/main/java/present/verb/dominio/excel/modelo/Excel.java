@@ -30,6 +30,7 @@ public class Excel {
     private Integer repeticionPorHoras;
     private String estado;
     private String incluir;
+    private String espacioTrabajo;
 
     @OneToMany(mappedBy = "excel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Hoja> hojas;

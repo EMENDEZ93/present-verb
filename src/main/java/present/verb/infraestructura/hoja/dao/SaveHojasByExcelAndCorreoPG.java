@@ -25,9 +25,9 @@ public class SaveHojasByExcelAndCorreoPG implements SaveHojasByExcelAndCorreoDao
     private GetExcelScanner getExcelScanner;
 
     @Override
-    public List<Hoja> executer(String nombreExcel, String correo) {
+    public List<Hoja> executer(String espacioTrabajo, String nombreExcel, String correo) {
         Usuario usuario = usuarioRepository.findByCorreo(correo);
-        Excel excel = getExcelScanner.executer(nombreExcel);
+        Excel excel = getExcelScanner.executer(espacioTrabajo, nombreExcel);
         excel.setUsuario(usuario);
         excelRepository.save(excel);
         return excel.getHojas();

@@ -32,17 +32,17 @@ public class GetHojasByExcelAndCorreoService {
     @Autowired
     private GetHojaByExcelAndCorreoRepository getHojaByExcelAndCorreoRepository;
 
-    public List<HojaDto> excecute(String excel, String correo) {
-        List<HojaDto> hojas = getHojasByExcelAndCorreoDao.executer(excel, correo);
+    public List<HojaDto> excecute(String espacioTrabajo, String excel, String correo) {
+        List<HojaDto> hojas = getHojasByExcelAndCorreoDao.executer(excel, correo, espacioTrabajo);
         if(hojas.isEmpty()) {
-            saveHojasByExcelAndCorreoDao.executer(excel, correo);
-            return getHojasByExcelAndCorreoDao.executer(excel, correo);
+            saveHojasByExcelAndCorreoDao.executer(espacioTrabajo, excel, correo);
+            return getHojasByExcelAndCorreoDao.executer(excel, correo, espacioTrabajo);
         }
         return hojas;
     }
 
-    public List<HojaDto> excecutev2(String nombreExcel, String correo, int horaActual) {
-        List<HojaDto> hojas = excecute(nombreExcel, correo);
+    public List<HojaDto> excecutev2(String espacioTrabajo, String nombreExcel, String correo, int horaActual) {
+        List<HojaDto> hojas = excecute(espacioTrabajo, nombreExcel, correo);
         List<HojaDto> hojasAprendidas =  hojas.stream()
                 .filter(hojaDto -> hojaDto.getUltimoIndiceAprendido() > 0 )
                 .collect(Collectors.toList());
@@ -52,7 +52,7 @@ public class GetHojasByExcelAndCorreoService {
             extracted(horaActual, hojasAprendidas, excel);
         }
 
-        return getHojasByExcelAndCorreoDao.executer(nombreExcel, correo);
+        return getHojasByExcelAndCorreoDao.executer(nombreExcel, correo, espacioTrabajo);
     }
 
     private void extracted(int horaActual, List<HojaDto> hojasAprendidas, Excel excel) {

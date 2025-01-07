@@ -14,8 +14,13 @@ public class GetHojasByExcelAndCorreoCorreHandler {
     @Autowired
     private GetHojasByExcelAndCorreoService getHojasByExcelAndCorreoService;
 
-    public List<HojaDto> execute(String excel, String correo) {
-        return getHojasByExcelAndCorreoService.excecutev2(excel, correo, ZonedDateTime.now().getHour());
+    public List<HojaDto> execute(String espacioTrabajo, String excel, String correo) {
+        return getHojasByExcelAndCorreoService.excecutev2(
+                espacioTrabajo,
+                excel,
+                correo,
+                ZonedDateTime.now().getHour()
+        );
     }
 
 }

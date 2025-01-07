@@ -13,23 +13,26 @@ import java.util.Iterator;
 @Component
 public class GetExcelScanner {
 
-    public Excel executer(String nombreExcel) {
+    public Excel executer(String espacioTrabajo, String nombreExcel) {
         try {
-            return obtener(nombreExcel);
+            return obtener(espacioTrabajo, nombreExcel);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
 
-    public Excel obtener(String nombreExcel) {
+    public Excel obtener(String espacioTrabajo, String nombreExcel) {
         try {
-            InputStream in = getClass().getResourceAsStream("/excel/".concat(nombreExcel));
+            InputStream in = getClass().getResourceAsStream(
+                    "/".concat(espacioTrabajo).concat("/").concat(nombreExcel)
+            );
             XSSFWorkbook excel = new XSSFWorkbook(in);
 
             Excel excelResultado = new Excel();
             excelResultado.setNombre(getNombreSinExtension(nombreExcel));
             excelResultado.setArchivo(getNombreConExtension(nombreExcel));
             excelResultado.setHojas(new ArrayList<>());
+            excelResultado.setEspacioTrabajo(espacioTrabajo);
 
             for (int indiceHojaExcel = 0; indiceHojaExcel < excel.getNumberOfSheets(); indiceHojaExcel++) {
 

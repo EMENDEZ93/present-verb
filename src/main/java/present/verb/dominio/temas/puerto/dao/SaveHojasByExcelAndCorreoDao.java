@@ -8,6 +8,6 @@ import java.util.List;
 @Repository
 public interface SaveHojasByExcelAndCorreoDao {
 
-    List<Hoja> executer(String excel, String correo);
+    List<Hoja> executer(String espacioTrabajo, String excel, String correo);
 
 }
