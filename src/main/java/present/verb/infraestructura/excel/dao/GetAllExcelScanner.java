@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static java.util.Objects.isNull;
-
 @Component
 public class GetAllExcelScanner implements GetAllExcelDao {
 
@@ -74,7 +72,7 @@ public class GetAllExcelScanner implements GetAllExcelDao {
 
     private List<Excel> scannerExcelFolder(String espacioTrabajo) {
 
-        if ("excel_0".equalsIgnoreCase(espacioTrabajo)) {
+        if ("excel_01".equalsIgnoreCase(espacioTrabajo)) {
             return Arrays.stream(resourcesExcel0)
                     .map(resource -> {
                         Excel excel = new Excel();

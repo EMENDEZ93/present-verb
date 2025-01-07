@@ -28,7 +28,7 @@ public class ObtenerEspacioTrabajo {
                     .collect(Collectors.toList());
 
         } catch (Exception e) {
-            List<String> espacios = asList("excel", "excel_0");
+            List<String> espacios = asList("excel", "excel_01");
             return espacios;
         }
     }
