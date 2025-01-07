@@ -16,7 +16,9 @@ public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, 
     @Query("                SELECT\n" +
             "                h.id as id,\n" +
             "                h.nombre as nombre,\n" +
+            //"                h.filas as ultimoIndiceAprendido,\n" +
             "                0 as ultimoIndiceAprendido,\n" +
+            //"                h.repeticionesAltaComoAprendido as repeticionesAltaComoAprendido,\n" +
             "                1 as repeticionesAltaComoAprendido,\n" +
             "                h.ultimaFechaAprendio as ultimaFechaAprendio,\n" +
             "                h.ultimaFechaSpeaking as ultimaFechaAprendio,\n" +
@@ -24,6 +26,7 @@ public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, 
             "                h.ultimaFechaSpeaking as ultimaFechaSpeaking,\n" +
             "                h.ultimaFechaTranslate as ultimaFechaTranslate,\n" +
             "                h.esPreguntaRespuesta as esPreguntaRespuesta,\n" +
+            //"                h.numeroVerbosPorAprenderDiario as numeroVerbosPorAprenderDiario,\n" +
             "                h.filas as numeroVerbosPorAprenderDiario,\n" +
             "                h.indiceExcel as indiceExcel,\n" +
             "                h.filas as filas, \n" +
@@ -32,7 +35,7 @@ public interface GetHojasByExcelAndCorreoRepository extends JpaRepository<Hoja, 
             "                FROM Usuario u\n" +
             "                INNER JOIN Excel e on (u.id = e.usuario)\n" +
             "                INNER JOIN Hoja h on (e.id = h.excel)\n" +
-            "                where e.archivo = ?1 and e.espaciotrabajo = ?3 and u.correo = ?2 ORDER BY h.id ASC")
+            "                where e.archivo = ?1 and u.correo = ?2 and e.espaciotrabajo=?3 ORDER BY h.id ASC")
     List<HojaDto> execute(String excel, String correo, String espacioTrabajo);
 
 }
