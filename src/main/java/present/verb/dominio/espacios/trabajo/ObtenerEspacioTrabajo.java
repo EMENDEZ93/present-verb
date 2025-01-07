@@ -18,14 +18,15 @@ public class ObtenerEspacioTrabajo {
 
     public List<String> obtenerEspacios() {
         try {
-            return Files.list(Paths.get(resourcePath))
+
+            // obtener folder del resource
+            Path path = Paths.get(resourcePath);
+            return Files.walk(path, 1)
                     .filter(Files::isDirectory)
-                    .filter(p -> p.getFileName().toString().equals("excel") ||
-                            p.getFileName().toString().equals("excel_0")
-                    )
                     .map(Path::getFileName)
-                    .map(String::valueOf)
+                    .map(Path::toString)
                     .collect(Collectors.toList());
+            
         } catch (Exception e) {
             List<String> espacios = asList("No se encontraron espacios de trabajo");
             return espacios;
