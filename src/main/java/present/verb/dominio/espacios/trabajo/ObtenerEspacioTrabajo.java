@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.Arrays.asList;
+
 @Service
 public class ObtenerEspacioTrabajo {
 
@@ -25,7 +27,8 @@ public class ObtenerEspacioTrabajo {
                     .map(String::valueOf)
                     .collect(Collectors.toList());
         } catch (Exception e) {
-            return null;
+            List<String> espacios = asList("No se encontraron espacios de trabajo");
+            return espacios;
         }
     }
 
