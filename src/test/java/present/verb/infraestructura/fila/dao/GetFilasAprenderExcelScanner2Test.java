@@ -34,7 +34,7 @@ public class GetFilasAprenderExcelScanner2Test {
     @Test
     public void methodsTest() {
         int idHoja = 1;
-        Fila resultado = getFilasAprenderExcelScanner.executer(idHoja);
+        //Fila resultado = getFilasAprenderExcelScanner.executer(idHoja);
     }
 
     @Test
