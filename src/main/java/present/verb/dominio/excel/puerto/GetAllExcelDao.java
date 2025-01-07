@@ -12,6 +12,6 @@ import java.util.Set;
 public interface GetAllExcelDao {
 
     List<Excel> executer();
-    Set<Excel> executerByCorreo(String correo);
+    Set<Excel> executerByCorreo(String espacioTrabajo, String correo);
 
 }

@@ -19,8 +19,8 @@ public class GetAllExcelHandler {
     }
 
 
-    public Set<Excel> executerByCorreo(String correo) {
-        return getAllExcelService.executerByCorreo(correo);
+    public Set<Excel> executerByCorreo(String espacioTrabajo, String correo) {
+        return getAllExcelService.executerByCorreo(espacioTrabajo, correo);
     }
 
 }

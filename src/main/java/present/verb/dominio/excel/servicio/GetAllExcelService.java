@@ -18,8 +18,8 @@ public class GetAllExcelService {
         return getAllExcelDao.executer();
     }
 
-    public Set<Excel> executerByCorreo(String correo) {
-        return getAllExcelDao.executerByCorreo(correo);
+    public Set<Excel> executerByCorreo(String espacioTrabajo, String correo) {
+        return getAllExcelDao.executerByCorreo(espacioTrabajo, correo);
     }
 
 }

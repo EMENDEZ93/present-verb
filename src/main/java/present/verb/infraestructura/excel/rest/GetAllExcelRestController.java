@@ -23,9 +23,9 @@ public class GetAllExcelRestController {
         return getAllExcelHandler.executer();
     }
 
-    @GetMapping("/excels/{correo}")
-    public Set<Excel> execute(@PathVariable String correo) {
-        return getAllExcelHandler.executerByCorreo(correo);
+    @GetMapping("/excels/{espacioTrabajo}/{correo}")
+    public Set<Excel> execute(@PathVariable String espacioTrabajo, @PathVariable String correo) {
+        return getAllExcelHandler.executerByCorreo(espacioTrabajo, correo);
     }
 
 

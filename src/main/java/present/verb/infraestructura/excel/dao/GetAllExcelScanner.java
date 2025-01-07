@@ -23,6 +23,9 @@ public class GetAllExcelScanner implements GetAllExcelDao {
     @Value("classpath:excel/*")
     private Resource[] resources;
 
+    @Value("classpath:excel_0/*")
+    private Resource[] resourcesExcel0;
+
     @Autowired
     private ExcelRepository excelRepository;
 
@@ -32,7 +35,8 @@ public class GetAllExcelScanner implements GetAllExcelDao {
     @Override
     public List<Excel> executer() {
         try {
-            return scannerExcelFolder();
+            //return scannerExcelFolder();
+            return null;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -40,31 +44,11 @@ public class GetAllExcelScanner implements GetAllExcelDao {
     }
 
     @Override
-    public Set<Excel> executerByCorreo(String correo) {
+    public Set<Excel> executerByCorreo(String espacioTrabajo, String correo) {
         try {
             Usuario usuario = usuarioRepository.findByCorreo(correo);
 
-            if (!isNull(usuario.getExcels()) && !usuario.getExcels().isEmpty()) {
-                List<Excel> excelsCiclo = usuario.getExcels().stream()
-                        .filter(excel -> "CICLO".equalsIgnoreCase(excel.getIncluir()))
-                        .collect(Collectors.toList());
-
-                List<Excel> faltantes = excelsCiclo.stream()
-                        .filter(excel -> "TERMINADO".equalsIgnoreCase(excel.getEstado()))
-                        .collect(Collectors.toList());
-
-                int totalExcelsCiclo = excelsCiclo.size();
-                int terminados = faltantes.size();
-
-                if(terminados == totalExcelsCiclo) {
-                    for(Excel excel: excelsCiclo) {
-                        excel.setEstado("ACTUALIZAR");
-                        excelRepository.save(excel);
-                    }
-                }
-            }
-
-            List<Excel> excelsScanner = scannerExcelFolder();
+            List<Excel> excelsScanner = scannerExcelFolder(espacioTrabajo);
             Set<Excel> excels = excelRepository.findAllByUsuario(usuario);
 
             excels.forEach(excel -> {
@@ -88,15 +72,31 @@ public class GetAllExcelScanner implements GetAllExcelDao {
         }
     }
 
-    private List<Excel> scannerExcelFolder() {
-        return Arrays.stream(resources)
-                .map(resource -> {
-                    Excel excel = new Excel();
-                    excel.setNombre(getNombreSinExtension(resource.getFilename()));
-                    excel.setArchivo(getNombreConExtension(resource.getFilename()));
-                    return excel;
-                }).collect(Collectors.toList());
+    private List<Excel> scannerExcelFolder(String espacioTrabajo) {
 
+        if ("excel_0".equalsIgnoreCase(espacioTrabajo)) {
+            return Arrays.stream(resourcesExcel0)
+                    .map(resource -> {
+                        Excel excel = new Excel();
+                        excel.setNombre(getNombreSinExtension(resource.getFilename()));
+                        excel.setArchivo(getNombreConExtension(resource.getFilename()));
+                        return excel;
+                    }).collect(Collectors.toList());
+
+        }
+
+        if ("excel".equalsIgnoreCase(espacioTrabajo)) {
+            return Arrays.stream(resources)
+                    .map(resource -> {
+                        Excel excel = new Excel();
+                        excel.setNombre(getNombreSinExtension(resource.getFilename()));
+                        excel.setArchivo(getNombreConExtension(resource.getFilename()));
+                        return excel;
+                    }).collect(Collectors.toList());
+
+        }
+
+        return Arrays.asList();
     }
 
     private String getNombreSinExtension(String informe) {
