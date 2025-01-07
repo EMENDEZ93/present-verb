@@ -32,7 +32,7 @@ public class GetExcelScanner {
             excelResultado.setNombre(getNombreSinExtension(nombreExcel));
             excelResultado.setArchivo(getNombreConExtension(nombreExcel));
             excelResultado.setHojas(new ArrayList<>());
-            excelResultado.setEspacioTrabajo(espacioTrabajo);
+            excelResultado.setEspaciotrabajo(espacioTrabajo);
 
             for (int indiceHojaExcel = 0; indiceHojaExcel < excel.getNumberOfSheets(); indiceHojaExcel++) {
 
