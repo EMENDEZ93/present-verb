@@ -11,6 +11,7 @@ import present.verb.dominio.usuario.modelo.Usuario;
 import present.verb.dominio.usuario.puerto.UsuarioRepository;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -54,17 +55,17 @@ public class GetAllExcelScanner implements GetAllExcelDao {
                 excel.setHojas(null);
             });
 
-
-            for(Excel excel : excelsScanner) {
+            /*for(Excel excel : excelsScanner) {
                 boolean resultado = excels.
                         stream().
                         anyMatch(excel1 -> excel.getNombre().equalsIgnoreCase(excel1.getNombre()));
                 if(!resultado) {
                     excels.add(excel);
                 }
-            }
+            }*/
 
-            return excels;
+            Set<Excel> excelsFinal = new HashSet<>(excelsScanner);
+            return excelsFinal;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
