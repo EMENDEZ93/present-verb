@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import present.verb.dominio.espacios.trabajo.ObtenerEspacioTrabajo;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -16,7 +18,9 @@ public class ObtenerEspacioTrabajoRestController {
     private ObtenerEspacioTrabajo obtenerEspacioTrabajo;
 
     @GetMapping("/espacios/trabajo")
-    public List<String> obtenerEspacios() {
-        return obtenerEspacioTrabajo.obtenerEspacios();
+    public Set<String> obtenerEspacios() {
+        List<String> strings = obtenerEspacioTrabajo.obtenerEspacios();
+        Set<String> conjunto = new HashSet<>(strings);
+        return conjunto;
     }
 }
