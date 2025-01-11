@@ -64,7 +64,7 @@ public class GetFilasAprenderExcelScanner {
 
                 String espaciotrabajo = hoja.get().getExcel().getEspaciotrabajo();
 
-                String path = "/" + espaciotrabajo + "/".concat(hoja.get().getExcel().getArchivo());
+                String path = "/espacios/" + espaciotrabajo + "/".concat(hoja.get().getExcel().getArchivo());
 
                 InputStream in = getClass().getResourceAsStream(path);
                 XSSFWorkbook excel = new XSSFWorkbook(in);

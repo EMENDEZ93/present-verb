@@ -24,7 +24,7 @@ public class GetExcelScanner {
     public Excel obtener(String espacioTrabajo, String nombreExcel) {
         try {
             InputStream in = getClass().getResourceAsStream(
-                    "/".concat(espacioTrabajo).concat("/").concat(nombreExcel)
+                    "/espacios/".concat(espacioTrabajo).concat("/").concat(nombreExcel)
             );
             XSSFWorkbook excel = new XSSFWorkbook(in);
 
