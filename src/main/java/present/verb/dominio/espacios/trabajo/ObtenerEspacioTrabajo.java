@@ -29,7 +29,7 @@ public class ObtenerEspacioTrabajo {
         try {
             resources_ = resourcePatternResolver.getResources("classpath*:espacios/*");
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            resources_ = resources;
         }
 
         return stream(resources_)
