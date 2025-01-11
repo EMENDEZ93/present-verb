@@ -30,7 +30,7 @@ public class ObtenerEspacioTrabajo {
 
         Resource[] resources_ = null;
         try {
-            resources_ = resourcePatternResolver.getResources("classpath*:espacios/*");
+            resources_ = resourcePatternResolver.getResources("classpath:espacios/*");
         } catch (Exception e) {
 
             Resource resource = new Resource() {
@@ -97,6 +97,10 @@ public class ObtenerEspacioTrabajo {
 
             // agrrar el recurso que se genero
             resources_ = new Resource[]{resource};
+        }
+
+        if (resources_ == null || resources_.length == 0) {
+            return Arrays.asList("No hay espacios de trabajo");
         }
 
         return stream(resources_)
