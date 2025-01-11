@@ -33,11 +33,11 @@ public class ObtenerEspacioTrabajo {
         Resource[] resources;
 
         try {
-            resources = resolver.getResources("classpath:*");
+            resources = resolver.getResources("classpath:**");
             for (Resource resource : resources) {
-                if (resource.getURL().getPath().endsWith("/")) {
+                //if (resource.getURL().getPath().endsWith("/")) {
                     folders.add(resource.getFilename());
-                }
+                //}
             }
 
         }   catch (Exception e) {
