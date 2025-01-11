@@ -30,7 +30,7 @@ public class ObtenerEspacioTrabajo {
 
         Resource[] resources_ = null;
         try {
-            resources_ = resourcePatternResolver.getResources("classpath:espacios/*");
+            resources_ = resourcePatternResolver.getResources("classpath:resources/main/*");
         } catch (Exception e) {
 
             Resource resource = new Resource() {
