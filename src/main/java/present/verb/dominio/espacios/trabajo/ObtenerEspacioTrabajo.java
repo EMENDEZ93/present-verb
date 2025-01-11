@@ -6,8 +6,10 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,16 +27,20 @@ public class ObtenerEspacioTrabajo {
 
     public List<String> obtenerEspacios() {
 
-        Resource[] resources_ = null;
-        try {
-            resources_ = resourcePatternResolver.getResources("classpath*:espacios/*");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        List<String> folders = new ArrayList<>();
+
+        for (Resource resource : resources) {
+            try {
+                File file = resource.getFile();
+                if (file.isDirectory()) {
+                    folders.add(file.getName());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
-        return stream(resources)
-                .map(Resource::getFilename)
-                .collect(Collectors.toList());
+        return folders;
     }
 
 }
