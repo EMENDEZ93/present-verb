@@ -18,9 +18,6 @@ public class GetHojasByExcelAndCorreoPG implements GetHojasByExcelAndCorreoDao {
 
     @Override
     public List<HojaDto> executer(String excel, String correo, String espacioTrabajo) {
-
-        List<Hoja> hojas = temasByExcelAndCorreoRepository.findAll();
-
         return temasByExcelAndCorreoRepository.execute(excel, correo, espacioTrabajo);
     }
 
