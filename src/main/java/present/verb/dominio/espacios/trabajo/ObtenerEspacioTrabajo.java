@@ -21,7 +21,7 @@ import static java.util.Arrays.stream;
 public class ObtenerEspacioTrabajo {
 
     @Value("classpath:*")
-    private Resource[] resources;
+    private Resource[] resources_;
 
     @Autowired
     private ResourcePatternResolver resourcePatternResolver;
@@ -33,7 +33,7 @@ public class ObtenerEspacioTrabajo {
         Resource[] resources;
 
         try {
-            resources = resolver.getResources("classpath:**");
+            resources = resolver.getResources("classpath:*");
             for (Resource resource : resources) {
                 if (resource.getURL().getPath().endsWith("/")) {
                     folders.add(resource.getFilename());
