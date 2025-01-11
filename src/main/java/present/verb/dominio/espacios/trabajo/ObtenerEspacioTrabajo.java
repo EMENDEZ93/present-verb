@@ -11,9 +11,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.PathMatcher;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Arrays.stream;
@@ -27,13 +25,13 @@ public class ObtenerEspacioTrabajo {
     @Autowired
     private ResourcePatternResolver resourcePatternResolver;
 
-    public List<String> obtenerEspacios() {
-        List<String> folders = new ArrayList<>();
+    public Set<String> obtenerEspacios() {
+        Set<String> folders = new HashSet<>();
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         Resource[] resources;
         try {
             resolver.getClassLoader().getParent();
-            resources = resolver.getResources("classpath:**");
+            resources = resolver.getResources("classpath:espacios/**");
             for (Resource resource : resources) {
 
                 // eliminar el nombre del archivo && obtener la ultima carpeta

@@ -19,9 +19,6 @@ public class ObtenerEspacioTrabajoRestController {
 
     @GetMapping("/espacios/trabajo")
     public Set<String> obtenerEspacios() {
-        List<String> strings = obtenerEspacioTrabajo.obtenerEspacios();
-
-        Set<String> conjunto = new HashSet<>(strings);
-        return conjunto;
+        return obtenerEspacioTrabajo.obtenerEspacios();
     }
 }
