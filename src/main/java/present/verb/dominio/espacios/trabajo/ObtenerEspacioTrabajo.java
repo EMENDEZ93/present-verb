@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +18,15 @@ public class ObtenerEspacioTrabajo {
     @Value("classpath:espacios/*")
     private Resource[] resources;
 
+    @Value("classpath:espacios")
+    private Resource[] espacios;
+
     public List<String> obtenerEspacios() {
+
+        URL xxxx = this.getClass().getResource("classpath:espacios/*");
+
+        xxxx.getFile();
+
         return stream(resources)
                 .map(Resource::getFilename)
                 .collect(Collectors.toList());
