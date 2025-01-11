@@ -17,7 +17,7 @@ import static java.util.Arrays.stream;
 @Service
 public class ObtenerEspacioTrabajo {
 
-    @Value("classpath:*")
+    @Value("classpath:**")
     private Resource[] resources;
 
     @Autowired
