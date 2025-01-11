@@ -1,7 +1,9 @@
 package present.verb.dominio.espacios.trabajo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
@@ -18,16 +20,19 @@ public class ObtenerEspacioTrabajo {
     @Value("classpath:espacios/*")
     private Resource[] resources;
 
-    @Value("classpath:espacios")
-    private Resource[] espacios;
+    @Autowired
+    private ResourcePatternResolver resourcePatternResolver;
 
     public List<String> obtenerEspacios() {
 
-        URL xxxx = this.getClass().getResource("classpath:espacios/*");
+        Resource[] resources_ = null;
+        try {
+            resources_ = resourcePatternResolver.getResources("classpath*:espacios/*");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
-        xxxx.getFile();
-
-        return stream(resources)
+        return stream(resources_)
                 .map(Resource::getFilename)
                 .collect(Collectors.toList());
     }
