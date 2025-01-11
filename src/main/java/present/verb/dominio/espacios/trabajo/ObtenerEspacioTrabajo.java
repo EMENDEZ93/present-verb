@@ -19,9 +19,6 @@ import static java.util.Arrays.stream;
 @Service
 public class ObtenerEspacioTrabajo {
 
-    @Value("classpath:*")
-    private Resource[] resources_;
-
     @Autowired
     private ResourcePatternResolver resourcePatternResolver;
 
@@ -33,8 +30,6 @@ public class ObtenerEspacioTrabajo {
             resolver.getClassLoader().getParent();
             resources = resolver.getResources("classpath:espacios/**");
             for (Resource resource : resources) {
-
-                // eliminar el nombre del archivo && obtener la ultima carpeta
                 String[] path = resource.getURL().getPath().split("/");
                 String folder = path[path.length - 1];
                 if (!folder.contains(".")) {
@@ -46,7 +41,7 @@ public class ObtenerEspacioTrabajo {
             e.printStackTrace();
         }
 
-        return folders;
+        return folders.stream().filter(xx -> !xx.equals("espacios")).collect(Collectors.toSet());
     }
 
 }
