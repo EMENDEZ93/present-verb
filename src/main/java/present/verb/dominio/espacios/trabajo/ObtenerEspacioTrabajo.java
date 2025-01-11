@@ -86,7 +86,7 @@ public class ObtenerEspacioTrabajo {
 
                 @Override
                 public String getFilename() {
-                    return e.getMessage();
+                    return "message: " + e.toString();
                 }
 
                 @Override
