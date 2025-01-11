@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.PathMatcher;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,15 +30,18 @@ public class ObtenerEspacioTrabajo {
     public List<String> obtenerEspacios() {
         List<String> folders = new ArrayList<>();
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-
         Resource[] resources;
-
         try {
+            resolver.getClassLoader().getParent();
             resources = resolver.getResources("classpath:**");
             for (Resource resource : resources) {
-                //if (resource.getURL().getPath().endsWith("/")) {
-                    folders.add(resource.getFilename());
-                //}
+
+                // eliminar el nombre del archivo && obtener la ultima carpeta
+                String[] path = resource.getURL().getPath().split("/");
+                String folder = path[path.length - 1];
+                if (!folder.contains(".")) {
+                    folders.add(folder);
+                }
             }
 
         }   catch (Exception e) {
