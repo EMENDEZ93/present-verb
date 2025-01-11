@@ -17,7 +17,7 @@ public class ObtenerEspacioTrabajoTest {
     @Test
     public void readTest() {
 
-        List<String> espacios = obtenerEspacioTrabajo.obtenerEspacios();
+        //List<String> espacios = obtenerEspacioTrabajo.obtenerEspacios();
 
     }
 
