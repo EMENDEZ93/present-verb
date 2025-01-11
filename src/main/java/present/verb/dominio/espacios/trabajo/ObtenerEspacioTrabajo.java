@@ -3,6 +3,7 @@ package present.verb.dominio.espacios.trabajo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
@@ -26,18 +27,21 @@ public class ObtenerEspacioTrabajo {
     private ResourcePatternResolver resourcePatternResolver;
 
     public List<String> obtenerEspacios() {
-
         List<String> folders = new ArrayList<>();
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
-        for (Resource resource : resources) {
-            try {
-                File file = resource.getFile();
-                if (file.isDirectory()) {
-                    folders.add(file.getName());
+        Resource[] resources;
+
+        try {
+            resources = resolver.getResources("classpath:**");
+            for (Resource resource : resources) {
+                if (resource.getURL().getPath().endsWith("/")) {
+                    folders.add(resource.getFilename());
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+
+        }   catch (Exception e) {
+            e.printStackTrace();
         }
 
         return folders;
