@@ -3,6 +3,7 @@ package present.verb.infraestructura.excel.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Component;
 import present.verb.dominio.excel.modelo.Excel;
@@ -67,21 +68,24 @@ public class GetAllExcelScanner implements GetAllExcelDao {
 
     private List<Excel> scannerExcelFolder(String espacioTrabajo) throws IOException {
 
-        Map<String, Resource> espaciosMap = stream(espacios).collect(
-                toMap(Resource::getFilename,
-                Function.identity())
-        );
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        Resource[] resources;
 
-        Resource excelsEspacioTrabajo = espaciosMap.get(espacioTrabajo);
+        resources = resolver.getResources("classpath:espacios/" + espacioTrabajo + "/**");
+        List<Excel> excels = new ArrayList<>();
 
-         return stream(excelsEspacioTrabajo.getFile().list()).map(
-                nombreExcel -> {
-                    Excel excel = new Excel();
-                    excel.setNombre(getNombreSinExtension(nombreExcel));
-                    excel.setArchivo(getNombreConExtension(nombreExcel));
-                    return excel;
-                }
-        ).collect(Collectors.toList());
+        for (Resource resource : resources) {
+            // obtener los excel
+            if (resource.getFilename().contains(".xlsx")) {
+                Excel excel = new Excel();
+                excel.setNombre(getNombreSinExtension(resource.getFilename()));
+                excel.setArchivo(getNombreConExtension(resource.getFilename()));
+                excels.add(excel);
+            }
+
+        }
+
+        return excels;
     }
 
     private String getNombreSinExtension(String informe) {
