@@ -15,6 +15,7 @@ public interface HojaRepository extends JpaRepository<Hoja, Integer> {
         if(hoja.isPresent()) {
             hoja.get().setUltimaFechaAprendio(LocalDate.now());
             hoja.get().updateUltimaFechAprendido();
+            hoja.get().setPorRutina(true);
             save(hoja.get());
             hoja.get().setExcel(null);
             return hoja.get();
