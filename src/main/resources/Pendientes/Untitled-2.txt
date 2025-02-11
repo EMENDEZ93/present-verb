@@ -1,0 +1,484 @@
+How about going for a walk?
+How about trying that new restaurant?
+How about playing soccer this weekend?
+How about visiting the museum tomorrow?
+How about watching a movie tonight?
+How about cooking dinner together?
+How about studying for the exam?
+How about reading a book?
+How about taking a break?
+How about going swimming?
+How about dancing at the party?
+How about cleaning the house?
+How about listening to some music?
+How about exercising in the morning?
+How about hiking in the mountains?
+How about joining a gym?
+How about doing some yoga?
+How about playing video games?
+How about attending a concert?
+How about having a picnic in the park?
+How about learning a new language?
+How about trying a new hobby?
+How about volunteering at the shelter?
+How about visiting your family?
+How about going on a road trip?
+How about taking a nap?
+How about organizing the closet?
+How about watching a documentary?
+How about going out for coffee?
+How about practicing your guitar?
+How about going to the beach?
+How about painting a picture?
+How about doing some gardening?
+How about writing in your journal?
+How about making cookies?
+How about playing board games?
+How about going to the zoo?
+How about having a video call?
+How about knitting a sweater?
+How about shopping for new clothes?
+How about going to a dance class?
+How about running a marathon?
+How about taking a cooking class?
+How about getting some fresh air?
+How about making a scrapbook?
+How about going to a comedy show?
+How about joining a book club?
+How about going ice skating?
+How about getting a haircut?
+How about traveling to a new city?
+
+
+How about if we go to the park tomorrow?
+How about if you call me when you arrive?
+How about if we try that new restaurant for dinner?
+How about if you take a break and relax for a while?
+How about if I pick you up at 7 PM?
+How about if we watch a movie tonight?
+How about if we go on a road trip this weekend?
+How about if we try a different approach to the project?
+How about if we start the meeting at 9 AM instead?
+How about if we invite some friends over for a BBQ?
+How about if you send me the report by Friday?
+How about if we visit that museum on Saturday?
+How about if we split the cost of the tickets?
+How about if I make dinner tonight?
+How about if we try a new workout routine tomorrow?
+How about if we take a walk after lunch?
+How about if we go for coffee instead of lunch?
+How about if we make it a game night on Friday?
+How about if I handle the presentation this time?
+How about if we go to the beach for the weekend?
+How about if we start with the easy tasks first?
+How about if we ask for help from a colleague?
+How about if I do the shopping for you today?
+How about if we meet at the usual spot?
+How about if we change the schedule for next week?
+How about if we skip the meeting this time?
+How about if we take the day off tomorrow?
+How about if we book a reservation for dinner?
+How about if we try a new hobby together?
+How about if we plan a surprise party for her?
+How about if we go hiking on Sunday?
+How about if I write the email to the client?
+How about if we send the proposal next week instead?
+How about if we go to a comedy show this weekend?
+How about if we organize a virtual game night?
+How about if we discuss the idea during the meeting?
+How about if we visit a new city for the holidays?
+How about if you ask her out for coffee?
+How about if we try a different time for the meeting?
+How about if we go to a concert next month?
+How about if we order takeout for lunch today?
+How about if I help you with your project?
+How about if we go to a wine tasting event?
+How about if we do a group workout at the gym?
+How about if we visit your parents this weekend?
+How about if we go to a new art gallery?
+How about if I take care of the paperwork for you?
+How about if we check out that new store downtown?
+How about if we start working on the report now?
+How about if we plan a weekend getaway?
+
+How about dinner?
+(¿Qué tal la cena?)
+
+How about a movie?
+(¿Qué tal una película?)
+
+How about your friends?
+(¿Qué tal tus amigos?)
+
+How about coffee?
+(¿Qué tal un café?)
+
+How about the weather?
+(¿Qué tal el clima?)
+
+How about the meeting tomorrow?
+(¿Qué tal la reunión de mañana?)
+
+How about a walk in the park?
+(¿Qué tal una caminata por el parque?)
+
+How about a trip to the beach?
+(¿Qué tal un viaje a la playa?)
+
+How about lunch at that new restaurant?
+(¿Qué tal almorzar en ese nuevo restaurante?)
+
+How about the new movie that just came out?
+(¿Qué tal la nueva película que acaba de salir?)
+
+How about a trip to the mountains?
+(¿Qué tal un viaje a las montañas?)
+
+How about trying a new restaurant?
+(¿Qué tal probar un restaurante nuevo?)
+
+How about some ice cream?
+(¿Qué tal un poco de helado?)
+
+How about a workout at the gym?
+(¿Qué tal un entrenamiento en el gimnasio?)
+
+How about a visit to the museum?
+(¿Qué tal una visita al museo?)
+
+How about a game of basketball?
+(¿Qué tal un partido de baloncesto?)
+
+How about a bike ride?
+(¿Qué tal un paseo en bicicleta?)
+
+How about a cup of tea?
+(¿Qué tal una taza de té?)
+
+How about a new phone?
+(¿Qué tal un teléfono nuevo?)
+
+How about some music?
+(¿Qué tal un poco de música?)
+
+How about a little help with this project?
+(¿Qué tal un poco de ayuda con este proyecto?)
+
+How about a different approach to the problem?
+(¿Qué tal un enfoque diferente para el problema?)
+
+How about a snack?
+(¿Qué tal un refrigerio?)
+
+How about a break?
+(¿Qué tal un descanso?)
+
+How about a party this weekend?
+(¿Qué tal una fiesta este fin de semana?)
+
+How about an evening walk?
+(¿Qué tal una caminata nocturna?)
+
+How about a coffee date?
+(¿Qué tal una cita para un café?)
+
+How about a visit to the beach this summer?
+(¿Qué tal una visita a la playa este verano?)
+
+How about some help with the cleaning?
+(¿Qué tal algo de ayuda con la limpieza?)
+
+How about we grab a drink?
+(¿Qué tal si tomamos algo?)
+
+How about your weekend plans?
+(¿Qué tal tus planes para el fin de semana?)
+
+How about a night out?
+(¿Qué tal una salida nocturna?)
+
+How about the concert this Friday?
+(¿Qué tal el concierto este viernes?)
+
+How about a short trip to the countryside?
+(¿Qué tal un viaje corto al campo?)
+
+How about your new job?
+(¿Qué tal tu nuevo trabajo?)
+
+How about a photo session?
+(¿Qué tal una sesión de fotos?)
+
+How about a game of chess?
+(¿Qué tal una partida de ajedrez?)
+
+How about a walk in the park later?
+(¿Qué tal una caminata por el parque más tarde?)
+
+How about a visit to your family?
+(¿Qué tal una visita a tu familia?)
+
+How about a swim in the pool?
+(¿Qué tal un baño en la piscina?)
+
+How about joining the gym?
+(¿Qué tal unirte al gimnasio?)
+
+How about spending the weekend at home?
+(¿Qué tal pasar el fin de semana en casa?)
+
+How about a few days off?
+(¿Qué tal unos días libres?)
+
+How about visiting that new cafe?
+(¿Qué tal visitar ese nuevo café?)
+
+How about a dance class?
+(¿Qué tal una clase de baile?)
+
+How about a photo walk?
+(¿Qué tal una caminata para sacar fotos?)
+
+How about trying a new hobby?
+(¿Qué tal probar un nuevo pasatiempo?)
+
+How about a family gathering?
+(¿Qué tal una reunión familiar?)
+
+How about a weekend getaway?
+(¿Qué tal una escapada de fin de semana?)
+
+How about learning a new language?
+(¿Qué tal aprender un nuevo idioma?)
+
+What about the weather?
+What about the movie?
+What about your job?
+What about the meeting?
+What about the dinner?
+What about your plans?
+What about the presentation?
+What about the party?
+What about the trip?
+What about the team?
+What about the project?
+What about the proposal?
+What about the schedule?
+What about the invitation?
+What about the book?
+What about the food?
+What about the weekend?
+What about the children?
+What about the house?
+What about the concert?
+What about the payment?
+What about the tickets?
+What about the course?
+What about the presentation?
+What about the details?
+What about the supplies?
+What about the instructions?
+What about the equipment?
+What about the email?
+What about the service?
+What about the feedback?
+What about the news?
+What about the weather forecast?
+What about the schedule for tomorrow?
+What about the holidays?
+What about the update?
+What about the review?
+What about the repairs?
+What about the new policy?
+What about the contract?
+What about the results?
+What about the interview?
+What about the paperwork?
+What about the rent?
+What about the documents?
+What about the groceries?
+What about the shopping list?
+What about the deadline?
+What about the workout?
+What about the song?
+
+
+What about going to the movies?
+What about playing soccer?
+What about cooking dinner tonight?
+What about swimming at the beach?
+What about traveling to Paris?
+What about reading a book?
+What about learning to play guitar?
+What about starting a new project?
+What about hiking this weekend?
+What about working out at the gym?
+What about trying a new recipe?
+What about watching a documentary?
+What about running in the park?
+What about studying for the exam?
+What about painting the house?
+What about visiting a museum?
+What about listening to music?
+What about dancing at the party?
+What about going shopping?
+What about making a cake?
+What about fixing the car?
+What about meditating for 10 minutes?
+What about playing video games?
+What about taking a walk in the morning?
+What about cleaning the kitchen?
+What about joining a yoga class?
+What about practicing your English?
+What about attending a concert?
+What about going skiing?
+What about volunteering at the shelter?
+What about cycling through the city?
+What about doing some gardening?
+What about learning photography?
+What about watching a movie at home?
+What about playing cards with friends?
+What about visiting a new restaurant?
+What about writing a blog post?
+What about watching a game at the stadium?
+What about going to a spa?
+What about organizing a picnic?
+What about trying a new sport?
+What about going for a bike ride?
+What about attending a cooking class?
+What about taking a photography course?
+What about starting a YouTube channel?
+What about having a barbecue?
+What about going to a theme park?
+What about playing a board game?
+What about doing some online shopping?
+What about trying meditation?
+
+Did you use to... or do you now?
+
+What + used to
+Where + used to
+Why + used to
+When + used to
+
+How often did you use to...?
+What’s a habit you used to have but quit?
+What’s something your city used to have that it doesn’t anymore?
+What’s something you used to believe that has changed?
+
+1. Preferencias generales
+Would you rathe...?
+
+2. Preferencias en comida y bebida
+Would you rather...?
+
+3. Preferencias en viajes
+Would you rather...?
+
+4. Preferencias en entretenimiento
+Would you rather...?
+
+5. Preferencias en estilo de vida
+Would you rather...?
+
+6. Preferencias en aprendizaje y educación
+Would you rather...?
+
+7. Preferencias en tecnología
+Would you rather...?
+
+8. Preferencias en deporte y actividad física
+Would you rather...?
+
+9. Preferencias en situaciones de trabajo
+Would you rather...?
+
+10. Preferencias en situaciones hipotéticas y extremas
+Would you rather...?
+
+a bit + adjectived
+i'll stop by...
+
+should b...
+
+crear un excel con los verbos que en conjunti de otros inicia con integración
+
+i'm about to...
+
+always am
+always do
+will do
+
+gear on
+it'll be...
+just + verb+integración
+should be there....
+it's getting....
+busy as usual, but
+i'm looking forward to....
+thought it'd be....
+get whatever...
+
+got any...
+got any snacks
+got both
+
+everywehre in...
+
+i'll bring...
+
+it's so dark
+
+i'm on...
+
+ejemplos con by [i'll be waiting by..]
+
+i'll also + verb
+
+me neither
+
+i was thinking of....
+i whas thinking around 10 AM
+
+can you check if...
+
+
+see you soon then
+see you in a bit.
+be there soon
+talk to you soon
+see you later
+
+what time works for...?
+
+maybe a... would be....
+
+thanks for ver+ing
+
+i'm already at...
+i'm always looking to....
+
+i'm getting...,
+
+anything you're craving?
+anything is fine 
+
+maybe some...if they have it...
+
+
+after getting + verb
+after getting ready
+
+the whole + something... take
+the whole + process...take
+
+at first...
+
+it might seem....
+it might seem like a lot
+
+
+but over time...
+bue over time it becomes a natural part...
+
+i'll defenitely try to.....
