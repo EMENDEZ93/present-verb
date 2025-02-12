@@ -235,11 +235,11 @@ public class GetFilasAprenderExcelScanner {
 
 
     private static String obtenerValorCelda(Row row, int columna) {
-        try {
-            return row.getCell(columna).toString();
-        } catch (Exception e) {
-            return "NO_APLICA";
-        }
+        return ofNullable(row)
+                .map(r -> r.getCell(columna))
+                .map(Object::toString)
+                .filter(string -> !string.isEmpty())
+                .orElse("NO_APLICA");
     }
 
     private boolean requiereOrden(Row row, boolean orden) {
