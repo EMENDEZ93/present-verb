@@ -75,12 +75,13 @@ public class GetAllExcelScanner implements GetAllExcelDao {
         List<Excel> excels = new ArrayList<>();
 
         for (Resource resource : resources) {
-            // obtener los excel
             if (resource.getFilename().contains(".xlsx")) {
-                Excel excel = new Excel();
-                excel.setNombre(getNombreSinExtension(resource.getFilename()));
-                excel.setArchivo(getNombreConExtension(resource.getFilename()));
-                excels.add(excel);
+                if (!resource.getFilename().contains("PENDIENTE")) {
+                    Excel excel = new Excel();
+                    excel.setNombre(getNombreSinExtension(resource.getFilename()));
+                    excel.setArchivo(getNombreConExtension(resource.getFilename()));
+                    excels.add(excel);
+                }
             }
 
         }
