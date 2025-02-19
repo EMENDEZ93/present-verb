@@ -65,9 +65,9 @@ public class GetFilasAprenderExcelScanner {
                                         .map(String::toString)
                                         .collect(Collectors.joining("\n"))
                                 )
-                                .speakFast(ejemplos.stream().map(FilaDto::getSpeakFast)
-                                        .map(String::toString)
-                                        .collect(Collectors.joining("\n"))
+                                .speakFast(
+                                        "NO_APLICA"
+                                        //ejemplos.stream().map(FilaDto::getSpeakFast).map(String::toString).collect(Collectors.joining("\n"))
                                 )
                                 .fonetica(ejemplos.stream().map(FilaDto::getFonetica)
                                         .map(String::toString)
