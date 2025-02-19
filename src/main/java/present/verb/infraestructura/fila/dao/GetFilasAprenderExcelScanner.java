@@ -14,6 +14,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 
 import java.io.InputStream;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
@@ -48,6 +49,35 @@ public class GetFilasAprenderExcelScanner {
                             filas.getExample().add(filaDtos);
                         }
 
+                        indiceLista++;
+                    }
+
+
+
+                    indiceLista = 0;
+                    for (List<FilaDto> ejemplos : filas.getExample()) {
+                        FilaDto filaDto = FilaDto.builder()
+                                .english(ejemplos.stream().map(FilaDto::getEnglish)
+                                        .map(String::toString)
+                                        .collect(Collectors.joining("\n"))
+                                )
+                                .spanish(ejemplos.stream().map(FilaDto::getSpanish)
+                                        .map(String::toString)
+                                        .collect(Collectors.joining("\n"))
+                                )
+                                .speakFast(ejemplos.stream().map(FilaDto::getSpeakFast)
+                                        .map(String::toString)
+                                        .collect(Collectors.joining("\n"))
+                                )
+                                .fonetica(ejemplos.stream().map(FilaDto::getFonetica)
+                                        .map(String::toString)
+                                        .collect(Collectors.joining("\n"))
+                                )
+                                .build();
+
+                        List<FilaDto> filaDtos_ = new ArrayList<>();
+                        filaDtos_.add(filaDto);
+                        filas.getExample().set(indiceLista, filaDtos_);
                         indiceLista++;
                     }
 
