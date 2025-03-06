@@ -13,4 +13,6 @@ public class FilaDto {
     private String spanish;
     private String speakFast;
     private String fonetica;
+    private String imagen;
+    private String headOrNoAplica;
 }

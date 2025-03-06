@@ -32,59 +32,113 @@ public class GetFilasAprenderExcelScanner {
 
                     int indiceLista = 0;
 
+                    List<FilaDto> example = new ArrayList<>();
+                    String headOrNoAplica = "";
+
                     for (String valor : filas.getTipo()) {
                         FilaDto filaDto;
-                        if (valor.equals("EXAMPLE")) {
+
+                        if (valor.equals("HEAD")) {
+
                             filaDto = FilaDto.builder()
                                     .english(filas.getEnglish().remove(indiceLista))
                                     .spanish(filas.getSpanish().remove(indiceLista))
                                     .speakFast(filas.getAllSpeakFast().remove(indiceLista))
                                     .fonetica(filas.getFonetica().remove(indiceLista))
+                                    .imagen(filas.getImages().remove(indiceLista))
+                                    .headOrNoAplica(valor)
                                     .build();
-                            filas.getImages().remove(indiceLista);
+
+                            if (!example.isEmpty()) {
+                                indiceLista--;
+
+                                Random random = new Random();
+                                Optional<FilaDto> resultado = example.stream()
+                                        .filter(fila -> fila.getHeadOrNoAplica() != null)
+                                        .filter(fila -> fila.getHeadOrNoAplica().equals("HEAD"))
+                                        .findFirst();
+
+                                List<FilaDto> exampleRandom = new ArrayList<>();
+
+                                if (resultado.isPresent()) {
+                                    exampleRandom = Arrays.asList(
+                                            example.remove(0),
+                                            example.remove(random.nextInt(example.size())),
+                                            example.remove(random.nextInt(example.size()))
+                                    );
+                                } else {
+                                    exampleRandom = example;
+                                }
+
+                                filas.getExample().get(indiceLista).addAll(exampleRandom);
+                                example = new ArrayList<>();
+                                indiceLista++;
+                                headOrNoAplica = "HEAD";
+                            }
+
                             indiceLista--;
-                            filas.getExample().get(indiceLista).add(filaDto);
-                        } else {
-                            List<FilaDto> filaDtos = new ArrayList<>();
-                            filas.getExample().add(filaDtos);
+                            example.add(filaDto);
+                            //filas.getExample().get(indiceLista).add(filaDto);
+
+                        } else  if (valor.equals("EXAMPLE")) {
+                            filaDto = FilaDto.builder()
+                                    .english(filas.getEnglish().remove(indiceLista))
+                                    .spanish(filas.getSpanish().remove(indiceLista))
+                                    .speakFast(filas.getAllSpeakFast().remove(indiceLista))
+                                    .fonetica(filas.getFonetica().remove(indiceLista))
+                                    .imagen(filas.getImages().remove(indiceLista))
+                                    .build();
+                            indiceLista--;
+                            example.add(filaDto);
                         }
 
-                        indiceLista++;
-                    }
+                        if (valor.equals("NO_APLICA")) {
+                            List<FilaDto> filaDtos = new ArrayList<>();
+                            filas.getExample().add(filaDtos);
+
+                            if (!example.isEmpty()) {
+                                indiceLista--;
+
+                                if (headOrNoAplica.equals("HEAD")) {
+                                    Random random = new Random();
+                                    Optional<FilaDto> resultado = example.stream()
+                                            .filter(fila -> fila.getHeadOrNoAplica() != null)
+                                            .filter(fila -> fila.getHeadOrNoAplica().equals("HEAD"))
+                                            .findFirst();
+
+                                    List<FilaDto> exampleRandom = new ArrayList<>();
+
+                                    if (resultado.isPresent()) {
+                                        exampleRandom = Arrays.asList(
+                                                example.remove(0),
+                                                example.remove(random.nextInt(example.size())),
+                                                example.remove(random.nextInt(example.size()))
+                                        );
+                                    } else {
+                                        exampleRandom = example;
+                                    }
 
 
+                                    filas.getExample().get(indiceLista).addAll(exampleRandom);
+                                    example = new ArrayList<>();
+                                    indiceLista++;
+                                    //headOrNoAplica = "NO_APLICA";
+                                } else {
+                                    //headOrNoAplica = "HEAD";
+                                    headOrNoAplica = "NO_APLICA";
+                                    filas.getExample().get(indiceLista).addAll(example);
+                                    example = new ArrayList<>();
+                                    indiceLista++;
+                                }
+                            }
+                        }
 
-                    indiceLista = 0;
-                    for (List<FilaDto> ejemplos : filas.getExample()) {
-                        FilaDto filaDto = FilaDto.builder()
-                                .english(ejemplos.stream().map(FilaDto::getEnglish)
-                                        .map(String::toString)
-                                        .collect(Collectors.joining("\n"))
-                                )
-                                .spanish(ejemplos.stream().map(FilaDto::getSpanish)
-                                        .map(String::toString)
-                                        .collect(Collectors.joining("\n"))
-                                )
-                                .speakFast(
-                                        "NO_APLICA"
-                                        //ejemplos.stream().map(FilaDto::getSpeakFast).map(String::toString).collect(Collectors.joining("\n"))
-                                )
-                                .fonetica(ejemplos.stream().map(FilaDto::getFonetica)
-                                        .map(String::toString)
-                                        .collect(Collectors.joining("\n"))
-                                )
-                                .build();
-
-                        List<FilaDto> filaDtos_ = new ArrayList<>();
-                        filaDtos_.add(filaDto);
-                        filas.getExample().set(indiceLista, filaDtos_);
                         indiceLista++;
                     }
 
                     return filas;
                 })
                 .orElseThrow(() -> new RuntimeException("No Existe un Hoja con el id = " + idHoja));
-        //return obtenerFilas(idHoja);
     }
 
     private Fila obtenerFilas(int idHoja) {
@@ -149,16 +203,6 @@ public class GetFilasAprenderExcelScanner {
                                 XSSFPictureData pictureData = picture.getPictureData();
                                 XSSFClientAnchor anchor = picture.getPreferredSize();
 
-                                // Obtener desplazamientos
-                                int dx1 = anchor.getDx1();
-                                int dy1 = anchor.getDy1();
-                                int dx2 = anchor.getDx2();
-                                int dy2 = anchor.getDy2();
-
-                                System.out.println("Desplazamiento desde la esquina superior izquierda: dx1=" + dx1 + ", dy1=" + dy1);
-                                System.out.println("Desplazamiento hasta la esquina inferior derecha: dx2=" + dx2 + ", dy2=" + dy2);
-
-                                // Usar el desplazamiento para calcular márgenes si es necesario
                                 byte[] data = pictureData.getData();
                                 String base64Image = Base64.encodeBase64String(data);
                                 images.set(anchor.getRow1(), base64Image);
