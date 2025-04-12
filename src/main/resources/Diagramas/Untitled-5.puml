@@ -1,0 +1,30 @@
+@startuml
+title Partitioned Data Ownership - Microservices
+
+actor Client
+participant "User Service" as UserSvc
+database "User DB" as UserDB
+
+participant "Order Service" as OrderSvc
+database "Order DB" as OrderDB
+
+participant "Shipping Service" as ShippingSvc
+database "Shipping DB" as ShippingDB
+
+Client -> UserSvc : GET /users/{id}
+UserSvc -> UserDB : SELECT * FROM users
+UserDB --> UserSvc : User Info
+UserSvc --> Client : 200 OK
+
+Client -> OrderSvc : POST /orders
+OrderSvc -> OrderDB : INSERT INTO orders
+OrderDB --> OrderSvc : OK
+OrderSvc --> Client : 201 Created
+
+OrderSvc -> ShippingSvc : POST /shipments
+ShippingSvc -> ShippingDB : INSERT INTO shipments
+ShippingDB --> ShippingSvc : OK
+ShippingSvc --> OrderSvc : 201 Created
+OrderSvc --> Client : Shipment Scheduled
+
+@enduml
